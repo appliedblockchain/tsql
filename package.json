@@ -4,7 +4,8 @@
   "description": "Transact-SQL template combinators.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && flow check && jest"
+    "test": "eslint . && flow check && jest",
+    "update": "npm-check --update --save-exact"
   },
   "keywords": [
     "sql",
@@ -17,9 +18,9 @@
   "license": "MIT",
   "devDependencies": {
     "@appliedblockchain/eslint-config": "2.6.0",
-    "eslint": "6.8.0",
-    "flow-bin": "0.123.0",
-    "jest": "25.3.0",
+    "eslint": "7.4.0",
+    "flow-bin": "0.128.0",
+    "jest": "26.1.0",
     "npm-check": "5.9.2"
   },
   "eslintConfig": {
