@@ -14,7 +14,7 @@ import Sid from './sanitised-identifier'
 
 */
 
-const inlineTableOfObjects /*: (string | Sid, $ReadOnlyArray<{ [string]: any }>, maybeKeys?: string[]) => S */ =
+const inlineTableOfObjects /*: (string | Sid, $ReadOnlyArray<{| +[string]: mixed |}>, maybeKeys?: string[]) => S */ =
   (table, objects, maybeKeys) => {
     const table_ = id(table)
     const keys = maybeKeys || keysOfObjects(objects)

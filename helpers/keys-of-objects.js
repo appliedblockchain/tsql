@@ -12,7 +12,7 @@ const same /*: (string[], string[]) => boolean */ =
 /** @returns keys of all objects in array
     @throws if objects have different keys.
     @throws if an array is empty. */
-const keysOfObjects /*: $ReadOnlyArray<Object> => string[] */ =
+const keysOfObjects /*: $ReadOnlyArray<{...}> => string[] */ =
   objects => {
     if (!isArray(objects)) {
       throw new TypeError(`Expected array, got ${inspect(objects)}.`)

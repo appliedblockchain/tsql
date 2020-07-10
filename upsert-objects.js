@@ -23,7 +23,7 @@ const sourcePrefixed = _ => id([ 'Source', _ ])
 const targetPrefixed = _ => id([ 'Target', _ ])
 
 /** @returns merge dml that runs insert or update operations on target table from the result of a join with source table. */
-const upsertObjects /*: (string | Sid, string[], $ReadOnlyArray<{ [string]: mixed }>, objectKeys?: string[], updateKeys?: string[], insertKeys?: string[]) => S */ =
+const upsertObjects /*: (string | Sid, string[], $ReadOnlyArray<{| +[string]: mixed |}>, objectKeys?: string[], updateKeys?: string[], insertKeys?: string[]) => S */ =
   (table, onKeys, objects, maybeObjectKeys, maybeUpdateKeys, maybeInsertKeys) => {
 
     if (!isArray(objects)) {
