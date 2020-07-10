@@ -44,6 +44,7 @@ const template = require('./template')
 const top = require('./top')
 const unix = require('./unix')
 const updateObject = require('./update-object')
+const upsertObjects = require('./upsert-objects')
 const where = require('./where')
 
 // const demargin = require('./helpers/demargin')
@@ -103,6 +104,7 @@ export type Tsql = {
   top: typeof top;
   unix: typeof unix;
   updateObject: typeof updateObject;
+  upsertObjects: typeof upsertObjects;
   where: typeof where;
 
   // Aliases
@@ -161,6 +163,7 @@ Object.assign(tsql, {
   top,
   unix,
   updateObject,
+  upsertObjects,
   where,
 
   // Aliases
