@@ -1,5 +1,9 @@
 import S from './sanitised'
 
-export class SanitisedIdentifier extends S {}
+declare const tag: unique symbol
+
+export class SanitisedIdentifier extends S {
+  readonly [tag]: 'SanitisedIdentifier'
+}
 
 export default SanitisedIdentifier

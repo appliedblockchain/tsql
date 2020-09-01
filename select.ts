@@ -12,7 +12,7 @@ export const ids =
 
 export const select =
   (what: S | (S | string)[], { from, where }: { from?: Sid | string, where?: unknown } = {}): S => {
-    const what_ = fallback<any>(what, _ => list(ids(_)))
+    const what_ = fallback(what, _ => list(ids(_)))
     const from_ = from ? id(from) : undefined
     return line(
       tsql`select ${what_}`,
