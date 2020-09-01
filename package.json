@@ -41,7 +41,8 @@
   },
   "eslintIgnore": [
     "flow-typed/*",
-    "wip/*"
+    "wip/*",
+    "*.js"
   ],
   "jest": {
     "preset": "ts-jest",
