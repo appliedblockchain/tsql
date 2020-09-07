@@ -21,7 +21,7 @@ export const targetPrefixed =
 
 /** @returns merge dml that runs insert or update operations on target table from the result of a join with source table. */
 export const upsertObjects =
-  (table: Sid | string, onKeys: string[], objects: { [key: string]: unknown }, maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[]): S => {
+  (table: Sid | string, onKeys: string[], objects: Record<string, unknown>, maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[]): S => {
 
     if (!Array.isArray(objects)) {
       throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)

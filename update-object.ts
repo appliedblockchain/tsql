@@ -8,7 +8,7 @@ import tsql from './template'
 import whereOf from './where'
 
 export const updateObject =
-  (table: Sid | string, where: S | { [key: string]: unknown }, object: { [key: string]: unknown }): S => {
+  (table: Sid | string, where: S | Record<string, unknown>, object: Record<string, unknown>): S => {
     if (!Object.keys(where).length) {
       throw new TypeError(`Expected where with keys, got ${inspect(where)}.`)
     }

@@ -5,7 +5,7 @@ import S from './sanitised'
 
 /** @returns simple where clause part from object. */
 export const where =
-  (kv: S | { [key: string]: unknown }): S =>
+  (kv: S | Record<string, unknown>): S =>
     kv instanceof S ?
       kv :
       and(...Object.keys(kv).map(k => eq(id(k), kv[k])))

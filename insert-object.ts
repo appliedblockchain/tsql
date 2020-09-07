@@ -8,7 +8,7 @@ import tsql from './template'
 
 /** @returns insert `object` into `table` statement. */
 export const insertObject =
-  (table: Sid | string, object: { [key: string]: unknown }): S => {
+  (table: Sid | string, object: Record<string, unknown>): S => {
     const keys = Object.keys(object)
     if (!keys.length) {
       throw new TypeError(`Expected object with keys, got ${inspect(object)}.`)

@@ -1,8 +1,8 @@
 
 /** @returns an object with picked keys; `null` is used when value is not defined. */
 export const pick =
-  (object: { [key: string]: unknown }, keys: string[]): { [key: string]: unknown } => {
-    const result: { [key: string]: unknown } = {}
+  (object: Record<string, unknown>, keys: string[]): Record<string, unknown> => {
+    const result: Record<string, unknown> = {}
     for (const key of keys) {
       result[key] = typeof object[key] === 'undefined' ?
         null :
