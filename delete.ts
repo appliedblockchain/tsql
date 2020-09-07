@@ -7,7 +7,7 @@ import tsql from './template'
 import whereOf from './where'
 
 export const delete_ =
-  (table: Sid | string, where: S | { [key: string]: unknown } = tsql`1=1`): S =>
+  (table: Sid | string, where?: S | { [key: string]: unknown }): S =>
     line(
       tsql`delete from ${id(table)}`,
       where ?
