@@ -9,7 +9,7 @@ export const same =
     @throws if objects have different keys.
     @throws if an array is empty. */
 export const keysOfObjects =
-  (objects: Record<string, unknown>[]): string[] => {
+  (objects: readonly Record<string, unknown>[]): string[] => {
     if (!Array.isArray(objects)) {
       throw new TypeError(`Expected array, got ${inspect(objects)}.`)
     }
