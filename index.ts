@@ -32,6 +32,7 @@ import number_ from './number'
 import objectId from './object-id'
 import or from './or'
 import raw from './raw'
+import replaceObjects from './replace-objects'
 import row from './row'
 import rowset from './rowset'
 import Sanitised from './sanitised'
@@ -90,6 +91,7 @@ export interface t {
   objectId: typeof objectId;
   or: typeof or;
   raw: typeof raw;
+  replaceObjects: typeof replaceObjects,
   row: typeof row;
   rowset: typeof rowset;
   Sanitised: typeof Sanitised;
@@ -148,6 +150,7 @@ const tsql: t =
     objectId,
     or,
     raw,
+    replaceObjects,
     row,
     rowset,
     Sanitised,
