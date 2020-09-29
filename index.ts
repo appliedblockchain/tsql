@@ -53,7 +53,7 @@ import where from './where'
 // const keysOfObjects from './helpers/keys-of-objects')
 // const quoteString from './helpers/quote-string')
 
-import S from './sanitised'
+import type S from './sanitised'
 
 export interface t {
   (xs: TemplateStringsArray, ...vs: unknown[]): S;

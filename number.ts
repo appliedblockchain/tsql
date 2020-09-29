@@ -1,6 +1,6 @@
 import { inspect } from 'util'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const number =
   (x: number): S => {

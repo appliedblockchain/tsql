@@ -1,10 +1,10 @@
 import id from './identifier'
 import list from './list'
 import fallback from './fallback'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const columns =
-  (all: { [column: string]: S | true }, filter: { [column: string]: boolean } = {}): S => {
+  (all: { [column: string]: S | boolean }, filter: { [column: string]: boolean } = {}): S => {
     const xs: (S | string)[] = []
     for (const k of Object.keys(all)) {
       if (filter[k] !== false) {

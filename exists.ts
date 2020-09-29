@@ -1,7 +1,7 @@
 import fallback from './fallback'
 import id from './identifier'
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 import tsql from './template'
 import whereOf from './where'
 

@@ -3,8 +3,8 @@ import id from './identifier'
 import keysOfObjects from './helpers/keys-of-objects'
 import list from './list'
 import row from './row'
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 import tsql from './template'
 
 export const inlineTableOfObjects =

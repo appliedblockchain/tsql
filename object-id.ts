@@ -1,4 +1,4 @@
-import S from './sanitised'
+import type S from './sanitised'
 import tsql from './template'
 
 export const objectId =

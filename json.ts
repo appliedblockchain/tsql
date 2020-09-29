@@ -1,6 +1,6 @@
 import null_ from './null'
 import nstring from './nstring'
-import S from './sanitised'
+import type S from './sanitised'
 
 /** @returns json nvarchar escaped string; null if `x` is undefined; `null` is encoded as json string (it is a valid json value). */
 export const json =

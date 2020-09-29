@@ -3,7 +3,7 @@ import id from './identifier'
 import line from './line'
 import list from './list'
 import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type Sid from './sanitised-identifier'
 import tsql from './template'
 
 export const ids =

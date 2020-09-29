@@ -3,7 +3,7 @@ import tsql from './template'
 import fallback from './fallback'
 import isNil from './helpers/is-nil'
 import row from './row'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const in_ =
   (l: S | string, r?: null | unknown[]): S => {

@@ -1,7 +1,7 @@
 import auto from './auto'
 import interpolate1 from './helpers/interpolate1'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 import template from './template'
 
 // TODO: Don't do `auto` here, we know the shape of it better.

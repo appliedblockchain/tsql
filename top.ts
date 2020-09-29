@@ -3,7 +3,7 @@ import auto from './auto'
 import line from './line'
 import number from './number'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 
 /** @returns top expression.
   @example``top(1, raw('with ties'))`

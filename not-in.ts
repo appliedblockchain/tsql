@@ -2,7 +2,7 @@ import fallback from './fallback'
 import id from './identifier'
 import isNil from './helpers/is-nil'
 import row from './row'
-import S from './sanitised'
+import type S from './sanitised'
 import tsql from './template'
 
 export const notIn =

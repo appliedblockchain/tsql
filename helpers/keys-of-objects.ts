@@ -5,9 +5,11 @@ export const same =
   (xs: string[], ys: string[]): boolean =>
     xs.length === ys.length && xs.every((x, i) => x === ys[i])
 
-/** @returns keys of all objects in array
-    @throws if objects have different keys.
-    @throws if an array is empty. */
+/**
+ * @returns keys of all objects in array
+ * @throws if objects have different keys.
+ * @throws if an array is empty.
+ */
 export const keysOfObjects =
   (objects: readonly Record<string, unknown>[]): string[] => {
     if (!Array.isArray(objects)) {

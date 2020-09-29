@@ -9,8 +9,8 @@ import list from './list'
 import row from './row'
 import tsql from './template'
 
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 
 const sourcePrefixed = (_: string): Sid => id([ 'Source', _ ])
 const targetPrefixed = (_: string): Sid => id([ 'Target', _ ])
