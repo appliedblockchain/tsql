@@ -1,6 +1,6 @@
 {
   "name": "@appliedblockchain/tsql",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Transact-SQL template combinators.",
   "main": "index.js",
   "scripts": {
