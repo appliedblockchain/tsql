@@ -43,6 +43,7 @@ import template from './template'
 import top from './top'
 import unix from './unix'
 import updateObject from './update-object'
+import updateObjects from './update-objects'
 import upsertObjects from './upsert-objects'
 import where from './where'
 
@@ -161,6 +162,7 @@ const tsql: t =
     top,
     unix,
     updateObject,
+    updateObjects,
     upsertObjects,
     where,
 
