@@ -103,6 +103,7 @@ export interface t {
   top: typeof top;
   unix: typeof unix;
   updateObject: typeof updateObject;
+  updateObjects: typeof updateObjects;
   upsertObjects: typeof upsertObjects;
   where: typeof where;
 
