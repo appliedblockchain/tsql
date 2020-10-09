@@ -6,10 +6,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "importsNotUsedAsValues": "error",
-    "types": [
-      "jest",
-      "node"
-    ]
+    "inlineSources": true,
+    "inlineSourceMap": true
   },
   "include": [
     "**/*"
