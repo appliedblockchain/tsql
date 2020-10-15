@@ -18,7 +18,7 @@ export const merge1n =
       return tsql`delete from ${table_} where ${lcolumn_} = ${lid};`
     }
     return tsql`
-      merge ${table_} as Target
+      merge ${table_} with (holdlock) as Target
       using ${inlineTable('Source', 'id', values)}
       on (
         Target.${lcolumn_} = ${lid} and
