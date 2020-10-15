@@ -1,6 +1,6 @@
 import { inspect } from 'util'
 import row from './row'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const rowset =
   <T>(xs: T[]): S => {

@@ -43,6 +43,7 @@ import template from './template'
 import top from './top'
 import unix from './unix'
 import updateObject from './update-object'
+import updateObjects from './update-objects'
 import upsertObjects from './upsert-objects'
 import where from './where'
 
@@ -53,7 +54,7 @@ import where from './where'
 // const keysOfObjects from './helpers/keys-of-objects')
 // const quoteString from './helpers/quote-string')
 
-import S from './sanitised'
+import type S from './sanitised'
 
 export interface t {
   (xs: TemplateStringsArray, ...vs: unknown[]): S;
@@ -91,7 +92,7 @@ export interface t {
   objectId: typeof objectId;
   or: typeof or;
   raw: typeof raw;
-  replaceObjects: typeof replaceObjects,
+  replaceObjects: typeof replaceObjects;
   row: typeof row;
   rowset: typeof rowset;
   Sanitised: typeof Sanitised;
@@ -102,6 +103,7 @@ export interface t {
   top: typeof top;
   unix: typeof unix;
   updateObject: typeof updateObject;
+  updateObjects: typeof updateObjects;
   upsertObjects: typeof upsertObjects;
   where: typeof where;
 
@@ -161,6 +163,7 @@ const tsql: t =
     top,
     unix,
     updateObject,
+    updateObjects,
     upsertObjects,
     where,
 

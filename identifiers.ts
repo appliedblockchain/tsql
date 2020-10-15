@@ -1,7 +1,7 @@
 import id from './identifier'
 import list from './list'
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 
 export const identifiers =
   (...xs: (Sid | string)[]): S =>

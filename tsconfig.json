@@ -1,5 +1,14 @@
 {
   "extends": "@tsconfig/node12/tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "importsNotUsedAsValues": "error",
+    "inlineSources": true,
+    "inlineSourceMap": true
+  },
   "include": [
     "**/*"
   ],

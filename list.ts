@@ -1,10 +1,10 @@
 import { inspect } from 'util'
 import auto from './auto'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const list =
-  <T>(xs: T[], f: (_: T) => S = auto): S => {
+  <T>(xs: readonly T[], f: (_: T) => S = auto): S => {
     if (!Array.isArray(xs)) {
       throw new TypeError(`Expected array, got ${inspect(xs)}.`)
     }

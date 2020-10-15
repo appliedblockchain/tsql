@@ -2,8 +2,8 @@ import { inspect } from 'util'
 import id from './identifier'
 import list from './list'
 import row from './row'
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 import tsql from './template'
 
 /** @returns literal table from provided values.

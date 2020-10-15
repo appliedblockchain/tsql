@@ -2,8 +2,8 @@ import { inspect } from 'util'
 import id from './identifier'
 import inlineTable from './inline-table-of-column'
 import row from './row'
-import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type S from './sanitised'
+import type Sid from './sanitised-identifier'
 import tsql from './template'
 
 export const merge1n =

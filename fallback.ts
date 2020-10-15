@@ -1,5 +1,5 @@
 import S from './sanitised'
-import Sid from './sanitised-identifier'
+import type Sid from './sanitised-identifier'
 
 /** @returns `x` if sanitised, otherwise falls back to execute provided `f` and returns it's value. */
 export const fallback =

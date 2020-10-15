@@ -1,7 +1,7 @@
 import fallback from './fallback'
 import id from './identifier'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 import tsql from './template'
 
 // TODO: `raw` can leak unsanitised string if misused.

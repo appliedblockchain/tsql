@@ -1,6 +1,6 @@
 import auto from './auto'
 import raw from './raw'
-import S from './sanitised'
+import type S from './sanitised'
 
 /** @returns a line constructed from components; undefined values are filtered out. */
 export const line =

@@ -1,5 +1,5 @@
 import op from './op'
-import S from './sanitised'
+import type S from './sanitised'
 
 export const lte =
   (l: S | string, r: unknown): S =>
