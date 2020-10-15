@@ -41,7 +41,7 @@ const replaceObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${table_} as Target
+      merge ${table_} with (holdlock) as Target
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when not matched by source then
