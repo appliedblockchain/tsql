@@ -33,7 +33,7 @@ test('merge1n', () => {
   const fooId = 42
   const barIds = [ 3, 5, 7 ]
   expect(tsql.merge1n('Foo Bars', [ 'foo Id', 'bar Id' ], fooId, barIds).toString()).toEqual(demargin(`
-    merge [Foo Bars] as Target
+    merge [Foo Bars] with (holdlock) as Target
     using (values (3), (5), (7)) as Source (id)
     on (
       Target.[foo Id] = 42 and
