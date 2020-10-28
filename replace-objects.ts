@@ -6,6 +6,7 @@ import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
 import list from './list'
+import maybeWith from './maybe-with'
 import row from './row'
 import tsql from './template'
 import type S from './sanitised'
@@ -22,7 +23,8 @@ export const replaceObjects =
     objects: readonly Record<string, unknown>[],
     maybeObjectKeys?: string[],
     maybeUpdateKeys?: string[],
-    maybeInsertKeys?: string[]
+    maybeInsertKeys?: string[],
+    hints?: string[]
   ): S => {
 
     if (!Array.isArray(objects)) {
@@ -41,7 +43,7 @@ export const replaceObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${table_} with (holdlock) as Target
+      merge ${maybeWith(table_, hints)} as Target
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when not matched by source then

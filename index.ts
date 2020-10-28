@@ -7,6 +7,7 @@ import delete_ from './delete'
 import eq from './eq'
 import exists from './exists'
 import fallback from './fallback'
+import false_ from './false'
 import gt from './gt'
 import gte from './gte'
 import identifier from './identifier'
@@ -17,9 +18,11 @@ import inlineTableOfObjects from './inline-table-of-objects'
 import insertObject from './insert-object'
 import json from './json'
 import line from './line'
+import lines from './lines'
 import list from './list'
 import lt from './lt'
 import lte from './lte'
+import maybeWith from './maybe-with'
 import merge1n from './merge-1n'
 import ne from './ne'
 import ng from './ng'
@@ -41,6 +44,7 @@ import select from './select'
 import star from './star'
 import template from './template'
 import top from './top'
+import true_ from './true'
 import unix from './unix'
 import updateObject from './update-object'
 import updateObjects from './update-objects'
@@ -57,59 +61,63 @@ import where from './where'
 import type S from './sanitised'
 
 export interface t {
-  (xs: TemplateStringsArray, ...vs: unknown[]): S;
-  and: typeof and;
-  assign: typeof assign;
-  assignObject: typeof assignObject;
-  auto: typeof auto;
-  columns: typeof columns;
-  delete: typeof delete_;
-  eq: typeof eq;
-  exists: typeof exists;
-  fallback: typeof fallback;
-  gt: typeof gt;
-  gte: typeof gte;
-  identifier: typeof identifier;
-  identifiers: typeof identifiers;
-  in: typeof in_;
-  inlineTableOfColumn: typeof inlineTableOfColumn;
-  inlineTableOfObjects: typeof inlineTableOfObjects;
-  insertObject: typeof insertObject;
-  json: typeof json;
-  line: typeof line;
-  list: typeof list;
-  lt: typeof lt;
-  lte: typeof lte;
-  merge1n: typeof merge1n;
-  ne: typeof ne;
-  ng: typeof ng;
-  nl: typeof nl;
-  notIn: typeof notIn;
-  now: typeof now;
-  nstring: typeof nstring;
-  null: typeof null_;
-  number: typeof number_;
-  objectId: typeof objectId;
-  or: typeof or;
-  raw: typeof raw;
-  replaceObjects: typeof replaceObjects;
-  row: typeof row;
-  rowset: typeof rowset;
-  Sanitised: typeof Sanitised;
-  SanitisedIdentifier: typeof SanitisedIdentifier;
-  select: typeof select;
-  star: typeof star;
-  template: typeof template;
-  top: typeof top;
-  unix: typeof unix;
-  updateObject: typeof updateObject;
-  updateObjects: typeof updateObjects;
-  upsertObjects: typeof upsertObjects;
-  where: typeof where;
+  (xs: TemplateStringsArray, ...vs: unknown[]): S
+  and: typeof and
+  assign: typeof assign
+  assignObject: typeof assignObject
+  auto: typeof auto
+  columns: typeof columns
+  delete: typeof delete_
+  eq: typeof eq
+  exists: typeof exists
+  fallback: typeof fallback
+  false: typeof false_
+  gt: typeof gt
+  gte: typeof gte
+  identifier: typeof identifier
+  identifiers: typeof identifiers
+  in: typeof in_
+  inlineTableOfColumn: typeof inlineTableOfColumn
+  inlineTableOfObjects: typeof inlineTableOfObjects
+  insertObject: typeof insertObject
+  json: typeof json
+  line: typeof line
+  lines: typeof lines
+  list: typeof list
+  lt: typeof lt
+  lte: typeof lte
+  maybeWith: typeof maybeWith
+  merge1n: typeof merge1n
+  ne: typeof ne
+  ng: typeof ng
+  nl: typeof nl
+  notIn: typeof notIn
+  now: typeof now
+  nstring: typeof nstring
+  null: typeof null_
+  number: typeof number_
+  objectId: typeof objectId
+  or: typeof or
+  raw: typeof raw
+  replaceObjects: typeof replaceObjects
+  row: typeof row
+  rowset: typeof rowset
+  Sanitised: typeof Sanitised
+  SanitisedIdentifier: typeof SanitisedIdentifier
+  select: typeof select
+  star: typeof star
+  template: typeof template
+  top: typeof top
+  true: typeof true_
+  unix: typeof unix
+  updateObject: typeof updateObject
+  updateObjects: typeof updateObjects
+  upsertObjects: typeof upsertObjects
+  where: typeof where
 
   // Aliases
-  id: typeof identifier;
-  ids: typeof identifiers;
+  id: typeof identifier
+  ids: typeof identifiers
 }
 
 const tsql_ =
@@ -127,6 +135,7 @@ const tsql: t =
     eq,
     exists,
     fallback,
+    false: false_,
     gt,
     gte,
     identifier,
@@ -137,9 +146,11 @@ const tsql: t =
     insertObject,
     json,
     line,
+    lines,
     list,
     lt,
     lte,
+    maybeWith,
     merge1n,
     ne,
     ng,
@@ -161,6 +172,7 @@ const tsql: t =
     star,
     template,
     top,
+    true: true_,
     unix,
     updateObject,
     updateObjects,

@@ -1,13 +1,14 @@
 import { inspect } from 'util'
 import id from './identifier'
+import maybeWith from './maybe-with'
 import inlineTable from './inline-table-of-column'
 import row from './row'
+import tsql from './template'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
-import tsql from './template'
 
 export const merge1n =
-  (table: Sid | string, [ lcolumn, rcolumn ]: [ Sid | string, Sid | string ], lid: unknown, values: unknown[]): S => {
+  (table: Sid | string, [ lcolumn, rcolumn ]: [ Sid | string, Sid | string ], lid: unknown, values: unknown[], hints?: string[]): S => {
     const table_ = id(table)
     const lcolumn_ = id(lcolumn)
     const rcolumn_ = id(rcolumn)
@@ -18,7 +19,7 @@ export const merge1n =
       return tsql`delete from ${table_} where ${lcolumn_} = ${lid};`
     }
     return tsql`
-      merge ${table_} with (holdlock) as Target
+      merge ${maybeWith(table_, hints)} as Target
       using ${inlineTable('Source', 'id', values)}
       on (
         Target.${lcolumn_} = ${lid} and
