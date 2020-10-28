@@ -6,9 +6,10 @@ import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
 import list from './list'
+import maybeWith from './maybe-with'
+import tsql from './template'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
-import tsql from './template'
 
 export const sourcePrefixed =
   (_: Sid | string): Sid =>
@@ -20,7 +21,14 @@ export const targetPrefixed =
 
 /** @returns update dml that runs update operations on target table from the result of a join with source table. */
 export const upsertObjects =
-  (table: Sid | string, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[]): S => {
+  (
+    table: Sid | string,
+    onKeys: string[],
+    objects: Record<string, unknown>[],
+    maybeObjectKeys?: string[],
+    maybeUpdateKeys?: string[],
+    hints?: string[]
+  ): S => {
 
     if (!Array.isArray(objects)) {
       throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
@@ -37,7 +45,7 @@ export const upsertObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${table_} as Target
+      merge ${maybeWith(table_, hints)} as Target
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when matched then
