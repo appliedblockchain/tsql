@@ -1,4 +1,4 @@
-import quotedString from './helpers/quoted-string'
+import quotedNstring from './helpers/quoted-nstring'
 import S from './sanitised'
 
 // TODO: Add SanitisedValue type?
@@ -8,6 +8,6 @@ export const nstring =
       value :
       value == null ?
         new S('null') :
-        new S(`N${quotedString(String(value))}`)
+        new S(quotedNstring(String(value)))
 
 export default nstring
