@@ -4,7 +4,10 @@ import raw from './raw'
 import type S from './sanitised'
 import tsql from './template'
 
-// TODO: `raw` can leak unsanitised string if misused.
+/**
+ * @internal
+ * @param op_ can leak unsanitised string if misused, hence @internal.
+ */
 export const op =
   (l: S | string, op_: S | string, r: unknown): S =>
     tsql`${fallback(l, id)} ${fallback(op_, raw)} ${r}`
