@@ -8,7 +8,12 @@ export const lines =
     if (!Array.isArray(xs)) {
       throw new TypeError(`Expected array, got ${inspect(xs)}.`)
     }
-    return raw(xs.filter(_ => typeof _ !== undefined).map(_ => auto(_).toString().trim()).join(separator))
+    return raw(
+      xs
+        .filter(_ => typeof _ !== 'undefined')
+        .map(_ => auto(_).toString().trim())
+        .join(separator)
+    )
   }
 
 export default lines
