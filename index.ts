@@ -16,6 +16,7 @@ import in_ from './in'
 import inlineTableOfColumn from './inline-table-of-column'
 import inlineTableOfObjects from './inline-table-of-objects'
 import insertObject from './insert-object'
+import insertObjects from './insert-objects'
 import json from './json'
 import line from './line'
 import lines from './lines'
@@ -80,6 +81,7 @@ export interface t {
   inlineTableOfColumn: typeof inlineTableOfColumn
   inlineTableOfObjects: typeof inlineTableOfObjects
   insertObject: typeof insertObject
+  insertObjects: typeof insertObjects
   json: typeof json
   line: typeof line
   lines: typeof lines
@@ -144,6 +146,7 @@ const tsql: t =
     inlineTableOfColumn,
     inlineTableOfObjects,
     insertObject,
+    insertObjects,
     json,
     line,
     lines,
