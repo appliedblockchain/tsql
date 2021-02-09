@@ -14,7 +14,7 @@ export const where =
     if (!ks.length) {
       return true_
     }
-    return and(...ks.map(k => eq(id(k), kv[k])))
+    return and(...ks.map(k => typeof kv[k] === 'function' ? (kv[k] as (lhs: unknown) => undefined | S)(id(k)) : eq(id(k), kv[k])))
   }
 
 export default where

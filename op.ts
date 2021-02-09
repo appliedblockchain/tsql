@@ -9,7 +9,9 @@ import tsql from './template'
  * @param op_ can leak unsanitised string if misused, hence @internal.
  */
 export const op =
-  (l: S | string, op_: S | string, r: unknown): S =>
-    tsql`${fallback(l, id)} ${fallback(op_, raw)} ${r}`
+  (l: S | string, op_: S | string, r: unknown): undefined | S =>
+    typeof r === 'undefined' ?
+      undefined :
+      tsql`${fallback(l, id)} ${fallback(op_, raw)} ${r}`
 
 export default op

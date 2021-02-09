@@ -61,9 +61,10 @@ test('in', () => {
       tsql.in('id', [ 42, 43, 44 ]),
       tsql.in('status', [ 'COMPLETED', 'PARTIALLY_COMPLETED' ]),
       tsql.in('empty', []),
-      tsql.in('foo', null)
+      tsql.in('null_', null),
+      tsql.in('undefined_', undefined)
     ).toString()
   ).toEqual(demargin(`
-    (id in (42, 43, 44) and status in (N'COMPLETED', N'PARTIALLY_COMPLETED') and empty in (null) and foo in (null))
+    (id in (42, 43, 44) and status in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 1=0 and 1=0)
   `))
 })
