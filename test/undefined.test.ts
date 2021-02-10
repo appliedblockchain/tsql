@@ -18,6 +18,7 @@ test('and', () => {
 
 test('where', () => {
   expect(where({ foo: undefined }).toString()).toEqual('1=1')
+  expect(where({ foo: is(eq, undefined) }).toString()).toEqual('1=1')
   expect(where({ foo: undefined, bar: 1 }).toString()).toEqual('(bar = 1)')
   expect(where({
     foo: is(eq, undefined),
