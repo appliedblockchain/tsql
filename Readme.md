@@ -2,6 +2,112 @@
 
 Transact-SQL template combinators.
 
+## Usage
+
+```
+npm i -E @appliedblockchain/tsql
+```
+
+```
+import tsql from '@appliedblockchain/tsql`
+
+const id = '1; delete from Foo;'
+console.log(tsql`select * from Foo where id = ${id}`)
+
+// no sql-injection
+// "select * from Foo where id = N'1; delete from Foo;'"
+```
+
+## Architecture
+
+[Tag templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) and functional combinators are used to sanitise and help with generating Microsoft SQL's T-SQL queries.
+
+Basic combinators (eq, gt, in etc.) are provided together with more complex ones (merge1n, inline-table-*, upsert-objects etc).
+
+### Auto sanitation
+
+Values used in templates go through auto sanitation:
+
+- sanitised values are left as is
+- `undefined` and `null` become sanitised `null`
+- finite numbers become sanitised decimal numbers
+- booleans are sanitised as `1` (true) or `0` (false)
+- strings are sanitised as unicode string `N'foo'`
+- objects are sanitised as json stringified unicode strings, ie. `{foo:1}` becomes `N'{"foo":1}'`
+- non-finite numbers throw as they are not supported by mssql
+- all other values throw
+
+### `undefined` propagation
+
+Binary operators (eq, ne, gt, gte, lt, lte, in, notIn), logical operators (and, or) and where clauses perform `undefined` propagation:
+
+- when right hand side of binary operator is `undefined` the whole term (returned result) is also `undefined`
+- `and`, `or` and `where` combinators omit `undefined` values
+
+Above means that `undefined` values are composed to generate desired sql queries.
+
+Typescript's type system can be leveraged:
+
+```
+// Allow querying for specific numeric value only. Please note only finite values are supported – `Infinity`, `-Infinity`, `NaN` will throw.
+const query =
+  ({ deletedAt }: { deletedAt: number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+
+// Allow ommiting param.
+const query =
+  ({ deletedAt }: { deletedAt?: number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+
+// Allow ommiting or explicitly using `undefined` value to omit value.
+const query =
+  ({ deletedAt }: { deletedAt?: undefined | number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+
+// Allow `null` (`deletedAt is null`) or number.
+const query =
+  ({ deletedAt }: { deletedAt: null | number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+
+// Allow ommiting, explicit `undefined` (omit), `null` (`... is null`) or number.
+const query =
+  ({ deletedAt }: { deletedAt?: undefined | null | number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+```
+
+### No exact object type in typescript
+
+It is worth noting that, unlike flow, typescript unfortunatelly doesn't support exact object types.
+
+What this means is that the following form should be avoided:
+
+```
+// BAD
+const query =
+  (where: { deletedAt: number }) =>
+    tsql`select * from Foo where ${tsql.where(where)}`
+```
+
+Instead use destructuring to simulate exactness:
+
+```
+const query =
+  ({ deletedAt }: { deletedAt: number }) =>
+    tsql`select * from Foo where ${tsql.where({ deletedAt })}`
+```
+
+It won't flag invalid usage during type check but the function will behave as expected from the type definition.
+
+### `where` currying
+
+When using `where` combinator, `is`-currying combinator is very handy which defers first argument application.
+`where` combinator is aware of those curried functions and will inject the first argument (left hand side of binary operator) using the key name:
+
+```
+tsql`select * from Foo where ${where({ foo: is(gt, 5) })}`
+// select * from Foo where foo > 5
+```
+
 ## License
 
 MIT License
