@@ -196,7 +196,7 @@ export const keywords = [
   'writetext'
 ]
 
-export const isKeyword: { [keyword: string]: void | true } =
+export const isKeyword: { [keyword: string]: undefined | true } =
   keywords.reduce((r, _) => ({ ...r, [_]: true }), {})
 
 export const isPlain =
