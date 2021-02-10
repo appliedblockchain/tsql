@@ -1,15 +1,19 @@
 import fallback from './fallback'
 import id from './identifier'
 import isNil from './helpers/is-nil'
-import type S from './sanitised'
 import tsql from './template'
+import type S from './sanitised'
+
+const rhsEq =
+  (rhs: unknown): S =>
+    isNil(rhs) ?
+      tsql`is null` :
+      tsql`= ${rhs}`
 
 export const eq =
-  (l: S | string, r: unknown): S => {
-    const l_ = fallback(l, id)
-    return isNil(r) ?
-      tsql`${l_} is null` :
-      tsql`${l_} = ${r}`
-  }
+  (lhs: S | string, rhs: unknown): undefined | S =>
+    typeof rhs === 'undefined' ?
+      undefined :
+      tsql`${fallback(lhs, id)} ${rhsEq(rhs)}`
 
 export default eq

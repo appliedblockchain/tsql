@@ -10,11 +10,10 @@ export const where =
     if (kv instanceof S) {
       return kv
     }
-    const ks = Object.keys(kv).filter(_ => typeof kv[_] !== 'undefined')
-    if (!ks.length) {
-      return true_
-    }
-    return and(...ks.map(k => eq(id(k), kv[k])))
+    const vs = Object.entries(kv)
+      .map(([ k, v ]) => typeof v === 'function' ? v(id(k)) : eq(id(k), v))
+      .filter(_ => typeof _ !== 'undefined')
+    return vs.length ? and(...vs) : true_
   }
 
 export default where

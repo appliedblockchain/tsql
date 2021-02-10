@@ -5,7 +5,10 @@ import type S from './sanitised'
 import tsql from './template'
 
 export const ne =
-  (l: S | string, r: unknown): S => {
+  (l: S | string, r: unknown): undefined | S => {
+    if (typeof r === 'undefined') {
+      return undefined
+    }
     const l_ = fallback(l, id)
     return isNil(r) ?
       tsql`${l_} is not null` :
