@@ -6,6 +6,17 @@ import json from './json'
 import number from './number'
 import raw from './raw'
 
+/**
+ * Sanitised values are returned as is.
+ * `undefined` and `null` return sanitised `null`.
+ * Finite numbers return sanitised, decimal numbers.
+ * Booleans return sanitised `1` (true) or `0` (false).
+ * Strings return sanitised unicode strings, ie. `N'foo'`.
+ * Objects return json stringified, sanitised unicode strings, ie. `{foo:1}` returns `N'{"foo":1}'`.
+ * Non finite numbers throw because mssql doesn't support them.
+ * All other values throw.
+ * @returns sanitised arbitrary value.
+ */
 export const auto =
   (value: unknown): S => {
     if (value instanceof S) {

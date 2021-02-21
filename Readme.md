@@ -20,7 +20,7 @@ console.log(tsql`select * from Foo where id = ${id}`)
 
 ## Architecture
 
-[Tag templates](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) and functional combinators are used to sanitise and help with generating Microsoft SQL's T-SQL queries.
+[Tagged templates](#tagged-templates) and functional combinators are used to sanitise and help with generating Microsoft SQL's T-SQL queries.
 
 Basic combinators (eq, gt, in etc.) are provided together with more complex ones (merge1n, inline-table-*, upsert-objects etc).
 
