@@ -19,6 +19,7 @@ import insertObject from './insert-object'
 import insertObjects from './insert-objects'
 import is from './is'
 import json from './json'
+import like from './like'
 import line from './line'
 import lines from './lines'
 import list from './list'
@@ -30,6 +31,7 @@ import ne from './ne'
 import ng from './ng'
 import nl from './nl'
 import notIn from './not-in'
+import not from './not'
 import now from './now'
 import nstring from './nstring'
 import null_ from './null'
@@ -85,6 +87,7 @@ export interface t {
   insertObjects: typeof insertObjects
   is: typeof is,
   json: typeof json
+  like: typeof like
   line: typeof line
   lines: typeof lines
   list: typeof list
@@ -96,6 +99,7 @@ export interface t {
   ng: typeof ng
   nl: typeof nl
   notIn: typeof notIn
+  not: typeof not
   now: typeof now
   nstring: typeof nstring
   null: typeof null_
@@ -151,6 +155,7 @@ const tsql: t =
     insertObjects,
     is,
     json,
+    like,
     line,
     lines,
     list,
@@ -162,6 +167,7 @@ const tsql: t =
     ng,
     nl,
     notIn,
+    not,
     now,
     nstring,
     null: null_,
