@@ -27,6 +27,7 @@ import lt from './lt'
 import lte from './lte'
 import maybeWith from './maybe-with'
 import merge1n from './merge-1n'
+import modifyJsons from './modify-jsons'
 import ne from './ne'
 import ng from './ng'
 import nl from './nl'
@@ -95,6 +96,7 @@ export interface t {
   lte: typeof lte
   maybeWith: typeof maybeWith
   merge1n: typeof merge1n
+  modifyJsons: typeof modifyJsons
   ne: typeof ne
   ng: typeof ng
   nl: typeof nl
@@ -163,6 +165,7 @@ const tsql: t =
     lte,
     maybeWith,
     merge1n,
+    modifyJsons,
     ne,
     ng,
     nl,
