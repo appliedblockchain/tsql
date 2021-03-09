@@ -8,7 +8,7 @@ export const list =
     if (!Array.isArray(xs)) {
       throw new TypeError(`Expected array, got ${inspect(xs)}.`)
     }
-    return raw(xs.map(_ => f(_).toString().trim()).join(', '))
+    return raw(xs.filter(_ => typeof _ !== 'undefined').map(_ => f(_).toString().trim()).join(', '))
   }
 
 export default list

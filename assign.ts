@@ -5,7 +5,9 @@ import type Sid from './sanitised-identifier'
 
 /** @returns assigment, ie. in `update T set (l = r)`. */
 export const assign =
-  (l: Sid | string, r: unknown): S =>
-    tsql`${id(l)} = ${r}`
+  (lhs: Sid | string, rhs: unknown): undefined | S =>
+    typeof rhs === 'undefined' ?
+      undefined :
+      tsql`${id(lhs)} = ${rhs}`
 
 export default assign
