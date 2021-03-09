@@ -19,6 +19,8 @@ import insertObject from './insert-object'
 import insertObjects from './insert-objects'
 import is from './is'
 import json from './json'
+import jsonQuery from './json-query'
+import jsonValue from './json-value'
 import like from './like'
 import line from './line'
 import lines from './lines'
@@ -88,6 +90,8 @@ export interface t {
   insertObjects: typeof insertObjects
   is: typeof is,
   json: typeof json
+  jsonQuery: typeof jsonQuery
+  jsonValue: typeof jsonValue
   like: typeof like
   line: typeof line
   lines: typeof lines
@@ -157,6 +161,8 @@ const tsql: t =
     insertObjects,
     is,
     json,
+    jsonQuery,
+    jsonValue,
     like,
     line,
     lines,
