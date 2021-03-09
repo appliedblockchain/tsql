@@ -49,3 +49,7 @@ test('different ops', () => {
     ]
   }, '((a in (1, 2, 3)) and (b like N\'foo%\') and (c >= 5) and (d <= 1) and (e < 0) and (f not in (3, 5, 7)) and (g = 3) and (h <> 0) and (i !> 1) and (j !< -1) and (not ((k = 0)) or (l = 1)))')
 })
+
+test('json', () => {
+  expect(where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
+})

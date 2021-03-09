@@ -1,4 +1,5 @@
 import { inspect } from 'util'
+import jsonValue from './json-value'
 import Sid from './sanitised-identifier'
 
 export type Identifier =
@@ -220,6 +221,10 @@ const identifier =
       return x
     }
     if (typeof x === 'string') {
+      if (x.includes('->')) {
+        const [ column, query ] = x.split('->')
+        return jsonValue(column, query)
+      }
       return new Sid(x.split('.').map(_ => isPlain(_) ? _ : quote(_)).join('.'))
     }
     if (Array.isArray(x) && x.every(_ => typeof _ === 'string' || _ instanceof Sid)) {
