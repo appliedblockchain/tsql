@@ -15,6 +15,10 @@ import notIn from './not-in'
 import or from './or'
 import S from './sanitised'
 
+export type Where = S | Record<string, unknown>
+
+export type t = Where
+
 const unary = {
   $not: not
 }
@@ -92,7 +96,7 @@ const visit =
 
 /** @returns simple where clause part from object. */
 export const where =
-  (value: S | Record<string, unknown>): S =>
+  (value: Where): S =>
     value instanceof S ?
       value :
       visit(value)

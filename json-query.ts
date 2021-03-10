@@ -3,7 +3,9 @@ import nstring from './nstring'
 import Sid from './sanitised-identifier'
 
 const jsonQuery =
-  (column: Sid | string, query: string): Sid =>
-    new Sid(`json_query(${id(column).toString()}, ${nstring(query).toString()})`)
+  (column: Sid | string, query?: undefined | null | string): Sid =>
+    query ?
+      new Sid(`json_query(${id(column).toString()}, ${nstring(query).toString()})`) :
+      new Sid(`json_query(${id(column).toString()})`)
 
 export default jsonQuery

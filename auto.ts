@@ -1,10 +1,11 @@
 import { inspect } from 'util'
-import S from './sanitised'
-import null_ from './null'
-import nstring from './nstring'
+import falseValue from './false-value'
 import json from './json'
+import nstring from './nstring'
+import null_ from './null'
 import number from './number'
-import raw from './raw'
+import S from './sanitised'
+import trueValue from './true-value'
 
 /**
  * Sanitised values are returned as is.
@@ -25,7 +26,7 @@ export const auto =
     switch (typeof value) {
       case 'undefined': return null_
       case 'number': return number(value)
-      case 'boolean': return raw(value ? '1' : '0')
+      case 'boolean': return value ? trueValue : falseValue
       case 'string': return nstring(value)
       case 'object': {
         if (value === null) {

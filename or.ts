@@ -1,5 +1,5 @@
 import auto from './auto'
-import false_ from './false'
+import logicalFalse from './logical-false'
 import interpolate1 from './helpers/interpolate1'
 import raw from './raw'
 import template from './template'
@@ -10,7 +10,7 @@ export const or =
   (...xs: unknown[]): S => {
     const xs_ = xs.filter(_ => typeof _ !== 'undefined')
     if (!xs_.length) {
-      return false_
+      return logicalFalse
     }
     return template`(${raw(interpolate1(xs_.map(auto), raw(' or ')).join(''))})`
   }

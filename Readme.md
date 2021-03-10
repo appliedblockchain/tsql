@@ -108,6 +108,53 @@ tsql`select * from Foo where ${where({ foo: is(gt, 5) })}`
 // select * from Foo where foo > 5
 ```
 
+### MongoDB like where queries
+
+`where` combinator supports MongoDB like queries:
+
+```
+const where = { id: { $gt: 123 }, state: { $in: [ 'PENDING', 'RETRY' ] } }
+tsql`select * from Foo ${tsql.where(where)}`
+```
+
+Supported operators:
+* unary
+  * `{ $not: ... }`
+* logical
+  * `{ $or: [ ... ] }`
+  * `{ $and: [ ... ] }`
+  * `{ foo: ..., bar: ... }` - implicitly `and`
+* binary
+  * `{ foo: ... }` – implicitly equal
+  * `{ $eq: ... }`
+  * `{ $gt: ... }`
+  * `{ $gte: ... }`
+  * `{ $in: ... }`
+  * `{ $like: ... }` – [mssql like pattern matching](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15)
+  * `{ $lt: ... }`
+  * `{ $lte: ... }`
+  * `{ $ne: ... }`
+  * `{ $ng: ... }` – not greater
+  * `{ $nl: ... }` – not less
+  * `{ $notIn: [ ... ] }`
+
+### Json value identifiers
+
+Identifiers of `C->Q` form are expanded to `json_value(C, Q)` form.
+Identifiers of `C~>Q` form are expanded to `json_query(C, Q)` form, where `Q` is optional.
+
+```js
+tsql.updateObject('Actions', { 'payloadJson->$.retries': { $gt: 3 } }, { status: 'CANCELLED' })
+```
+
+Renders:
+
+```sql
+update Actions
+set status = N'CANCELLED'
+where (json_value(payloadJson, N'$.retries') > 3)
+```
+
 ## License
 
 MIT License
