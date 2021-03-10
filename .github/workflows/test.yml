@@ -13,7 +13,7 @@ jobs:
           SA_PASSWORD: yourStrong(!)Password
           MSSQL_PID: Developer
         ports:
-          - 1433
+          - 1433:1433
 
     runs-on: ubuntu-latest
 
