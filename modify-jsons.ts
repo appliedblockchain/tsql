@@ -1,13 +1,16 @@
-import { inspect } from 'util'
 import and from './and'
 import eq from './eq'
 import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
-import maybeWith from './maybe-with'
 import tsql from './template'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
+import list from './list'
+import assign from './assign'
+
+export type Where = Record<string, unknown>
+export type Update = Record<string, Record<string, unknown>>
 
 export const sourcePrefixed =
   (_: Sid | string): Sid =>
@@ -18,43 +21,40 @@ export const targetPrefixed =
     id([ 'Target', _ ])
 
 export const modify =
-  (keys: string[], column: Sid | string): S =>
-    keys.reduce((_, key) => tsql`json_modify(${_}, ${`$.${key}`}, json_query(Source.${id(key)}))`, id(column) as S)
+  (column: string, jsonKeys: string[]): S =>
+    assign(
+      targetPrefixed(column),
+      jsonKeys.reduce((_, jsonKey) => tsql`json_modify(${_}, ${`$.${jsonKey}`}, json_query(${sourcePrefixed(column)}, ${`$.${jsonKey}`}))`, targetPrefixed(column) as S)
+    ) as S
 
 /** @returns modifies json column for multiple rows. */
-export const modifyJsons =
-  (
-    table: Sid | string,
-    column: Sid | string,
-    onKeys: string[],
-    objects: Record<string, unknown>[],
-    maybeObjectKeys?: string[],
-    maybeUpdateKeys?: string[],
-    hints?: string[]
-  ): S => {
+export const modifyJsons = (
+  table: Sid | string,
+  entries: readonly Record<string, unknown>[]
+): S => {
 
-    if (!Array.isArray(objects)) {
-      throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
-    }
-
-    if (!objects.length) {
-      return tsql`select 0;`
-    }
-
-    const table_ = id(table)
-    const column_ = id(column)
-    const objectKeys = maybeObjectKeys || keysOfObjects(objects)
-    const updateKeys = maybeUpdateKeys || objectKeys.filter(_ => !onKeys.includes(_))
-    const update_ = modify(updateKeys, column_)
-    const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
-
-    return tsql`
-      merge ${maybeWith(table_, hints)} as Target
-      using ${inlineTableOfObjects('Source', objects, objectKeys)}
-      on ${on_}
-      when matched then
-        update set ${column_} = ${update_};
-    `
+  if (entries.length === 0) {
+    return tsql`select 0;`
   }
+
+  const table_ = id(table)
+  const objectKeys = keysOfObjects(entries)
+  const onKeys = objectKeys.filter(_ => !_.endsWith('Json'))
+  const jsonColumns = objectKeys.filter(_ => _.endsWith('Json'))
+  const update_ = list(jsonColumns.map(jsonColumn => {
+    const jsonKeys = keysOfObjects(entries.map(_ => _[jsonColumn] as Record<string, unknown>))
+    return modify(jsonColumn, jsonKeys)
+  }))
+
+  const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
+
+  return tsql`
+    merge ${table_} as Target
+    using ${inlineTableOfObjects('Source', entries, objectKeys)}
+    on ${on_}
+    when matched then
+      update set ${update_};
+  `
+}
 
 export default modifyJsons
