@@ -5,6 +5,14 @@ on: [push]
 jobs:
   build:
 
+    services:
+      mssql:
+        image: mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-16.04
+        env:
+          ACCEPT_EULA: "Y"
+          SA_PASSWORD: yourStrong(!)Password
+          MSSQL_PID: Developer
+
     runs-on: ubuntu-latest
 
     strategy:
