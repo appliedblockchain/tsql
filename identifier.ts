@@ -1,6 +1,5 @@
 import { inspect } from 'util'
-import jsonQuery from './json-query'
-import jsonValue from './json-value'
+import nstring from './nstring'
 import Sid from './sanitised-identifier'
 
 export type Identifier =
@@ -216,6 +215,12 @@ export const quote =
     return '[' + String(value) + ']'
   }
 
+// eslint-disable-next-line prefer-const
+let jsonQuery: (column: Sid | string, query?: undefined | null | string) => Sid
+
+// eslint-disable-next-line prefer-const
+let jsonValue: (column: Sid | string, query: string) => Sid
+
 const identifier =
   (x: Identifier): Sid => {
     if (x instanceof Sid) {
@@ -237,5 +242,17 @@ const identifier =
     }
     throw new TypeError(`Can't sanitise ${inspect(x)} identifier.`)
   }
+
+jsonValue =
+  (column: Sid | string, query: string): Sid =>
+    new Sid(`json_value(${identifier(column).toString()}, ${nstring(query).toString()})`)
+
+jsonQuery =
+  (column: Sid | string, query?: undefined | null | string): Sid =>
+    query ?
+      new Sid(`json_query(${identifier(column).toString()}, ${nstring(query).toString()})`) :
+      new Sid(`json_query(${identifier(column).toString()})`)
+
+export { jsonValue, jsonQuery }
 
 export default identifier
