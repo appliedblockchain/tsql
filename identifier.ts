@@ -222,13 +222,13 @@ const identifier =
       return x
     }
     if (typeof x === 'string') {
-      if (x.includes('->$')) {
-        const [ column, query ] = x.split('->$')
-        return jsonValue(column, '$' + query)
+      if (x.includes('->')) {
+        const [ column, query ] = x.split('->')
+        return jsonValue(column, query)
       }
-      if (x.includes('~>$')) {
-        const [ column, query ] = x.split('~>$')
-        return jsonQuery(column, '$' + query)
+      if (x.includes('~>')) {
+        const [ column, query ] = x.split('~>')
+        return jsonQuery(column, query)
       }
       return new Sid(x.split('.').map(_ => isPlain(_) ? _ : quote(_)).join('.'))
     }
