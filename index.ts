@@ -7,7 +7,7 @@ import delete_ from './delete'
 import eq from './eq'
 import exists from './exists'
 import fallback from './fallback'
-import false_ from './false'
+import falseValue from './false-value'
 import gt from './gt'
 import gte from './gte'
 import identifier from './identifier'
@@ -25,6 +25,8 @@ import like from './like'
 import line from './line'
 import lines from './lines'
 import list from './list'
+import logicalFalse from './logical-false'
+import logicalTrue from './logical-true'
 import lt from './lt'
 import lte from './lte'
 import maybeWith from './maybe-with'
@@ -33,8 +35,8 @@ import modifyJsons from './modify-jsons'
 import ne from './ne'
 import ng from './ng'
 import nl from './nl'
-import notIn from './not-in'
 import not from './not'
+import notIn from './not-in'
 import now from './now'
 import nstring from './nstring'
 import null_ from './null'
@@ -51,7 +53,7 @@ import select from './select'
 import star from './star'
 import template from './template'
 import top from './top'
-import true_ from './true'
+import trueValue from './true-value'
 import unix from './unix'
 import updateObject from './update-object'
 import updateObjects from './update-objects'
@@ -65,10 +67,78 @@ import where from './where'
 // const keysOfObjects from './helpers/keys-of-objects')
 // const quoteString from './helpers/quote-string')
 
-import type S from './sanitised'
+export {
+  and,
+  assign,
+  assignObject,
+  auto,
+  columns,
+  delete_ as delete,
+  eq,
+  exists,
+  fallback,
+  falseValue,
+  gt,
+  gte,
+  identifier,
+  identifiers,
+  in_ as in,
+  inlineTableOfColumn,
+  inlineTableOfObjects,
+  insertObject,
+  insertObjects,
+  is,
+  json,
+  jsonQuery,
+  jsonValue,
+  like,
+  line,
+  lines,
+  list,
+  logicalFalse,
+  logicalTrue,
+  lt,
+  lte,
+  maybeWith,
+  merge1n,
+  modifyJsons,
+  ne,
+  ng,
+  nl,
+  not,
+  notIn,
+  now,
+  nstring,
+  null_ as null,
+  number_ as number,
+  objectId,
+  or,
+  raw,
+  replaceObjects,
+  row,
+  rowset,
+  Sanitised,
+  SanitisedIdentifier,
+  select,
+  star,
+  template,
+  top,
+  trueValue,
+  unix,
+  updateObject,
+  updateObjects,
+  upsertObjects,
+  where,
+
+  // Aliases
+  identifier as id,
+  identifiers as ids,
+  Sanitised as S,
+  SanitisedIdentifier as Sid
+}
 
 export interface t {
-  (xs: TemplateStringsArray, ...vs: unknown[]): S
+  (xs: TemplateStringsArray, ...vs: unknown[]): Sanitised
   and: typeof and
   assign: typeof assign
   assignObject: typeof assignObject
@@ -78,7 +148,7 @@ export interface t {
   eq: typeof eq
   exists: typeof exists
   fallback: typeof fallback
-  false: typeof false_
+  falseValue: typeof falseValue
   gt: typeof gt
   gte: typeof gte
   identifier: typeof identifier
@@ -96,6 +166,8 @@ export interface t {
   line: typeof line
   lines: typeof lines
   list: typeof list
+  logicalFalse: typeof logicalFalse
+  logicalTrue: typeof logicalTrue
   lt: typeof lt
   lte: typeof lte
   maybeWith: typeof maybeWith
@@ -104,8 +176,8 @@ export interface t {
   ne: typeof ne
   ng: typeof ng
   nl: typeof nl
-  notIn: typeof notIn
   not: typeof not
+  notIn: typeof notIn
   now: typeof now
   nstring: typeof nstring
   null: typeof null_
@@ -122,7 +194,7 @@ export interface t {
   star: typeof star
   template: typeof template
   top: typeof top
-  true: typeof true_
+  trueValue: typeof trueValue
   unix: typeof unix
   updateObject: typeof updateObject
   updateObjects: typeof updateObjects
@@ -135,7 +207,7 @@ export interface t {
 }
 
 const tsql_ =
-  (ts: TemplateStringsArray, ...vs: unknown[]): S =>
+  (ts: TemplateStringsArray, ...vs: unknown[]): Sanitised =>
     template(ts, ...vs)
 
 const tsql: t =
@@ -149,7 +221,7 @@ const tsql: t =
     eq,
     exists,
     fallback,
-    false: false_,
+    falseValue,
     gt,
     gte,
     identifier,
@@ -167,6 +239,8 @@ const tsql: t =
     line,
     lines,
     list,
+    logicalFalse,
+    logicalTrue,
     lt,
     lte,
     maybeWith,
@@ -175,8 +249,8 @@ const tsql: t =
     ne,
     ng,
     nl,
-    notIn,
     not,
+    notIn,
     now,
     nstring,
     null: null_,
@@ -193,7 +267,7 @@ const tsql: t =
     star,
     template,
     top,
-    true: true_,
+    trueValue,
     unix,
     updateObject,
     updateObjects,
