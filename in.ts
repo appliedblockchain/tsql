@@ -4,7 +4,7 @@ import fallback from './fallback'
 import isNil from './helpers/is-nil'
 import row from './row'
 import type S from './sanitised'
-import false_ from './false'
+import logicalFalse from './logical-false'
 
 export const in_ =
   (l: S | string, r: undefined | null | unknown[]): undefined | S =>
@@ -12,6 +12,6 @@ export const in_ =
       undefined :
       r && !isNil(r) && r.length ?
         tsql`${fallback(l, id)} in ${row(r)}` :
-        false_
+        logicalFalse
 
 export default in_

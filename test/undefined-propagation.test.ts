@@ -13,7 +13,7 @@ import where from '../where'
 
 test('or', () => {
   expect(or(eq('foo', undefined), eq('bar', null), eq('baz', 1)).toString()).toEqual('(bar is null or baz = 1)')
-  expect(or(eq('foo', undefined)).toString()).toEqual('1=0')
+  expect(or(eq('foo', undefined)).toString()).toEqual('0=1')
 })
 
 test('and', () => {

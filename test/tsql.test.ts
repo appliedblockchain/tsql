@@ -15,7 +15,7 @@ test('identifier', () => {
 
 test('insertObject', () => {
   expect(tsql.insertObject('Foo', { id: 1, name: 'bar', deleted: false }).toString()).toEqual(
-    'insert into Foo (id, name, deleted) values (1, N\'bar\', 0)'
+    'insert into Foo (id, name, deleted) values (1, N\'bar\', cast(0 as bit))'
   )
 })
 
@@ -65,6 +65,6 @@ test('in', () => {
       tsql.in('undefined_', undefined)
     ).toString()
   ).toEqual(demargin(`
-    (id in (42, 43, 44) and status in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 1=0 and 1=0)
+    (id in (42, 43, 44) and status in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 0=1 and 0=1)
   `))
 })
