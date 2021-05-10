@@ -46,6 +46,22 @@ const object =
   (value: unknown): value is Record<string, unknown> =>
     typeof value === 'object' && value !== null && !Array.isArray(value)
 
+const binaryKeys =
+  (value: unknown): string[] => {
+    if (!object(value)) {
+      return []
+    }
+    const keys: string[] = []
+    for (const key in value) {
+      if (key.startsWith('$') && key in binary) {
+        keys.push(key)
+      } else {
+        return []
+      }
+    }
+    return keys
+  }
+
 /** @returns single key in object iff object has single key, `undefined` otherwise. */
 const single =
   (value: unknown): undefined | string => {
@@ -68,11 +84,19 @@ const visitEntry =
     if (typeof value === 'function') {
       return value(key)
     }
-    const key_ = single(value)
-    if (key_ && key_ in binary) {
-      return binary[key_](key, (value as Record<string, unknown>)[key_])
+    const list = binaryKeys(value)
+      .map(key_ => binary[key_](key, (value as Record<string, unknown>)[key_]))
+    switch (list.length) {
+      case 0: return eq(key, value)
+      case 1: return list[0]
+      default:
+        return and(...list)
     }
-    return eq(key, value)
+    // const key_ = single(value)
+    // if (key_ && key_ in binary) {
+    //   return binary[key_](key, (value as Record<string, unknown>)[key_])
+    // }
+    // return eq(key, value)
   }
 
 const visit =

@@ -53,3 +53,7 @@ test('different ops', () => {
 test('json', () => {
   expect(where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
 })
+
+test('multiple', () => {
+  t({ foo: { $gt: 5, $lt: 7 } }, '((foo > 5 and foo < 7))')
+})
