@@ -31,11 +31,12 @@ export const replaceObjects =
       throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
     }
 
-    if (!objects.length) {
-      return tsql`select 0;`
+    const table_ = id(table)
+
+    if (objects.length === 0) {
+      return tsql`delete from ${table_};`
     }
 
-    const table_ = id(table)
     const objectKeys = maybeObjectKeys || keysOfObjects(objects)
     const updateKeys = maybeUpdateKeys || objectKeys
     const insertKeys = maybeInsertKeys || objectKeys
