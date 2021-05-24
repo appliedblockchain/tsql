@@ -19,16 +19,16 @@ export const merge1n =
       return tsql`delete from ${table_} where ${lcolumn_} = ${lid};`
     }
     return tsql`
-      merge ${maybeWith(table_, hints)} as Target
+      merge ${maybeWith(table_, hints)} as ${id('Target')}
       using ${inlineTable('Source', 'id', values)}
       on (
-        Target.${lcolumn_} = ${lid} and
-        Target.${rcolumn_} = Source.id
+        ${id([ 'Target', lcolumn ])} = ${lid} and
+        ${id([ 'Target', rcolumn ])} = ${id([ 'Source', 'id' ])}
       )
       when not matched by target then
         insert ${row([ lcolumn_, rcolumn_ ])}
         values ${row([ lid, id('Source.id') ])}
-      when not matched by source and Target.${lcolumn_} = ${lid} then
+      when not matched by source and ${id([ 'Target', lcolumn ])} = ${lid} then
         delete;
     `
   }

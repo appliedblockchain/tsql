@@ -15,7 +15,7 @@ test('identifier', () => {
 
 test('insertObject', () => {
   expect(tsql.insertObject('Foo', { id: 1, name: 'bar', deleted: false }).toString()).toEqual(
-    'insert into Foo (id, name, deleted) values (1, N\'bar\', cast(0 as bit))'
+    'insert into Foo (id, [name], deleted) values (1, N\'bar\', cast(0 as bit))'
   )
 })
 
@@ -25,7 +25,7 @@ test('literalTableOfObjects', () => {
     { id: 43, name: 'bar' }
   ]
   expect(tsql`select * from ${tsql.inlineTableOfObjects('Foo Bar', table)}`.toString()).toEqual(
-    'select * from (values (42, N\'foo\'), (43, N\'bar\')) as [Foo Bar] (id, name)'
+    'select * from (values (42, N\'foo\'), (43, N\'bar\')) as [Foo Bar] (id, [name])'
   )
 })
 
@@ -33,16 +33,16 @@ test('merge1n', () => {
   const fooId = 42
   const barIds = [ 3, 5, 7 ]
   expect(tsql.merge1n('Foo Bars', [ 'foo Id', 'bar Id' ], fooId, barIds).toString()).toEqual(demargin(`
-    merge [Foo Bars] as Target
-    using (values (3), (5), (7)) as Source (id)
+    merge [Foo Bars] as [Target]
+    using (values (3), (5), (7)) as [Source] (id)
     on (
-      Target.[foo Id] = 42 and
-      Target.[bar Id] = Source.id
+      [Target].[foo Id] = 42 and
+      [Target].[bar Id] = [Source].id
     )
     when not matched by target then
       insert ([foo Id], [bar Id])
-      values (42, Source.id)
-    when not matched by source and Target.[foo Id] = 42 then
+      values (42, [Source].id)
+    when not matched by source and [Target].[foo Id] = 42 then
       delete;
   `))
 })
@@ -50,7 +50,7 @@ test('merge1n', () => {
 test('updateObject', () => {
   expect(tsql.updateObject('Mr Foos', { id: 1, parentId: null }, { name: 'Foo', bar: null }).toString()).toEqual(demargin(`
     update [Mr Foos]
-    set name = N'Foo', bar = null
+    set [name] = N'Foo', bar = null
     where (id = 1 and parentId is null)
   `))
 })
@@ -65,6 +65,6 @@ test('in', () => {
       tsql.in('undefined_', undefined)
     ).toString()
   ).toEqual(demargin(`
-    (id in (42, 43, 44) and status in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 0=1 and 0=1)
+    (id in (42, 43, 44) and [status] in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 0=1 and 0=1)
   `))
 })

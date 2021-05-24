@@ -43,6 +43,7 @@ import null_ from './null'
 import number_ from './number'
 import objectId from './object-id'
 import or from './or'
+import randomIdentifier from './random-identifier'
 import raw from './raw'
 import replaceObjects from './replace-objects'
 import row from './row'
@@ -113,6 +114,7 @@ export {
   number_ as number,
   objectId,
   or,
+  randomIdentifier,
   raw,
   replaceObjects,
   row,
@@ -184,6 +186,7 @@ export interface t {
   number: typeof number_
   objectId: typeof objectId
   or: typeof or
+  randomIdentifier: typeof randomIdentifier,
   raw: typeof raw
   replaceObjects: typeof replaceObjects
   row: typeof row
@@ -257,6 +260,7 @@ const tsql: t =
     number: number_,
     objectId,
     or,
+    randomIdentifier,
     raw,
     replaceObjects,
     row,

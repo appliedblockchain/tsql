@@ -41,7 +41,7 @@ export const insertObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${maybeWith(table_, hints)} as Target
+      merge ${maybeWith(table_, hints)} as ${id('Target')}
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when not matched by target then

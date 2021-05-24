@@ -10,7 +10,7 @@ test('perpare users table', async () => {
   await sql.rows`
     create table Users (
       id int not null identity(1, 1) primary key,
-      name nvarchar(450),
+      [name] nvarchar(450),
       metaJson nvarchar(max) not null default '{}'
     )
   `
