@@ -4,7 +4,7 @@
   "description": "Transact-SQL template combinators.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && tsc --noEmit && jest",
+    "test": "eslint . && tsc && jest",
     "update": "npm-check --update --save-exact",
     "prepublishOnly": "tsc"
   },

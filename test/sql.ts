@@ -17,14 +17,14 @@ export default class Sql {
     userName = 'sa',
     password = 'yourStrong(!)Password'
   }: {
-    database?: string | Sid,
+    database?: string,
     userName?: string,
     password?: string
   } = {}) {
     this.connection = new Connection({
       server: 'localhost',
       options: {
-        database: tsql.id(database).toString(),
+        database,
         trustServerCertificate: true,
         rowCollectionOnDone: true,
         rowCollectionOnRequestCompletion: true,
@@ -34,8 +34,8 @@ export default class Sql {
     })
   }
 
-  static async createDatabase(database: string | Sid): Promise<void> {
-    const sql = await new Sql({ database: tsql.id('master') }).connect()
+  static async createDatabase(database: string): Promise<void> {
+    const sql = await new Sql({ database: 'master' }).connect()
     await sql.rows`create database ${tsql.id(database)}`
     sql.close()
   }
@@ -47,7 +47,7 @@ export default class Sql {
   }
 
   static async random(): Promise<Sql> {
-    const database = randomIdentifier('test_', 16)
+    const database = randomIdentifier('test_', 16).toString()
     await this.createDatabase(database)
     return new Sql({ database }).connect()
   }
