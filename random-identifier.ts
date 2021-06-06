@@ -1,20 +1,18 @@
-import { randomBytes } from 'crypto'
-import Sid from './sanitised-identifier'
+import identifier from './identifier'
+import type Sid from './sanitised-identifier'
 
 const alphabet = 'abcdefghijklmnopqrstuvwxyABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 const randomLetter =
   (): string => {
     while (true) {
-      const random = randomBytes(1)[0] >> 2
-      if (random < alphabet.length) {
-        return alphabet[random]
-      }
+      const index = Math.min(alphabet.length - 1, Math.floor(Math.random() * alphabet.length))
+      return alphabet[index]
     }
   }
 
 const randomIdentifier =
-  (length = 32): Sid =>
-    new Sid(Array.from(Array(length), () => randomLetter()).join(''))
+  (prefix = '', length = 32): Sid =>
+    identifier([ prefix, Array.from(Array(length), () => randomLetter()).join('') ].join(''))
 
 export default randomIdentifier

@@ -1,10 +1,10 @@
 import { Connection, Request } from 'tedious'
-import { randomBytes } from 'crypto'
 import tsql from '../'
 import type S from '../sanitised'
 import type Sid from '../sanitised-identifier'
 import type { Where } from '../where'
 import debugOf from 'debug'
+import randomIdentifier from '../random-identifier'
 
 const debug = debugOf('sql')
 
@@ -17,14 +17,14 @@ export default class Sql {
     userName = 'sa',
     password = 'yourStrong(!)Password'
   }: {
-    database?: string,
+    database?: string | Sid,
     userName?: string,
     password?: string
   } = {}) {
     this.connection = new Connection({
       server: 'localhost',
       options: {
-        database,
+        database: tsql.id(database).toString(),
         trustServerCertificate: true,
         rowCollectionOnDone: true,
         rowCollectionOnRequestCompletion: true,
@@ -34,8 +34,8 @@ export default class Sql {
     })
   }
 
-  static async createDatabase(database: string): Promise<void> {
-    const sql = await new Sql({ database: 'master' }).connect()
+  static async createDatabase(database: string | Sid): Promise<void> {
+    const sql = await new Sql({ database: tsql.id('master') }).connect()
     await sql.rows`create database ${tsql.id(database)}`
     sql.close()
   }
@@ -47,7 +47,7 @@ export default class Sql {
   }
 
   static async random(): Promise<Sql> {
-    const database = 'test' + randomBytes(16).toString('hex')
+    const database = randomIdentifier('test_', 16)
     await this.createDatabase(database)
     return new Sql({ database }).connect()
   }
