@@ -55,6 +55,7 @@ import star from './star'
 import template from './template'
 import top from './top'
 import trueValue from './true-value'
+import type { Where } from './where'
 import unix from './unix'
 import updateObject from './update-object'
 import updateObjects from './update-objects'
@@ -131,6 +132,7 @@ export {
   updateObjects,
   upsertObjects,
   where,
+  Where,
 
   // Aliases
   identifier as id,

@@ -1,8 +1,5 @@
 import { Connection, Request } from 'tedious'
-import tsql from '../'
-import type S from '../sanitised'
-import type Sid from '../sanitised-identifier'
-import type { Where } from '../where'
+import * as Tsql from '../'
 import debugOf from 'debug'
 import randomIdentifier from '../random-identifier'
 
@@ -36,13 +33,13 @@ export default class Sql {
 
   static async createDatabase(database: string): Promise<void> {
     const sql = await new Sql({ database: 'master' }).connect()
-    await sql.rows`create database ${tsql.id(database)}`
+    await sql.rows`create database ${Tsql.id(database)}`
     sql.close()
   }
 
   static async dropDatabase(database: string): Promise<void> {
     const sql = await new Sql({ database: 'master' }).connect()
-    await sql.rows`drop database ${tsql.id(database)}`
+    await sql.rows`drop database ${Tsql.id(database)}`
     sql.close()
   }
 
@@ -64,7 +61,7 @@ export default class Sql {
     this.connection.close()
   }
 
-  async query<T>(sql: S): Promise<T[]> {
+  async query<T>(sql: Tsql.S): Promise<T[]> {
     return new Promise((resolve, reject) => {
       const sqlString = sql.toString()
       debug('query', sqlString)
@@ -84,7 +81,7 @@ export default class Sql {
   }
 
   async rows<T>(tsa: TemplateStringsArray, ...rest: unknown[]): Promise<T[]> {
-    return this.query<T>(tsql(tsa, ...rest))
+    return this.query<T>(Tsql.template(tsa, ...rest))
   }
 
   async row<T>(tsa: TemplateStringsArray, ...rest: unknown[]): Promise<T> {
@@ -96,23 +93,27 @@ export default class Sql {
     return row[Object.keys(row)[0]]
   }
 
-  async count(table: Sid | string, where: Where): Promise<number> {
-    return this.value`select count(*) from ${tsql.id(table)} where ${tsql.where(where)}`
+  async count(table: Tsql.Sid | string, where: Tsql.Where): Promise<number> {
+    return this.value`select count(*) from ${Tsql.id(table)} where ${Tsql.where(where)}`
   }
 
-  async delete(table: Sid | string, where: Where): Promise<void> {
-    await this.query(tsql.delete(table, where))
+  async delete(table: Tsql.Sid | string, where: Tsql.Where): Promise<void> {
+    await this.query(Tsql.delete(table, where))
   }
 
-  async insertObject(table: Sid | string, object: Record<string, unknown>): Promise<boolean[]> {
-    return this.query(tsql.insertObject(table, object))
+  async insert(table: Tsql.Sid | string, object: Record<string, unknown>): Promise<unknown> {
+    return this.query(Tsql.insertObject(table, object))
+  }
+
+  async update(table: Tsql.Sid | string, where: Tsql.Where, object: Record<string, unknown>): Promise<unknown> {
+    return this.query(Tsql.updateObject(table, where, object))
   }
 
   async modifyJsons(
-    table: Sid | string,
+    table: Tsql.Sid | string,
     entries: readonly Record<string, unknown>[]
   ): Promise<unknown[]> {
-    return this.query(tsql.modifyJsons(table, entries))
+    return this.query(Tsql.modifyJsons(table, entries))
   }
 
 }
