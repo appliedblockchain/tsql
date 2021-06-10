@@ -2,6 +2,10 @@
 
 Transact-SQL template combinators.
 
+## Playground
+
+[Observable playground](https://observablehq.com/@mirek/tsql-examples)
+
 ## Usage
 
 ```
