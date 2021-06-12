@@ -4,6 +4,7 @@ import assignObject from './assign-object'
 import auto from './auto'
 import columns from './columns'
 import delete_ from './delete'
+import distinct from './distinct'
 import eq from './eq'
 import exists from './exists'
 import fallback from './fallback'
@@ -36,6 +37,7 @@ import ne from './ne'
 import ng from './ng'
 import nl from './nl'
 import not from './not'
+import notDistinct from './not-distinct'
 import notIn from './not-in'
 import now from './now'
 import nstring from './nstring'
@@ -76,6 +78,7 @@ export {
   auto,
   columns,
   delete_ as delete,
+  distinct,
   eq,
   exists,
   fallback,
@@ -108,6 +111,7 @@ export {
   ng,
   nl,
   not,
+  notDistinct,
   notIn,
   now,
   nstring,
@@ -149,6 +153,7 @@ export interface t {
   auto: typeof auto
   columns: typeof columns
   delete: typeof delete_
+  distinct: typeof distinct,
   eq: typeof eq
   exists: typeof exists
   fallback: typeof fallback
@@ -181,6 +186,7 @@ export interface t {
   ng: typeof ng
   nl: typeof nl
   not: typeof not
+  notDistinct: typeof notDistinct
   notIn: typeof notIn
   now: typeof now
   nstring: typeof nstring
@@ -223,6 +229,7 @@ const tsql: t =
     auto,
     columns,
     delete: delete_,
+    distinct,
     eq,
     exists,
     fallback,
@@ -255,6 +262,7 @@ const tsql: t =
     ng,
     nl,
     not,
+    notDistinct,
     notIn,
     now,
     nstring,
