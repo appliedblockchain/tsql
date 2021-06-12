@@ -1,5 +1,6 @@
 import and from './and'
 import auto from './auto'
+import distinct from './distinct'
 import eq from './eq'
 import gt from './gt'
 import gte from './gte'
@@ -11,6 +12,7 @@ import ne from './ne'
 import ng from './ng'
 import nl from './nl'
 import not from './not'
+import notDistinct from './not-distinct'
 import notIn from './not-in'
 import or from './or'
 import S from './sanitised'
@@ -24,6 +26,7 @@ const unary = {
 }
 
 const binary = {
+  $distinct: distinct,
   $eq: eq,
   $gt: gt,
   $gte: gte,
@@ -34,7 +37,10 @@ const binary = {
   $ne: ne,
   $ng: ng,
   $nl: nl,
-  $notIn: notIn
+  $notDistinct: notDistinct,
+  $ndistinct: notDistinct,
+  $notIn: notIn,
+  $nin: notIn
 }
 
 const logical = {

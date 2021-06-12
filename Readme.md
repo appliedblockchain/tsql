@@ -129,7 +129,7 @@ Supported operators:
   * `{ $and: [ ... ] }`
   * `{ foo: ..., bar: ... }` - implicitly `and`
 * binary
-  * `{ foo: ... }` – implicitly equal
+  * `{ foo: ... }` – implicit equal
   * `{ $eq: ... }`
   * `{ $gt: ... }`
   * `{ $gte: ... }`
@@ -141,6 +141,10 @@ Supported operators:
   * `{ $ng: ... }` – not greater
   * `{ $nl: ... }` – not less
   * `{ $notIn: [ ... ] }`
+  * `{ $nin: [ ... ] }` – alias for `$notIn`
+  * `{ $distinct: ... }` – emulated `lhs is distinct from rhs`
+  * `{ $notDistinct: ... }` – emulated `lhs is not distinct from rhs`
+  * `{ $ndistinct: ... }` – alias for `$notDistinct`
 
 ### Json value identifiers
 
