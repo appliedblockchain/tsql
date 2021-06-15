@@ -1,15 +1,17 @@
-import gt from '../gt'
-import is from '../is'
-import where from '../where'
+import * as Tsql from '../'
 
 const t =
   (a: Record<string, unknown>, b: string): void =>
-    expect(where(a).toString()).toEqual(b)
+    expect(Tsql.where(a).toString()).toEqual(b)
 
 test('simple', () => {
   t({ foo: 1 }, '(foo = 1)')
   t({ foo: { $gt: 1 } }, '(foo > 1)')
   t({ $and: [ { foo: { $gt: 1 } }, { foo: { $lt: 10 } } ] }, '((foo > 1) and (foo < 10))')
+})
+
+test('sanitised', () => {
+  t({ $and: [ { foo: 1 }, { bar: 2 }, Tsql.raw('baz in (0)') ] }, '((foo = 1) and (bar = 2) and baz in (0))')
 })
 
 test('nested is', () => {
@@ -19,7 +21,7 @@ test('nested is', () => {
       { foo: { $not: { $lt: 10 } } },
       { $or: [
         { baz: 5 },
-        { baz: is(gt, 10) }
+        { baz: Tsql.is(Tsql.gt, 10) }
       ] }
     ]
   }, '(not ((foo > 1)) and (foo = N\'{"$not":{"$lt":10}}\') and ((baz = 5) or (baz > 10)))')
@@ -51,5 +53,5 @@ test('different ops', () => {
 })
 
 test('json', () => {
-  expect(where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
+  expect(Tsql.where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
 })

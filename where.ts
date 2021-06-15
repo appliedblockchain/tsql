@@ -83,6 +83,9 @@ const visitEntry =
 
 const visit =
   (value: unknown): S => {
+    if (value instanceof S) {
+      return value
+    }
     const key = single(value)
     if (key) {
       const value_ = (value as Record<string, unknown>)[key]
@@ -103,8 +106,6 @@ const visit =
 /** @returns simple where clause part from object. */
 export const where =
   (value: Where): S =>
-    value instanceof S ?
-      value :
-      visit(value)
+    visit(value)
 
 export default where
