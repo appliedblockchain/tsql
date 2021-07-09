@@ -19,7 +19,7 @@ export default class Sql {
     password?: string
   } = {}) {
     this.connection = new Connection({
-      server: 'localhost',
+      server: process.env.MSSQL_HOST ?? 'localhost',
       options: {
         database,
         trustServerCertificate: true,
