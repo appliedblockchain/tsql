@@ -2,8 +2,12 @@ import Sql from './sql'
 
 let sql: Sql
 
-test('setup', async () => {
+beforeAll(async () => {
   sql = await Sql.random()
+}, 30 * 1000)
+
+afterAll(async () => {
+  sql?.close()
 })
 
 test('perpare users table', async () => {
@@ -73,6 +77,27 @@ test('modify json', async () => {
   ])
 })
 
-test('teardown', async () => {
-  sql.close()
+test('insert ignore', async () => {
+  await sql.rows`
+    create table Roles (
+      id nvarchar(32) not null primary key,
+      [name] nvarchar(32)
+    )
+  `
+  await sql.insertIgnore('Roles', [ 'id' ], [
+    { id: '1', name: 'A' },
+    { id: '2', name: 'B' },
+    { id: '3', name: 'C' }
+  ])
+  await sql.insertIgnore('Roles', [ 'id' ], [
+    { id: '2', name: 'X' },
+    { id: '3', name: 'X' },
+    { id: '4', name: 'D' }
+  ])
+  await expect(sql.rows`select * from Roles order by id`).resolves.toEqual([
+    { id: '1', name: 'A' },
+    { id: '2', name: 'B' },
+    { id: '3', name: 'C' },
+    { id: '4', name: 'D' }
+  ])
 })
