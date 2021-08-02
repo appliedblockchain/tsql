@@ -8,7 +8,7 @@ import in_ from '../in'
 import is from '../is'
 import list from '../list'
 import or from '../or'
-import updateObject from '../update-object'
+import update from '../update'
 import where from '../where'
 
 test('or', () => {
@@ -34,7 +34,7 @@ test('where', () => {
 })
 
 test('update object', () => {
-  expect(updateObject('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 }).toString()).toEqual(demargin(`
+  expect(update('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 }).toString()).toEqual(demargin(`
     update Foo
     set d = 2
     where (b = 1)
