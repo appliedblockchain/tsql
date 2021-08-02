@@ -5,10 +5,11 @@ import eq from './eq'
 import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
+import limitedHintsIdentifier from './limited-hints-identifier'
 import list from './list'
-import maybeWith from './maybe-with'
 import row from './row'
 import tsql from './template'
+import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
@@ -24,14 +25,16 @@ export const replaceObjects =
     maybeObjectKeys?: string[],
     maybeUpdateKeys?: string[],
     maybeInsertKeys?: string[],
-    hints?: string[]
+    { hints }: {
+      hints?: TableHintLimited[]
+    } = {}
   ): S => {
 
     if (!Array.isArray(objects)) {
       throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
     }
 
-    const table_ = id(table)
+    const table_ = limitedHintsIdentifier(table, hints)
 
     if (objects.length === 0) {
       return tsql`delete from ${table_};`
@@ -44,7 +47,7 @@ export const replaceObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${maybeWith(table_, hints)} as Target
+      merge ${table_} as Target
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when not matched by source then

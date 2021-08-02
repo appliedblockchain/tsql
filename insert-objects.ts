@@ -4,9 +4,10 @@ import eq from './eq'
 import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
-import maybeWith from './maybe-with'
+import limitedHintsIdentifier from './limited-hints-identifier'
 import row from './row'
 import tsql from './template'
+import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
@@ -25,7 +26,9 @@ export const insertObjects =
     onKeys: string[],
     objects: Record<string, unknown>[],
     maybeObjectKeys?: string[],
-    hints?: string[]
+    { hints }: {
+      hints?: TableHintLimited[]
+    } = {}
   ): S => {
 
     if (!Array.isArray(objects)) {
@@ -36,12 +39,12 @@ export const insertObjects =
       return tsql`select 0;`
     }
 
-    const table_ = id(table)
+    const table_ = limitedHintsIdentifier(table, hints)
     const objectKeys = maybeObjectKeys || keysOfObjects(objects)
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${maybeWith(table_, hints)} as ${id('Target')}
+      merge ${table_} as ${id('Target')}
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when not matched by target then

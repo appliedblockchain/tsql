@@ -5,10 +5,11 @@ import eq from './eq'
 import id from './identifier'
 import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
+import limitedHintsIdentifier from './limited-hints-identifier'
 import list from './list'
-import maybeWith from './maybe-with'
 import row from './row'
 import tsql from './template'
+import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
@@ -29,7 +30,9 @@ export const upsertObjects =
     maybeObjectKeys?: string[],
     maybeUpdateKeys?: string[],
     maybeInsertKeys?: string[],
-    hints?: string[]
+    { hints }: {
+      hints?: TableHintLimited[]
+    } = {}
   ): S => {
 
     if (!Array.isArray(objects)) {
@@ -40,7 +43,7 @@ export const upsertObjects =
       return tsql`select 0;`
     }
 
-    const table_ = id(table)
+    const table_ = limitedHintsIdentifier(table, hints)
     const objectKeys = maybeObjectKeys || keysOfObjects(objects)
     const updateKeys = maybeUpdateKeys || objectKeys
     const insertKeys = maybeInsertKeys || objectKeys
@@ -48,7 +51,7 @@ export const upsertObjects =
     const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
 
     return tsql`
-      merge ${maybeWith(table_, hints)} as Target
+      merge ${table_} as Target
       using ${inlineTableOfObjects('Source', objects, objectKeys)}
       on ${on_}
       when matched then
