@@ -101,6 +101,10 @@ export default class Sql {
     await this.query(Tsql.delete(table, where))
   }
 
+  async dropTable(table: Tsql.Sid | string): Promise<void> {
+    await this.query(Tsql.template`drop table ${Tsql.id(table)};`)
+  }
+
   async insertIgnore(...args: Parameters<typeof Tsql['insertIgnore']>): Promise<unknown> {
     return this.query(Tsql.insertIgnore(...args))
   }

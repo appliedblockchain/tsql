@@ -47,7 +47,7 @@ export const insertIgnore =
       insert into ${id_(table, hints)} ${row(objectKeys.map(id))}
       select Source.*
       from ${inlineTableOfObjects('Source', objects, objectKeys)}
-      left join ${id_(table, hints)} as Target on ${on_}
+      left join ${id(table)} as Target on ${on_}
       where ${where_}
     `
   }
