@@ -1,5 +1,5 @@
 import { Connection, Request } from 'tedious'
-import * as Tsql from '../'
+import tsql, * as Tsql from '../'
 import debugOf from 'debug'
 import randomIdentifier from '../random-identifier'
 
@@ -97,8 +97,12 @@ export default class Sql {
     return this.value`select count(*) from ${Tsql.id(table)} where ${Tsql.where(where)}`
   }
 
-  async delete(table: Tsql.Sid | string, where: Tsql.Where): Promise<void> {
+  async delete(table: Tsql.Sid | string, where: Tsql.Where = tsql.logicalTrue): Promise<void> {
     await this.query(Tsql.delete(table, where))
+  }
+
+  async insertIgnore(...args: Parameters<typeof Tsql['insertIgnore']>): Promise<unknown> {
+    return this.query(Tsql.insertIgnore(...args))
   }
 
   async insert(table: Tsql.Sid | string, object: Record<string, unknown>): Promise<unknown> {

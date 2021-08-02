@@ -1,3 +1,4 @@
+import * as TableHintLimited from './table-hint-limited'
 import and from './and'
 import assign from './assign'
 import assignObject from './assign-object'
@@ -16,6 +17,7 @@ import identifiers from './identifiers'
 import in_ from './in'
 import inlineTableOfColumn from './inline-table-of-column'
 import inlineTableOfObjects from './inline-table-of-objects'
+import insertIgnore from './insert-ignore'
 import insertObject from './insert-object'
 import insertObjects from './insert-objects'
 import is from './is'
@@ -23,6 +25,7 @@ import json from './json'
 import jsonQuery from './json-query'
 import jsonValue from './json-value'
 import like from './like'
+import limitedHintsIdentifier from './limited-hints-identifier'
 import line from './line'
 import lines from './lines'
 import list from './list'
@@ -30,7 +33,6 @@ import logicalFalse from './logical-false'
 import logicalTrue from './logical-true'
 import lt from './lt'
 import lte from './lte'
-import maybeWith from './maybe-with'
 import merge1n from './merge-1n'
 import modifyJsons from './modify-jsons'
 import ne from './ne'
@@ -59,12 +61,11 @@ import top from './top'
 import trueValue from './true-value'
 import type { Where } from './where'
 import unix from './unix'
-import updateObject from './update-object'
+import update from './update'
 import updateObjects from './update-objects'
 import upsertObjects from './upsert-objects'
 import where from './where'
 
-// const demargin from './helpers/demargin')
 // const interpolate from './helpers/interpolate')
 // const interpolate1 from './helpers/interpolate1')
 // const isString from './helpers/is-string')
@@ -90,6 +91,7 @@ export {
   in_ as in,
   inlineTableOfColumn,
   inlineTableOfObjects,
+  insertIgnore,
   insertObject,
   insertObjects,
   is,
@@ -97,6 +99,7 @@ export {
   jsonQuery,
   jsonValue,
   like,
+  limitedHintsIdentifier,
   line,
   lines,
   list,
@@ -104,7 +107,6 @@ export {
   logicalTrue,
   lt,
   lte,
-  maybeWith,
   merge1n,
   modifyJsons,
   ne,
@@ -128,11 +130,16 @@ export {
   SanitisedIdentifier,
   select,
   star,
+  TableHintLimited,
   template,
   top,
   trueValue,
   unix,
-  updateObject,
+  update,
+
+  /** @deprecated @use `update` */
+  update as updateObject,
+
   updateObjects,
   upsertObjects,
   where,
@@ -146,74 +153,80 @@ export {
 }
 
 export interface t {
-  (xs: TemplateStringsArray, ...vs: unknown[]): Sanitised
-  and: typeof and
-  assign: typeof assign
-  assignObject: typeof assignObject
-  auto: typeof auto
-  columns: typeof columns
-  delete: typeof delete_
+  (xs: TemplateStringsArray, ...vs: unknown[]): Sanitised,
+  and: typeof and,
+  assign: typeof assign,
+  assignObject: typeof assignObject,
+  auto: typeof auto,
+  columns: typeof columns,
+  delete: typeof delete_,
   distinct: typeof distinct,
-  eq: typeof eq
-  exists: typeof exists
-  fallback: typeof fallback
-  falseValue: typeof falseValue
-  gt: typeof gt
-  gte: typeof gte
-  identifier: typeof identifier
-  identifiers: typeof identifiers
-  in: typeof in_
-  inlineTableOfColumn: typeof inlineTableOfColumn
-  inlineTableOfObjects: typeof inlineTableOfObjects
-  insertObject: typeof insertObject
-  insertObjects: typeof insertObjects
+  eq: typeof eq,
+  exists: typeof exists,
+  fallback: typeof fallback,
+  falseValue: typeof falseValue,
+  gt: typeof gt,
+  gte: typeof gte,
+  identifier: typeof identifier,
+  identifiers: typeof identifiers,
+  in: typeof in_,
+  inlineTableOfColumn: typeof inlineTableOfColumn,
+  inlineTableOfObjects: typeof inlineTableOfObjects,
+  insertIgnore: typeof insertIgnore,
+  insertObject: typeof insertObject,
+  insertObjects: typeof insertObjects,
   is: typeof is,
-  json: typeof json
-  jsonQuery: typeof jsonQuery
-  jsonValue: typeof jsonValue
-  like: typeof like
-  line: typeof line
-  lines: typeof lines
-  list: typeof list
-  logicalFalse: typeof logicalFalse
-  logicalTrue: typeof logicalTrue
-  lt: typeof lt
-  lte: typeof lte
-  maybeWith: typeof maybeWith
-  merge1n: typeof merge1n
-  modifyJsons: typeof modifyJsons
-  ne: typeof ne
-  ng: typeof ng
-  nl: typeof nl
-  not: typeof not
-  notDistinct: typeof notDistinct
-  notIn: typeof notIn
-  now: typeof now
-  nstring: typeof nstring
-  null: typeof null_
-  number: typeof number_
-  objectId: typeof objectId
-  or: typeof or
+  json: typeof json,
+  jsonQuery: typeof jsonQuery,
+  jsonValue: typeof jsonValue,
+  like: typeof like,
+  limitedHintsIdentifier: typeof limitedHintsIdentifier,
+  line: typeof line,
+  lines: typeof lines,
+  list: typeof list,
+  logicalFalse: typeof logicalFalse,
+  logicalTrue: typeof logicalTrue,
+  lt: typeof lt,
+  lte: typeof lte,
+  merge1n: typeof merge1n,
+  modifyJsons: typeof modifyJsons,
+  ne: typeof ne,
+  ng: typeof ng,
+  nl: typeof nl,
+  not: typeof not,
+  notDistinct: typeof notDistinct,
+  notIn: typeof notIn,
+  now: typeof now,
+  nstring: typeof nstring,
+  null: typeof null_,
+  number: typeof number_,
+  objectId: typeof objectId,
+  or: typeof or,
   randomIdentifier: typeof randomIdentifier,
-  raw: typeof raw
-  replaceObjects: typeof replaceObjects
-  row: typeof row
-  rowset: typeof rowset
-  Sanitised: typeof Sanitised
-  SanitisedIdentifier: typeof SanitisedIdentifier
-  select: typeof select
-  star: typeof star
-  template: typeof template
-  top: typeof top
-  trueValue: typeof trueValue
-  unix: typeof unix
-  updateObject: typeof updateObject
-  updateObjects: typeof updateObjects
-  upsertObjects: typeof upsertObjects
-  where: typeof where
+  raw: typeof raw,
+  replaceObjects: typeof replaceObjects,
+  row: typeof row,
+  rowset: typeof rowset,
+  Sanitised: typeof Sanitised,
+  SanitisedIdentifier: typeof SanitisedIdentifier,
+  select: typeof select,
+  star: typeof star,
+  TableHintLimited: typeof TableHintLimited,
+  template: typeof template,
+  top: typeof top,
+  trueValue: typeof trueValue,
+  unix: typeof unix,
+  update: typeof update,
+
+  /** @deprecated @use `update` */
+  updateObject: typeof update,
+
+  updateObjects: typeof updateObjects,
+  upsertObjects: typeof upsertObjects,
+  where: typeof where,
 
   // Aliases
-  id: typeof identifier
+  id: typeof identifier,
   ids: typeof identifiers
 }
 
@@ -241,6 +254,7 @@ const tsql: t =
     in: in_,
     inlineTableOfColumn,
     inlineTableOfObjects,
+    insertIgnore,
     insertObject,
     insertObjects,
     is,
@@ -248,6 +262,7 @@ const tsql: t =
     jsonQuery,
     jsonValue,
     like,
+    limitedHintsIdentifier,
     line,
     lines,
     list,
@@ -255,7 +270,6 @@ const tsql: t =
     logicalTrue,
     lt,
     lte,
-    maybeWith,
     merge1n,
     modifyJsons,
     ne,
@@ -279,11 +293,16 @@ const tsql: t =
     SanitisedIdentifier,
     select,
     star,
+    TableHintLimited,
     template,
     top,
     trueValue,
     unix,
-    updateObject,
+    update,
+
+    /** @deprecated @use `update` */
+    updateObject: update,
+
     updateObjects,
     upsertObjects,
     where,
