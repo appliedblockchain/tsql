@@ -25,6 +25,8 @@ const unary = {
   $not: not
 }
 
+type Unary = typeof unary
+
 const binary = {
   $distinct: distinct,
   $eq: eq,
@@ -43,10 +45,14 @@ const binary = {
   $nin: notIn
 }
 
+type Binary = typeof binary
+
 const logical = {
   $and: and,
   $or: or
 }
+
+type Logical = typeof logical
 
 const object =
   (value: unknown): value is Record<string, unknown> =>
@@ -76,7 +82,7 @@ const visitEntry =
     }
     const key_ = single(value)
     if (key_ && key_ in binary) {
-      return binary[key_](key, (value as Record<string, unknown>)[key_])
+      return binary[key_ as keyof Binary](key, (value as Record<string, unknown>)[key_] as unknown[])
     }
     return eq(key, value)
   }
@@ -90,10 +96,10 @@ const visit =
     if (key) {
       const value_ = (value as Record<string, unknown>)[key]
       if (key in logical && Array.isArray(value_)) {
-        return logical[key](...value_.map(visit))
+        return logical[key as keyof Logical](...value_.map(visit))
       }
       if (key in unary) {
-        return unary[key](visit(value_))
+        return unary[key as keyof Unary](visit(value_))!
       }
     }
     if (object(value)) {
