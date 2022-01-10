@@ -1,7 +1,8 @@
-declare const tag: unique symbol
+const tag = Symbol()
 
 export class Sanitised extends String {
-  readonly [tag]: 'Sanitised'
+  // @ts-expect-error This tag ensures the class is not forgeable
+  private readonly [tag]: 'Sanitised'
 }
 
 export default Sanitised

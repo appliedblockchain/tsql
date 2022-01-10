@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@appliedblockchain/eslint-config": "3.0.0",
-    "@tsconfig/node14": "1.0.1",
+    "@tsconfig/node16": "1.0.2",
     "@types/debug": "4.1.7",
     "@types/jest": "27.0.2",
     "@types/tedious": "4.0.5",

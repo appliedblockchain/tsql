@@ -1,9 +1,10 @@
 import S from './sanitised'
 
-declare const tag: unique symbol
+const tag = Symbol()
 
 export class SanitisedIdentifier extends S {
-  readonly [tag]: 'SanitisedIdentifier'
+  // @ts-expect-error This tag ensures the class is not forgeable
+  private readonly [tag]: 'SanitisedIdentifier'
 }
 
 export default SanitisedIdentifier
