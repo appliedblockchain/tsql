@@ -121,6 +121,18 @@ export default class Sql {
     return this.query(Tsql.updateObject(table, where, object))
   }
 
+  async merge1n(
+    table: Tsql.Sid | string,
+    [ lcolumn, rcolumn ]: [ Tsql.Sid | string, Tsql.Sid | string ],
+    lid: unknown,
+    values: unknown[],
+    { hints = [ 'serializable' ] }: {
+      hints?: Tsql.TableHintLimited.t[]
+    } = {}
+  ) {
+    return this.query(Tsql.merge1n(table, [ lcolumn, rcolumn ], lid, values, { hints }))
+  }
+
   async modifyJsons(
     table: Tsql.Sid | string,
     entries: readonly Record<string, unknown>[]

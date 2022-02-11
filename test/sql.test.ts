@@ -153,3 +153,42 @@ describe('insertObjects', () => {
   })
 
 })
+
+describe('merge1n', () => {
+
+  beforeAll(async () => {
+    await sql.rows`
+      create table RolePermissions (
+        role nvarchar(32),
+        permission nvarchar(32)
+      )
+    `
+  })
+
+  afterAll(async () => {
+    await sql.dropTable('RolePermissions')
+  })
+
+  test('initital', async () => {
+    await sql.merge1n('RolePermissions', [ 'role', 'permission' ], 'ADMIN', [ 'A', 'B', 'C' ])
+    await sql.merge1n('RolePermissions', [ 'role', 'permission' ], 'USER', [ 'C', 'D' ])
+    await expect(sql.rows`select * from RolePermissions order by role, permission`).resolves.toEqual([
+      { role: 'ADMIN', permission: 'A' },
+      { role: 'ADMIN', permission: 'B' },
+      { role: 'ADMIN', permission: 'C' },
+      { role: 'USER', permission: 'C' },
+      { role: 'USER', permission: 'D' }
+    ])
+    await sql.merge1n('RolePermissions', [ 'role', 'permission' ], 'MANAGER', [])
+    await sql.merge1n('RolePermissions', [ 'role', 'permission' ], 'USER', [ 'D', 'A', 'X' ])
+    await expect(sql.rows`select * from RolePermissions order by role, permission`).resolves.toEqual([
+      { role: 'ADMIN', permission: 'A' },
+      { role: 'ADMIN', permission: 'B' },
+      { role: 'ADMIN', permission: 'C' },
+      { role: 'USER', permission: 'A' },
+      { role: 'USER', permission: 'D' },
+      { role: 'USER', permission: 'X' }
+    ])
+  })
+
+})
