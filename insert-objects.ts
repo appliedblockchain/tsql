@@ -8,7 +8,13 @@ import tsql from './template'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
-/** @returns multiple row insert DML. */
+/**
+ * @returns multiple row insert DML.
+ *
+ * @see insertIgnore for DML which ignores existing rows.
+ *
+ * @see insertNotMatched for DML which ignores existing rows using MERGE statement.
+ */
 export const insertObjects =
   (
     table: Sid | string,

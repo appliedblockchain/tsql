@@ -4,7 +4,7 @@ import list from './list'
 import template from './template'
 import type S from './sanitised'
 
-/** @returns identifier with optional, limited hint(s). */
+/** @returns identifier with optional, [limited hints](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table). */
 const limitedHintsIdentifier =
   (table: Parameters<typeof identifier>[0], hints?: TableHintLimited.t[]): S =>
     hints && hints.length > 0 ?

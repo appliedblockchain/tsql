@@ -972,6 +972,7 @@ const keywords_ = [
   'zone'
 ]
 
+/** An array of MSSQL keywords. */
 const keywords: { [keyword: string]: undefined | true } =
   keywords_.reduce((r, _) => ({ ...r, [_]: true }), {})
 

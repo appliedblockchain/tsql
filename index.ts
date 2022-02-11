@@ -34,6 +34,7 @@ import logicalFalse from './logical-false'
 import logicalTrue from './logical-true'
 import lt from './lt'
 import lte from './lte'
+import maybeLine from './maybe-line'
 import merge1n from './merge-1n'
 import modifyJsons from './modify-jsons'
 import ne from './ne'
@@ -109,6 +110,7 @@ export {
   logicalTrue,
   lt,
   lte,
+  maybeLine,
   merge1n,
   modifyJsons,
   ne,
@@ -191,6 +193,7 @@ export interface t {
   logicalTrue: typeof logicalTrue,
   lt: typeof lt,
   lte: typeof lte,
+  maybeLine: typeof maybeLine,
   merge1n: typeof merge1n,
   modifyJsons: typeof modifyJsons,
   ne: typeof ne,
@@ -274,6 +277,7 @@ const tsql: t =
     logicalTrue,
     lt,
     lte,
+    maybeLine,
     merge1n,
     modifyJsons,
     ne,

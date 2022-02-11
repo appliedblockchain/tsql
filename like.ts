@@ -11,6 +11,11 @@ const rhsLike =
       tsql`is null` :
       tsql`like ${nstring(String(rhs))}`
 
+/**
+ * @returns LIKE operator.
+ *
+ * `undefined` is propagated.
+ */
 export const like =
   (lhs: S | string, rhs: unknown): undefined | S =>
     typeof rhs === 'undefined' ?
