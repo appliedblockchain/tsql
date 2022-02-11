@@ -10,6 +10,15 @@ const rhsEq =
       tsql`is null` :
       tsql`= ${rhs}`
 
+/**
+ * @returns comparision expression.
+ *
+ * `null` RHS returns LHS IS NULL.
+ *
+ * `undefined` RHS propagates.
+ *
+ * @see distinct for NULL aware comparision.
+ */
 export const eq =
   (lhs: S | string, rhs: unknown): undefined | S =>
     typeof rhs === 'undefined' ?

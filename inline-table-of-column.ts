@@ -6,8 +6,11 @@ import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 import tsql from './template'
 
-/** @returns literal table from provided values.
-    @throws if `values` array is empty. */
+/**
+ * @returns single column literal table from provided array of values.
+ *
+ * @throws {Error} if provided values array is empty.
+ */
 export const inlineTableOfColumn =
   (table: Sid | string, column: Sid | string, values: unknown[]): S => {
     if (!values.length) {

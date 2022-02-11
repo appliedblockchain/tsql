@@ -3,9 +3,20 @@ import id from './identifier'
 import list from './list'
 import type S from './sanitised'
 
-/** @returns assigment based on object key-values. */
+/**
+ * @returns assigment clause based on provided record, ie. for UPDATE SET.
+ *
+ * `undefined` entries are filtered out.
+ *
+ * @throws {Error} if provided record doesn't have any non-`undefined` entries.
+ */
 export const assignObject =
-  (kv: Record<string, unknown>): S =>
-    list(Object.keys(kv).filter(k => typeof k !== 'undefined').map(k => assign(id(k), kv[k])))
+  (record: Record<string, unknown>): S => {
+    const keys = Object.keys(record).filter(k => typeof k !== 'undefined')
+    if (keys.length === 0) {
+      throw new Error('Expected record with at least one key.')
+    }
+    return list(keys.map(k => assign(id(k), record[k])))
+  }
 
 export default assignObject

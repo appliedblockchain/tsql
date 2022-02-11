@@ -6,7 +6,7 @@ import tsql from './template'
 
 /**
  * @internal
- * @param op_ can leak unsanitised string if misused, hence @internal.
+ * @param op_ can leak unsanitised string if misused, hence internal.
  */
 export const op =
   (l: S | string, op_: S | string, r: unknown): undefined | S =>

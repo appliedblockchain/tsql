@@ -5,7 +5,13 @@ import template from './template'
 import logicalTrue from './logical-true'
 import type S from './sanitised'
 
-/** @returns sanitised and operator. `undefined` terms are dropped. Empty list of terms returns true (1=1). */
+/**
+ * @returns terms joined with AND operator.
+ *
+ * `undefined` terms are filtered out.
+ *
+ * An empty list of terms returns logical true (1=1).
+ */
 export const and =
   (...xs: unknown[]): S => {
     const xs_ = xs.filter(_ => typeof _ !== 'undefined')

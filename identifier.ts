@@ -24,6 +24,21 @@ let jsonQuery: (column: Sid | string, query?: undefined | null | string) => Sid
 // eslint-disable-next-line prefer-const
 let jsonValue: (column: Sid | string, query: string) => Sid
 
+/**
+ * @returns sanitised identifier.
+ *
+ * Already sanitised identifiers are returned as is.
+ *
+ * String including `->` is returned as JSON_VALUE(LHS, RHS).
+ *
+ * String including `~>` is returned as JSON_QUERY(LHS, RHS?).
+ *
+ * `.`-separated string is split and joined.
+ *
+ * Strings are quoted if not plain. Non plain string is MSSQL keyword or string containing special characters.
+ *
+ * Above rules are recursive with precedence as listed.
+ */
 const identifier =
   (x: Identifier): Sid => {
     if (x instanceof Sid) {

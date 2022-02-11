@@ -3,6 +3,13 @@ import id from './identifier'
 import template from './template'
 import type S from './sanitised'
 
+/**
+ * @returns emulated NULL aware comparision.
+ *
+ * MSSQL doesn't support IS DISTINCT FROM comparision directly.
+ *
+ * Single invocation of RHS is not guaranteed.
+ */
 export const distinct =
   (lhs: S | string, rhs: unknown): undefined | S => {
     if (typeof lhs === 'undefined' || typeof rhs === 'undefined') {

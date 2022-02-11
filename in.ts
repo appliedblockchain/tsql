@@ -6,6 +6,13 @@ import row from './row'
 import type S from './sanitised'
 import logicalFalse from './logical-false'
 
+/**
+ * @returns LHS in (RHS) expression.
+ *
+ * `undefined` RHS propagates.
+ *
+ * Falsy or empty array RHS returns logical false.
+ */
 export const in_ =
   (l: S | string, r: undefined | null | unknown[]): undefined | S =>
     typeof r === 'undefined' ?
