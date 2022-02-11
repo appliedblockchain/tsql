@@ -1,34 +1,19 @@
 import { inspect } from 'util'
-import and from './and'
-import eq from './eq'
+import auto from './auto'
 import id from './identifier'
-import inlineTableOfObjects from './inline-table-of-objects'
 import keysOfObjects from './helpers/keys-of-objects'
-import limitedHintsIdentifier from './limited-hints-identifier'
+import list from './list'
 import row from './row'
 import tsql from './template'
-import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
-export const sourcePrefixed =
-  (_: Sid | string): Sid =>
-    id([ 'Source', _ ])
-
-export const targetPrefixed =
-  (_: Sid | string): Sid =>
-    id([ 'Target', _ ])
-
-/** @returns merge dml that runs insert operations on target table from the result of a join with source table. Already existing records are skipped. */
+/** @returns multiple row insert DML. */
 export const insertObjects =
   (
     table: Sid | string,
-    onKeys: string[],
     objects: Record<string, unknown>[],
-    maybeObjectKeys?: string[],
-    { hints }: {
-      hints?: TableHintLimited[]
-    } = {}
+    maybeKeys?: string[]
   ): S => {
 
     if (!Array.isArray(objects)) {
@@ -39,17 +24,13 @@ export const insertObjects =
       return tsql`select 0;`
     }
 
-    const table_ = limitedHintsIdentifier(table, hints)
-    const objectKeys = maybeObjectKeys || keysOfObjects(objects)
-    const on_ = and(...onKeys.map(_ => eq(sourcePrefixed(_), targetPrefixed(_))))
-
+    const table_ = id(table)
+    const keys = maybeKeys ?? keysOfObjects(objects)
+    const keys_ = list(keys.map(id))
+    const values_ = list(objects.map(object => row(keys.map(key => auto(object[key])))))
     return tsql`
-      merge ${table_} as ${id('Target')}
-      using ${inlineTableOfObjects('Source', objects, objectKeys)}
-      on ${on_}
-      when not matched by target then
-        insert ${row(objectKeys.map(id))}
-        values ${row(objectKeys.map(sourcePrefixed))};
+      insert into ${table_} (${keys_})
+      values ${values_}
     `
   }
 
