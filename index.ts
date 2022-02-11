@@ -18,6 +18,7 @@ import in_ from './in'
 import inlineTableOfColumn from './inline-table-of-column'
 import inlineTableOfObjects from './inline-table-of-objects'
 import insertIgnore from './insert-ignore'
+import insertNotMatched from './insert-not-matched'
 import insertObject from './insert-object'
 import insertObjects from './insert-objects'
 import is from './is'
@@ -92,6 +93,7 @@ export {
   inlineTableOfColumn,
   inlineTableOfObjects,
   insertIgnore,
+  insertNotMatched,
   insertObject,
   insertObjects,
   is,
@@ -173,6 +175,7 @@ export interface t {
   inlineTableOfColumn: typeof inlineTableOfColumn,
   inlineTableOfObjects: typeof inlineTableOfObjects,
   insertIgnore: typeof insertIgnore,
+  insertNotMatched: typeof insertNotMatched,
   insertObject: typeof insertObject,
   insertObjects: typeof insertObjects,
   is: typeof is,
@@ -255,6 +258,7 @@ const tsql: t =
     inlineTableOfColumn,
     inlineTableOfObjects,
     insertIgnore,
+    insertNotMatched,
     insertObject,
     insertObjects,
     is,
