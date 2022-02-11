@@ -7,7 +7,13 @@ import tsql from './template'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
-/** @returns insert `object` into `table` statement. */
+/**
+ * @returns insert DML for single row.
+ *
+ * `undefined` entries are filtered out.
+ *
+ * @throws {TypeError} if there are no non-`undefined` entries.
+ */
 export const insertObject =
   (table: Sid | string, object: Record<string, unknown>): S => {
     const object_ = defined(object)
