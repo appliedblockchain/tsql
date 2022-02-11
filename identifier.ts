@@ -18,11 +18,11 @@ export const quote =
   (value: unknown): string =>
     '[' + String(value).replace(/\]/g, ']]') + ']'
 
-// eslint-disable-next-line prefer-const
-let jsonQuery: (column: Sid | string, query?: undefined | null | string) => Sid
+/** @returns JSON_QUERY(C, Q?) built-in function call. */
+let jsonQuery: (column: Sid | string, query?: undefined | null | string) => Sid // eslint-disable-line prefer-const
 
-// eslint-disable-next-line prefer-const
-let jsonValue: (column: Sid | string, query: string) => Sid
+/** @returns JSON_VALUE(C) built-in function call. */
+let jsonValue: (column: Sid | string, query: string) => Sid // eslint-disable-line prefer-const
 
 /**
  * @returns sanitised identifier.
