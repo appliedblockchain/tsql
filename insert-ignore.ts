@@ -19,14 +19,20 @@ export const targetPrefixed =
   (_: Sid | string): Sid =>
     id([ 'Target', _ ])
 
-/** Inserts rows ignoring existing ones based on provided keys. */
+/**
+ * @returns insert DML ignoring existing rows.
+ *
+ * If provided array of objects is empty, returns SELECT 0.
+ *
+ * Optional hits can be provided. Defaults to SERIALIZABLE hint.
+ */
 export const insertIgnore =
   (
     table: Sid | string,
     onKeys: string[],
     objects: Record<string, unknown>[],
     maybeObjectKeys?: string[],
-    { hints }: {
+    { hints = [ 'serializable' ] }: {
       hints?: TableHintLimited[]
     } = {}
   ): S => {
