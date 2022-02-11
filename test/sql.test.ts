@@ -19,13 +19,13 @@ test('perpare users table', async () => {
       metaJson nvarchar(max) not null default '{}'
     )
   `
-  await sql.insert('Users', { name: 'admin', metaJson: JSON.stringify({ admin: true, stars: 5 }) })
-  await sql.insert('Users', { name: 'user', metaJson: JSON.stringify({ admin: false, stars: 3 }) })
-  await sql.insert('Users', { name: 'other1', metaJson: JSON.stringify({ stars: null }) })
-  await sql.insert('Users', { name: 'other2', metaJson: JSON.stringify({ stars: 1 }) })
-  await sql.insert('Users', { name: 'other3', metaJson: JSON.stringify({ stars: 2 }) })
-  await sql.insert('Users', { name: 'other4', metaJson: JSON.stringify({ stars: 3 }) })
-  await sql.insert('Users', { name: 'other5', metaJson: JSON.stringify({ stars: 4 }) })
+  await sql.insertObject('Users', { name: 'admin', metaJson: JSON.stringify({ admin: true, stars: 5 }) })
+  await sql.insertObject('Users', { name: 'user', metaJson: JSON.stringify({ admin: false, stars: 3 }) })
+  await sql.insertObject('Users', { name: 'other1', metaJson: JSON.stringify({ stars: null }) })
+  await sql.insertObject('Users', { name: 'other2', metaJson: JSON.stringify({ stars: 1 }) })
+  await sql.insertObject('Users', { name: 'other3', metaJson: JSON.stringify({ stars: 2 }) })
+  await sql.insertObject('Users', { name: 'other4', metaJson: JSON.stringify({ stars: 3 }) })
+  await sql.insertObject('Users', { name: 'other5', metaJson: JSON.stringify({ stars: 4 }) })
 })
 
 test('json query', async () => {
@@ -120,6 +120,36 @@ describe('insertIgnore', () => {
       { id: '3', name: 'C' },
       { id: '4', name: 'D' }
     ])
+  })
+
+})
+
+describe('insertObjects', () => {
+
+  beforeAll(async () => {
+    await sql.rows`
+      create table Roles (
+        id integer not null primary key,
+        [name] nvarchar(32)
+      )
+    `
+  })
+
+  afterAll(async () => {
+    await sql.dropTable('Roles')
+  })
+
+  beforeEach(async () => {
+    await sql.delete('Roles')
+  })
+
+  test('insert', async () => {
+    await sql.insertObjects('Roles', [
+      { id: 1, name: 'A' },
+      { id: 2, name: 'B' },
+      { id: 3, name: 'C' }
+    ])
+    await expect(sql.row`select count(*) as count from Roles`).resolves.toEqual({ count: 3 })
   })
 
 })

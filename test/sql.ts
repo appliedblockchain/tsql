@@ -109,8 +109,12 @@ export default class Sql {
     return this.query(Tsql.insertIgnore(...args))
   }
 
-  async insert(table: Tsql.Sid | string, object: Record<string, unknown>): Promise<unknown> {
+  async insertObject(table: Tsql.Sid | string, object: Record<string, unknown>): Promise<unknown> {
     return this.query(Tsql.insertObject(table, object))
+  }
+
+  async insertObjects(table: Tsql.Sid | string, objects: Record<string, unknown>[], maybeKeys?: string[]) {
+    return this.query(Tsql.insertObjects(table, objects, maybeKeys))
   }
 
   async update(table: Tsql.Sid | string, where: Tsql.Where, object: Record<string, unknown>): Promise<unknown> {
