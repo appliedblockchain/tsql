@@ -2,11 +2,13 @@ import type S from './sanitised'
 import raw from './raw'
 
 /**
- * False value as 0 casted to BIT.
+ * Value boolean false – 0 casted as BIT.
  *
- * False value can be used as assignment RHS.
+ * Logical booleans can be used in condition expressions, ie. WHERE clause.
  *
- * @see logicalFalse for logical false which can be used in condition ie. WHERE clause.
+ * Value booleans can be used in assignment statements, ie. UPDATE SET clause.
+ *
+ * @see falseValue for value boolean variant.
  */
 export const falseValue: S =
   raw('cast(0 as bit)')

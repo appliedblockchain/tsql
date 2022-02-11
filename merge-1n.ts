@@ -8,13 +8,14 @@ import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 
+/** @returns MERGE DML synchronising 1-n relation. */
 export const merge1n =
   (
     table: Sid | string,
     [ lcolumn, rcolumn ]: [ Sid | string, Sid | string ],
     lid: unknown,
     values: unknown[],
-    { hints }: {
+    { hints = [ 'serializable' ] }: {
       hints?: TableHintLimited[]
     } = {}
   ): S => {

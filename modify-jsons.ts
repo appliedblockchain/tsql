@@ -27,7 +27,7 @@ export const modify =
       jsonKeys.reduce((_, jsonKey) => tsql`json_modify(${_}, ${`$.${jsonKey}`}, json_query(${sourcePrefixed(column)}, ${`$.${jsonKey}`}))`, targetPrefixed(column) as S)
     ) as S
 
-/** @returns modifies json column for multiple rows. */
+/** @returns MERGE DML for json columns, multiple rows via JSON_MODIFY and JSON_QUERY. */
 export const modifyJsons = (
   table: Sid | string,
   entries: readonly Record<string, unknown>[]

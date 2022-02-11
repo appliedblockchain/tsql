@@ -3,7 +3,9 @@
  *
  * Usage:
  *
+ *   ```ts
  *   Tsql.where({ foo: Tsql.is(Tsql.gt, 3) })
+ *   ```
  *
  */
 const is =

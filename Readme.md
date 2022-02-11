@@ -167,7 +167,11 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 * `jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier`
 
+  Returns JSON_VALUE(C) built-in function call.
+
 * `jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier`
+
+  Returns JSON_QUERY(C, Q?) built-in function call.
 
 * `and: (...xs: unknown[]) => Sanitised`
 
@@ -249,11 +253,13 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 * `falseValue: Sanitised`
 
-  False value as 0 casted to BIT.
+  Value boolean false – 0 casted as BIT.
 
-  False value can be used as assignment RHS.
+  Logical booleans can be used in condition expressions, ie. WHERE clause.
 
-  See logicalFalse for logical false which can be used in condition ie. WHERE clause.
+  Value booleans can be used in assignment statements, ie. UPDATE SET clause.
+
+  See falseValue for value boolean variant.
 
 * `gt: (l: string | Sanitised, r: unknown) => Sanitised`
 
@@ -311,57 +317,139 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 * `insertIgnore: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
 
-  Inserts rows ignoring existing ones based on provided keys.
+  Returns insert DML ignoring existing rows.
+
+  If provided array of objects is empty, returns SELECT 0.
+
+  Optional hits can be provided. Defaults to SERIALIZABLE hint.
+
+* `insertNotMatched: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
+
+  Returns merge DML that runs insert operations on target table from the result of a join with source table.
+
+  Already existing records are skipped.
+
+  This DML is using MERGE statement.
+
+  See insertIgnore for DML based on INSERT and LEFT JOIN.
 
 * `insertObject: (table: string | SanitisedIdentifier, object: Record<string, unknown>) => Sanitised`
 
-  Returns insert `object` into `table` statement.
+  Returns insert DML for single row.
 
-* `insertObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
+  `undefined` entries are filtered out.
 
-  Returns merge dml that runs insert operations on target table from the result of a join with source table. Already existing records are skipped.
+  Throws {TypeError} if there are no non-`undefined` entries.
+
+* `insertObjects: (table: string | SanitisedIdentifier, objects: Record<string, unknown>[], maybeKeys?: string[]) => Sanitised`
+
+  Returns multiple row insert DML.
+
+  See insertIgnore for DML which ignores existing rows.
+
+  See insertNotMatched for DML which ignores existing rows using MERGE statement.
 
 * `is: <Lhs, Rest extends unknown[], R>(f: (lhs: Lhs, ...args: Rest) => R, ...args: Rest) => (lhs: Lhs) => R`
 
+  Returns where clause comparision combinator.
+
+  Usage:
+
+  ```ts
+  Tsql.where({ foo: Tsql.is(Tsql.gt, 3) })
+  ```
+
 * `json: (x: unknown) => Sanitised`
 
-  Returns json nvarchar escaped string; null if `x` is undefined; `null` is encoded as json string (it is a valid json value).
+  Returns stringified json.
+
+  `undefined` value is serialised as NULL.
 
 * `jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier`
 
+  Returns JSON_QUERY(C, Q?) built-in function call.
+
 * `jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier`
+
+  Returns JSON_VALUE(C) built-in function call.
 
 * `like: (lhs: string | Sanitised, rhs: unknown) => Sanitised`
 
+  Returns LIKE operator.
+
+  `undefined` is propagated.
+
 * `limitedHintsIdentifier: (table: Identifier, hints?: TableHintLimited[]) => Sanitised`
 
-  Returns identifier with optional, limited hint(s).
+  Returns identifier with optional, [limited hints](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table).
 
-* `line: (...xs: unknown[]) => Sanitised`
+* `line: (...elements: unknown[]) => Sanitised`
 
-  Returns a line constructed from components; undefined values are filtered out.
+  Returns space delimited line constructed from provided elements.
+
+  `undefined` values are filtered out.
+
+  Empty list returns sanitized empty string.
+
+  See maybeLine for variant which propagates emtpy list to undefined.
 
 * `lines: <T>(xs: readonly T[], separator: string) => Sanitised`
 
+  Returns lines joined with provided separator.
+
 * `list: <T>(xs: readonly T[], f?: (_: T) => Sanitised) => Sanitised`
+
+  Returns comma separated list of values.
+
+  Optional element to sanitised string mapping can be provided (defaults to auto-sanitation).
 
 * `logicalFalse: Sanitised`
 
-  See  `falseValue`.
+  Simulated logical false – 0=1.
+
+  Logical booleans can be used in condition expressions, ie. WHERE clause.
+
+  Value booleans can be used in assignment statements, ie. UPDATE SET clause.
+
+  See falseValue for value boolean variant.
 
 * `logicalTrue: Sanitised`
 
-  See  `trueValue`.
+  Simulated logical true – 1=1.
+
+  Logical booleans can be used in condition expressions, ie. WHERE clause.
+
+  Value booleans can be used in assignment statements, ie. UPDATE SET clause.
+
+  See trueValue for value boolean variant.
 
 * `lt: (l: string | Sanitised, r: unknown) => Sanitised`
 
+  Returns lower than expression.
+
+  `undefined` RHS is propagated.
+
 * `lte: (l: string | Sanitised, r: unknown) => Sanitised`
+
+  Returns lower than or equal expression.
+
+  `undefined` RHS is propagated.
+
+* `maybeLine: (...elements: unknown[]) => Sanitised`
+
+  Returns space delimited line constructed from provided elements.
+
+  `undefined` values are filtered out.
+
+  Empty list (after filtering out `undefined`) propagates `undefined`.
 
 * `merge1n: (table: string | SanitisedIdentifier, [lcolumn, rcolumn]: [string | SanitisedIdentifier, string | SanitisedIdentifier], lid: unknown, values: unknown[], { hints }?: { ...; }) => Sanitised`
 
+  Returns MERGE DML synchronising 1-n relation.
+
 * `modifyJsons: (table: string | SanitisedIdentifier, entries: readonly Record<string, unknown>[]) => Sanitised`
 
-  Returns modifies json column for multiple rows.
+  Returns MERGE DML for json columns, multiple rows via JSON_MODIFY and JSON_QUERY.
 
 * `ne: (l: string | Sanitised, r: unknown) => Sanitised`
 
@@ -429,7 +517,13 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 * `trueValue: Sanitised`
 
-  See  `logicalTrue`.
+  Value boolean true – 1 casted as BIT.
+
+  Logical booleans can be used in condition expressions, ie. WHERE clause.
+
+  Value booleans can be used in assignment statements, ie. UPDATE SET clause.
+
+  See trueValue for value boolean variant.
 
 * `unix: Sanitised`
 

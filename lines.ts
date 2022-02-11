@@ -3,6 +3,7 @@ import auto from './auto'
 import raw from './raw'
 import type S from './sanitised'
 
+/** @returns lines joined with provided separator. */
 export const lines =
   <T>(xs: readonly T[], separator: string): S => {
     if (!Array.isArray(xs)) {
