@@ -165,40 +165,46 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 ## Tsql module
 
-* `jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier`
-
+* ```ts
+  jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier
+  ```
   Returns JSON_VALUE(C) built-in function call.
 
-* `jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier`
-
+* ```ts
+  jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier
+  ```
   Returns JSON_QUERY(C, Q?) built-in function call.
 
-* `and: (...xs: unknown[]) => Sanitised`
-
+* ```ts
+  and: (...xs: unknown[]) => Sanitised
+  ```
   Returns terms joined with AND operator.
 
   `undefined` terms are filtered out.
 
   An empty list of terms returns logical true (1=1).
 
-* `assign: (lhs: string | SanitisedIdentifier, rhs: unknown) => Sanitised`
-
+* ```ts
+  assign: (lhs: string | SanitisedIdentifier, rhs: unknown) => Sanitised
+  ```
   Returns assigment operator LHS = RHS.
 
   `undefined` RHS is propagated.
 
   `null` RHS is left as is LHS = null.
 
-* `assignObject: (record: Record<string, unknown>) => Sanitised`
-
+* ```ts
+  assignObject: (record: Record<string, unknown>) => Sanitised
+  ```
   Returns assigment clause based on provided record, ie. for UPDATE SET.
 
   `undefined` entries are filtered out.
 
   Throws {Error} if provided record doesn't have any non-`undefined` entries.
 
-* `auto: (value: unknown) => Sanitised`
-
+* ```ts
+  auto: (value: unknown) => Sanitised
+  ```
   Returns automatically sanitised value.
 
   Already sanitised values are returned as is.
@@ -217,24 +223,28 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   Throws {TypeError} for all other values.
 
-* `columns: (all: Record<string, string | boolean | Sanitised>, filter?: Record<string, boolean>) => Sanitised`
-
+* ```ts
+  columns: (all: Record<string, string | boolean | Sanitised>, filter?: Record<string, boolean>) => Sanitised
+  ```
   Returns column projection based on provided record and optional filter.
 
-* `delete: (table: string | SanitisedIdentifier, where?: Sanitised | Record<string, unknown>) => Sanitised`
-
+* ```ts
+  delete: (table: string | SanitisedIdentifier, where?: Sanitised | Record<string, unknown>) => Sanitised
+  ```
   Returns DELETE DML for table with optional WHERE clause.
 
-* `distinct: (lhs: string | Sanitised, rhs: unknown) => Sanitised`
-
+* ```ts
+  distinct: (lhs: string | Sanitised, rhs: unknown) => Sanitised
+  ```
   Returns emulated NULL aware comparision.
 
   MSSQL doesn't support IS DISTINCT FROM comparision directly.
 
   Single invocation of RHS is not guaranteed.
 
-* `eq: (lhs: string | Sanitised, rhs: unknown) => Sanitised`
-
+* ```ts
+  eq: (lhs: string | Sanitised, rhs: unknown) => Sanitised
+  ```
   Returns comparision expression.
 
   `null` RHS returns LHS IS NULL.
@@ -243,16 +253,19 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See distinct for NULL aware comparision.
 
-* `exists: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>) => Sanitised`
-
+* ```ts
+  exists: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>) => Sanitised
+  ```
   Returns EXISTS query for table with WHERE clause.
 
-* `fallback: <T>(x: T, f: (_: Exclude<T, SanitisedIdentifier | Sanitised>) => Sanitised) => Sanitised`
-
+* ```ts
+  fallback: <T>(x: T, f: (_: Exclude<T, SanitisedIdentifier | Sanitised>) => Sanitised) => Sanitised
+  ```
   Returns sanitised value as is, otherwise falls back to provided sanitation function.
 
-* `falseValue: Sanitised`
-
+* ```ts
+  falseValue: Sanitised
+  ```
   Value boolean false – 0 casted as BIT.
 
   Logical booleans can be used in condition expressions, ie. WHERE clause.
@@ -261,20 +274,23 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See falseValue for value boolean variant.
 
-* `gt: (l: string | Sanitised, r: unknown) => Sanitised`
-
+* ```ts
+  gt: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
   Returns greater than expression.
 
   `undefined` RHS is propagated.
 
-* `gte: (l: string | Sanitised, r: unknown) => Sanitised`
-
+* ```ts
+  gte: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
   Returns greater than or equal expression.
 
   `undefined` RHS is propagated.
 
-* `identifier: (x: Identifier) => SanitisedIdentifier`
-
+* ```ts
+  identifier: (x: Identifier) => SanitisedIdentifier
+  ```
   Returns sanitised identifier.
 
   Already sanitised identifiers are returned as is.
@@ -289,42 +305,48 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   Above rules are recursive with precedence as listed.
 
-* `identifiers: (...xs: (string | SanitisedIdentifier)[]) => Sanitised`
-
+* ```ts
+  identifiers: (...xs: (string | SanitisedIdentifier)[]) => Sanitised
+  ```
   Returns comma separated list of provided identifiers.
 
   See identifier
 
-* `in: (l: string | Sanitised, r: unknown[]) => Sanitised`
-
+* ```ts
+  in: (l: string | Sanitised, r: unknown[]) => Sanitised
+  ```
   Returns LHS in (RHS) expression.
 
   `undefined` RHS propagates.
 
   Falsy or empty array RHS returns logical false.
 
-* `inlineTableOfColumn: (table: string | SanitisedIdentifier, column: string | SanitisedIdentifier, values: unknown[]) => Sanitised`
-
+* ```ts
+  inlineTableOfColumn: (table: string | SanitisedIdentifier, column: string | SanitisedIdentifier, values: unknown[]) => Sanitised
+  ```
   Returns single column literal table from provided array of values.
 
   Throws {Error} if provided values array is empty.
 
-* `inlineTableOfObjects: (table: string | SanitisedIdentifier, objects: readonly Record<string, unknown>[], maybeKeys?: string[]) => Sanitised`
-
+* ```ts
+  inlineTableOfObjects: (table: string | SanitisedIdentifier, objects: readonly Record<string, unknown>[], maybeKeys?: string[]) => Sanitised
+  ```
   Returns literal table from provided array of records.
 
   Throws {Error} if provided values array is empty.
 
-* `insertIgnore: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
+* ```ts
+  insertIgnore: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised
+  ```
   Returns insert DML ignoring existing rows.
 
   If provided array of objects is empty, returns SELECT 0.
 
   Optional hits can be provided. Defaults to SERIALIZABLE hint.
 
-* `insertNotMatched: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
+* ```ts
+  insertNotMatched: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised
+  ```
   Returns merge DML that runs insert operations on target table from the result of a join with source table.
 
   Already existing records are skipped.
@@ -333,24 +355,27 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See insertIgnore for DML based on INSERT and LEFT JOIN.
 
-* `insertObject: (table: string | SanitisedIdentifier, object: Record<string, unknown>) => Sanitised`
-
+* ```ts
+  insertObject: (table: string | SanitisedIdentifier, object: Record<string, unknown>) => Sanitised
+  ```
   Returns insert DML for single row.
 
   `undefined` entries are filtered out.
 
   Throws {TypeError} if there are no non-`undefined` entries.
 
-* `insertObjects: (table: string | SanitisedIdentifier, objects: Record<string, unknown>[], maybeKeys?: string[]) => Sanitised`
-
+* ```ts
+  insertObjects: (table: string | SanitisedIdentifier, objects: Record<string, unknown>[], maybeKeys?: string[]) => Sanitised
+  ```
   Returns multiple row insert DML.
 
   See insertIgnore for DML which ignores existing rows.
 
   See insertNotMatched for DML which ignores existing rows using MERGE statement.
 
-* `is: <Lhs, Rest extends unknown[], R>(f: (lhs: Lhs, ...args: Rest) => R, ...args: Rest) => (lhs: Lhs) => R`
-
+* ```ts
+  is: <Lhs, Rest extends unknown[], R>(f: (lhs: Lhs, ...args: Rest) => R, ...args: Rest) => (lhs: Lhs) => R
+  ```
   Returns where clause comparision combinator.
 
   Usage:
@@ -359,32 +384,38 @@ where (json_value(payloadJson, N'$.retries') > 3)
   Tsql.where({ foo: Tsql.is(Tsql.gt, 3) })
   ```
 
-* `json: (x: unknown) => Sanitised`
-
+* ```ts
+  json: (x: unknown) => Sanitised
+  ```
   Returns stringified json.
 
   `undefined` value is serialised as NULL.
 
-* `jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier`
-
+* ```ts
+  jsonQuery: (column: string | SanitisedIdentifier, query?: string) => SanitisedIdentifier
+  ```
   Returns JSON_QUERY(C, Q?) built-in function call.
 
-* `jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier`
-
+* ```ts
+  jsonValue: (column: string | SanitisedIdentifier, query: string) => SanitisedIdentifier
+  ```
   Returns JSON_VALUE(C) built-in function call.
 
-* `like: (lhs: string | Sanitised, rhs: unknown) => Sanitised`
-
+* ```ts
+  like: (lhs: string | Sanitised, rhs: unknown) => Sanitised
+  ```
   Returns LIKE operator.
 
   `undefined` is propagated.
 
-* `limitedHintsIdentifier: (table: Identifier, hints?: TableHintLimited[]) => Sanitised`
-
+* ```ts
+  limitedHintsIdentifier: (table: Identifier, hints?: TableHintLimited[]) => Sanitised
+  ```
   Returns identifier with optional, [limited hints](https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table).
 
-* `line: (...elements: unknown[]) => Sanitised`
-
+* ```ts
+  line: (...elements: unknown[]) => Sanitised
+  ```
   Returns space delimited line constructed from provided elements.
 
   `undefined` values are filtered out.
@@ -393,18 +424,21 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See maybeLine for variant which propagates emtpy list to undefined.
 
-* `lines: <T>(xs: readonly T[], separator: string) => Sanitised`
-
+* ```ts
+  lines: <T>(xs: readonly T[], separator: string) => Sanitised
+  ```
   Returns lines joined with provided separator.
 
-* `list: <T>(xs: readonly T[], f?: (_: T) => Sanitised) => Sanitised`
-
+* ```ts
+  list: <T>(xs: readonly T[], f?: (_: T) => Sanitised) => Sanitised
+  ```
   Returns comma separated list of values.
 
   Optional element to sanitised string mapping can be provided (defaults to auto-sanitation).
 
-* `logicalFalse: Sanitised`
-
+* ```ts
+  logicalFalse: Sanitised
+  ```
   Simulated logical false – 0=1.
 
   Logical booleans can be used in condition expressions, ie. WHERE clause.
@@ -413,8 +447,9 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See falseValue for value boolean variant.
 
-* `logicalTrue: Sanitised`
-
+* ```ts
+  logicalTrue: Sanitised
+  ```
   Simulated logical true – 1=1.
 
   Logical booleans can be used in condition expressions, ie. WHERE clause.
@@ -423,88 +458,117 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See trueValue for value boolean variant.
 
-* `lt: (l: string | Sanitised, r: unknown) => Sanitised`
-
+* ```ts
+  lt: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
   Returns lower than expression.
 
   `undefined` RHS is propagated.
 
-* `lte: (l: string | Sanitised, r: unknown) => Sanitised`
-
+* ```ts
+  lte: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
   Returns lower than or equal expression.
 
   `undefined` RHS is propagated.
 
-* `maybeLine: (...elements: unknown[]) => Sanitised`
-
+* ```ts
+  maybeLine: (...elements: unknown[]) => Sanitised
+  ```
   Returns space delimited line constructed from provided elements.
 
   `undefined` values are filtered out.
 
   Empty list (after filtering out `undefined`) propagates `undefined`.
 
-* `merge1n: (table: string | SanitisedIdentifier, [lcolumn, rcolumn]: [string | SanitisedIdentifier, string | SanitisedIdentifier], lid: unknown, values: unknown[], { hints }?: { ...; }) => Sanitised`
-
+* ```ts
+  merge1n: (table: string | SanitisedIdentifier, [lcolumn, rcolumn]: [string | SanitisedIdentifier, string | SanitisedIdentifier], lid: unknown, values: unknown[], { hints }?: { ...; }) => Sanitised
+  ```
   Returns MERGE DML synchronising 1-n relation.
 
-* `modifyJsons: (table: string | SanitisedIdentifier, entries: readonly Record<string, unknown>[]) => Sanitised`
-
+* ```ts
+  modifyJsons: (table: string | SanitisedIdentifier, entries: readonly Record<string, unknown>[]) => Sanitised
+  ```
   Returns MERGE DML for json columns, multiple rows via JSON_MODIFY and JSON_QUERY.
 
-* `ne: (l: string | Sanitised, r: unknown) => Sanitised`
-
-* `ng: (l: string | Sanitised, r: unknown) => Sanitised`
-
-* `nl: (l: string | Sanitised, r: unknown) => Sanitised`
-
-* `not: (rhs: Sanitised) => Sanitised`
-
-* `notDistinct: (lhs: string | Sanitised, rhs: unknown) => Sanitised`
-
-* `notIn: (l: string | Sanitised, r: unknown[]) => Sanitised`
-
-* `now: Sanitised`
-
-* `nstring: (value: string | Sanitised) => Sanitised`
-
-* `null: Sanitised`
-
-* `number: (x: number) => Sanitised`
-
-* `objectId: (name: string) => Sanitised`
-
-* `or: (...xs: unknown[]) => Sanitised`
-
-* `randomIdentifier: (prefix?: string, length?: number) => SanitisedIdentifier`
-
-* `raw: (x: string) => Sanitised`
-
+* ```ts
+  ne: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
+* ```ts
+  ng: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
+* ```ts
+  nl: (l: string | Sanitised, r: unknown) => Sanitised
+  ```
+* ```ts
+  not: (rhs: Sanitised) => Sanitised
+  ```
+* ```ts
+  notDistinct: (lhs: string | Sanitised, rhs: unknown) => Sanitised
+  ```
+* ```ts
+  notIn: (l: string | Sanitised, r: unknown[]) => Sanitised
+  ```
+* ```ts
+  now: Sanitised
+  ```
+* ```ts
+  nstring: (value: string | Sanitised) => Sanitised
+  ```
+* ```ts
+  null: Sanitised
+  ```
+* ```ts
+  number: (x: number) => Sanitised
+  ```
+* ```ts
+  objectId: (name: string) => Sanitised
+  ```
+* ```ts
+  or: (...xs: unknown[]) => Sanitised
+  ```
+* ```ts
+  randomIdentifier: (prefix?: string, length?: number) => SanitisedIdentifier
+  ```
+* ```ts
+  raw: (x: string) => Sanitised
+  ```
   Returns force `x` string to be sanitised; no sanitation of any kind is performed.
 
-* `replaceObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: readonly Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[], { hints }?: { ...; }) => Sanitised`
-
+* ```ts
+  replaceObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: readonly Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[], { hints }?: { ...; }) => Sanitised
+  ```
   Returns merge dml that replaces target table with inlined source table.
 
-* `row: <T>(xs: T[], f?: (_: T) => Sanitised) => Sanitised`
-
+* ```ts
+  row: <T>(xs: T[], f?: (_: T) => Sanitised) => Sanitised
+  ```
   Returns sanitised
 
-* `rowset: <T>(xs: T[]) => Sanitised`
-
-* `Sanitised: typeof Sanitised`
-
-* `SanitisedIdentifier: typeof SanitisedIdentifier`
-
-* `select: (what: Sanitised | (string | Sanitised)[], { from, where }?: { from?: string | SanitisedIdentifier; where?: unknown; }) => Sanitised`
-
-* `star: (table?: string | SanitisedIdentifier) => Sanitised`
-
-* `TableHintLimited: typeof import("/Users/mirek/ab/tsql/table-hint-limited")`
-
-* `template: (ts: TemplateStringsArray, ...vs: unknown[]) => Sanitised`
-
-* `top: (x?: number, ...rest: Sanitised[]) => Sanitised`
-
+* ```ts
+  rowset: <T>(xs: T[]) => Sanitised
+  ```
+* ```ts
+  Sanitised: typeof Sanitised
+  ```
+* ```ts
+  SanitisedIdentifier: typeof SanitisedIdentifier
+  ```
+* ```ts
+  select: (what: Sanitised | (string | Sanitised)[], { from, where }?: { from?: string | SanitisedIdentifier; where?: unknown; }) => Sanitised
+  ```
+* ```ts
+  star: (table?: string | SanitisedIdentifier) => Sanitised
+  ```
+* ```ts
+  TableHintLimited: typeof import("/Users/mirek/ab/tsql/table-hint-limited")
+  ```
+* ```ts
+  template: (ts: TemplateStringsArray, ...vs: unknown[]) => Sanitised
+  ```
+* ```ts
+  top: (x?: number, ...rest: Sanitised[]) => Sanitised
+  ```
   Returns top expression.
 
   Example top(1, raw('with ties'))
@@ -515,8 +579,9 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   Example top(1, ids('foo', 'bar', 'baz'))
 
-* `trueValue: Sanitised`
-
+* ```ts
+  trueValue: Sanitised
+  ```
   Value boolean true – 1 casted as BIT.
 
   Logical booleans can be used in condition expressions, ie. WHERE clause.
@@ -525,28 +590,36 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   See trueValue for value boolean variant.
 
-* `unix: Sanitised`
-
-* `update: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
-* `updateObject: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
-* `updateObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
+* ```ts
+  unix: Sanitised
+  ```
+* ```ts
+  update: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised
+  ```
+* ```ts
+  updateObject: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised
+  ```
+* ```ts
+  updateObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised
+  ```
   Returns update dml that runs update operations on target table from the result of a join with source table.
 
-* `upsertObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[], { hints }?: { ...; }) => Sanitised`
-
+* ```ts
+  upsertObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], maybeInsertKeys?: string[], { hints }?: { ...; }) => Sanitised
+  ```
   Returns merge dml that runs insert or update operations on target table from the result of a join with source table.
 
-* `where: (value: Where) => Sanitised`
-
+* ```ts
+  where: (value: Where) => Sanitised
+  ```
   Returns simple where clause part from object.
 
-* `Where: any`
-
-* `id: (x: Identifier) => SanitisedIdentifier`
-
+* ```ts
+  Where: any
+  ```
+* ```ts
+  id: (x: Identifier) => SanitisedIdentifier
+  ```
   Returns sanitised identifier.
 
   Already sanitised identifiers are returned as is.
@@ -561,15 +634,19 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
   Above rules are recursive with precedence as listed.
 
-* `ids: (...xs: (string | SanitisedIdentifier)[]) => Sanitised`
-
+* ```ts
+  ids: (...xs: (string | SanitisedIdentifier)[]) => Sanitised
+  ```
   Returns comma separated list of provided identifiers.
 
   See identifier
 
-* `S: typeof Sanitised`
-
-* `Sid: typeof SanitisedIdentifier`
+* ```ts
+  S: typeof Sanitised
+  ```
+* ```ts
+  Sid: typeof SanitisedIdentifier
+  ```
 
 ## License
 
