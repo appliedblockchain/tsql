@@ -1,12 +1,12 @@
 import fallback from './fallback.js'
 import id from './identifier.js'
-import isNil from './helpers/is-nil.js'
+import isNull from './is-null.js'
 import tsql from './template.js'
 import type S from './sanitised.js'
 
 const rhsEq =
   (rhs: unknown): S =>
-    isNil(rhs) ?
+    isNull(rhs) ?
       tsql`is null` :
       tsql`= ${rhs}`
 

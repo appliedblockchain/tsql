@@ -1,18 +1,18 @@
 import fallback from './fallback.js'
 import id from './identifier.js'
-import isNil from './helpers/is-nil.js'
+import isNull from './is-null.js'
 import type S from './sanitised.js'
 import tsql from './template.js'
 
 export const ne =
-  (l: S | string, r: unknown): undefined | S => {
-    if (typeof r === 'undefined') {
+  (lhs: S | string, rhs: unknown): undefined | S => {
+    if (typeof rhs === 'undefined') {
       return undefined
     }
-    const l_ = fallback(l, id)
-    return isNil(r) ?
+    const l_ = fallback(lhs, id)
+    return isNull(rhs) ?
       tsql`${l_} is not null` :
-      tsql`${l_} <> ${r}`
+      tsql`${l_} <> ${rhs}`
   }
 
 export default ne

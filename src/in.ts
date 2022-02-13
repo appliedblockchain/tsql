@@ -1,7 +1,7 @@
 import id from './identifier.js'
 import tsql from './template.js'
 import fallback from './fallback.js'
-import isNil from './helpers/is-nil.js'
+import isNull from './is-null.js'
 import row from './row.js'
 import type S from './sanitised.js'
 import logicalFalse from './logical-false.js'
@@ -17,7 +17,7 @@ export const in_ =
   (l: S | string, r: undefined | null | unknown[]): undefined | S =>
     typeof r === 'undefined' ?
       undefined :
-      r && !isNil(r) && r.length ?
+      r && !isNull(r) && r.length ?
         tsql`${fallback(l, id)} in ${row(r)}` :
         logicalFalse
 

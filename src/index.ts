@@ -23,6 +23,7 @@ import insertNotMatched from './insert-not-matched.js'
 import insertObject from './insert-object.js'
 import insertObjects from './insert-objects.js'
 import is from './is.js'
+import isNull from './is-null.js'
 import json from './json.js'
 import jsonQuery from './json-query.js'
 import jsonValue from './json-value.js'
@@ -69,12 +70,6 @@ import updateObjects from './update-objects.js'
 import upsertObjects from './upsert-objects.js'
 import where from './where.js'
 
-// const interpolate from './helpers/interpolate')
-// const interpolate1 from './helpers/interpolate1')
-// const isString from './helpers/is-string')
-// const keysOfObjects from './helpers/keys-of-objects')
-// const quoteString from './helpers/quote-string')
-
 export {
   and,
   assign,
@@ -100,6 +95,7 @@ export {
   insertObject,
   insertObjects,
   is,
+  isNull,
   json,
   jsonQuery,
   jsonValue,
