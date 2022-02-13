@@ -5,4 +5,5 @@
 jest.*
 Makefile
 src
+test
 tsconfig.json
