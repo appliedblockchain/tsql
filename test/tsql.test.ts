@@ -48,7 +48,7 @@ test('merge1n', () => {
 })
 
 test('update', () => {
-  expect(tsql.update('Mr Foos', { id: 1, parentId: null }, { name: 'Foo', bar: null }).toString()).toEqual(demargin(`
+  expect(tsql.update('Mr Foos', { id: 1, parentId: null }, { name: 'Foo', bar: null })?.toString()).toEqual(demargin(`
     update [Mr Foos] with (repeatableread)
     set [name] = N'Foo', bar = null
     where (id = 1 and parentId is null)

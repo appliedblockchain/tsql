@@ -2,6 +2,7 @@ import { inspect } from 'util'
 import assignObject from './assign-object'
 import fallback from './fallback'
 import limitedHintsIdentifier from './limited-hints-identifier'
+import logicalTrue from './logical-true'
 import tsql from './template'
 import type { TableHintLimited } from './table-hint-limited'
 import type S from './sanitised'
@@ -17,7 +18,7 @@ export const update =
     { hints = [ 'repeatableread' ] }: {
       hints?: TableHintLimited[]
     } = {}
-  ): S => {
+  ): undefined | S => {
     if (!Object.keys(where).length) {
       throw new TypeError(`Expected where with keys, got ${inspect(where)}.`)
     }
@@ -25,8 +26,11 @@ export const update =
       throw new TypeError(`Expected object with keys, got ${inspect(object)}.`)
     }
     const table_ = limitedHintsIdentifier(table, hints)
-    const where_ = fallback(where, whereOf)
+    const where_ = fallback(where, whereOf) ?? logicalTrue
     const object_ = assignObject(object)
+    if (typeof object_ === 'undefined') {
+      return
+    }
     return tsql`
       update ${table_}
       set ${object_}

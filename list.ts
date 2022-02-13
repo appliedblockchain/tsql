@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import auto from './auto'
 import raw from './raw'
 import type S from './sanitised'
@@ -6,14 +5,19 @@ import type S from './sanitised'
 /**
  * @returns comma separated list of values.
  *
+ * If there are no `undefined` values, `undefined` is propagated.
+ *
  * Optional element to sanitised string mapping can be provided (defaults to auto-sanitation).
  */
 export const list =
-  <T>(xs: readonly T[], f: (_: T) => S = auto): S => {
-    if (!Array.isArray(xs)) {
-      throw new TypeError(`Expected array, got ${inspect(xs)}.`)
-    }
-    return raw(xs.filter(_ => typeof _ !== 'undefined').map(_ => f(_).toString().trim()).join(', '))
+  <T>(values: readonly T[], sanitise: (value: T) => undefined | S = auto): undefined | S => {
+    const values_ = values
+      .filter(_ => typeof _ !== 'undefined')
+      .map(_ => sanitise(_)?.toString().trim())
+      .filter(_ => typeof _ !== 'undefined')
+    return values_.length > 0 ?
+      raw(values_.join(', ')) :
+      undefined
   }
 
 export default list

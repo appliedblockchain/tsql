@@ -34,17 +34,25 @@ test('where', () => {
 })
 
 test('update object', () => {
-  expect(update('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 }).toString()).toEqual(demargin(`
+  expect(update('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 })?.toString()).toEqual(demargin(`
     update Foo with (repeatableread)
     set d = 2
     where (b = 1)
   `))
 })
 
+test('update object with undefined propagation', () => {
+  expect(update('Foo', { a: undefined, b: undefined }, { c: undefined, d: undefined })).toEqual(undefined)
+})
+
 test('assign object', () => {
-  expect(assignObject({ a: undefined, b: 1, c: null }).toString()).toEqual(demargin(`
+  expect(assignObject({ a: undefined, b: 1, c: null })?.toString()).toEqual(demargin(`
     b = 1, c = null
   `))
+})
+
+test('assign object with undefined propagation', () => {
+  expect(assignObject({ a: undefined, b: undefined, c: undefined })).toEqual(undefined)
 })
 
 test('assign', () => {
@@ -54,5 +62,5 @@ test('assign', () => {
 })
 
 test('list', () => {
-  expect(list([ undefined, 3, undefined, 5, undefined ]).toString()).toEqual('3, 5')
+  expect(list([ undefined, 3, undefined, 5, undefined ])?.toString()).toEqual('3, 5')
 })

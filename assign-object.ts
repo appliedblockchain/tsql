@@ -8,15 +8,10 @@ import type S from './sanitised'
  *
  * `undefined` entries are filtered out.
  *
- * @throws {Error} if provided record doesn't have any non-`undefined` entries.
+ * Propagates undefined if there are no non-undefined entries.
  */
 export const assignObject =
-  (record: Record<string, unknown>): S => {
-    const keys = Object.keys(record).filter(k => typeof k !== 'undefined')
-    if (keys.length === 0) {
-      throw new Error('Expected record with at least one key.')
-    }
-    return list(keys.map(k => assign(id(k), record[k])))
-  }
+  (record: Record<string, unknown>): undefined | S =>
+    list(Object.keys(record).map(key => assign(id(key), record[key])))
 
 export default assignObject

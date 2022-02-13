@@ -9,7 +9,7 @@ import type Sid from './sanitised-identifier'
  * @see identifier
  */
 export const identifiers =
-  (...xs: (Sid | string)[]): S =>
+  (...xs: (Sid | string)[]): undefined | S =>
     list(xs.map(id))
 
 export default identifiers

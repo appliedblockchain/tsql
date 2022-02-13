@@ -13,6 +13,9 @@ export const ids =
 export const select =
   (what: S | (S | string)[], { from, where }: { from?: Sid | string, where?: unknown } = {}): S => {
     const what_ = fallback(what, _ => list(ids(_)))
+    if (typeof what_ === 'undefined') {
+      throw new Error('Empty projection.')
+    }
     const from_ = from ? id(from) : undefined
     return line(
       tsql`select ${what_}`,
