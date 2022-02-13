@@ -28,7 +28,7 @@ export const updateObjects =
     objects: Record<string, unknown>[],
     maybeObjectKeys?: string[],
     maybeUpdateKeys?: string[],
-    { hints }: {
+    { hints = [ 'repeatableread' ] }: {
       hints?: TableHintLimited[]
     } = {}
   ): S => {

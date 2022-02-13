@@ -35,7 +35,7 @@ test('where', () => {
 
 test('update object', () => {
   expect(update('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 }).toString()).toEqual(demargin(`
-    update Foo
+    update Foo with (repeatableread)
     set d = 2
     where (b = 1)
   `))

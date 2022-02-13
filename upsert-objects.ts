@@ -21,7 +21,13 @@ export const targetPrefixed =
   (_: Sid | string): Sid =>
     id([ 'Target', _ ])
 
-/** @returns merge dml that runs insert or update operations on target table from the result of a join with source table. */
+/**
+ * @returns MERGE DML.
+ *
+ * Updates existing rows.
+ *
+ * Inserts unmatched rows.
+ */
 export const upsertObjects =
   (
     table: Sid | string,
@@ -30,7 +36,7 @@ export const upsertObjects =
     maybeObjectKeys?: string[],
     maybeUpdateKeys?: string[],
     maybeInsertKeys?: string[],
-    { hints }: {
+    { hints = [ 'serializable' ] }: {
       hints?: TableHintLimited[]
     } = {}
   ): S => {

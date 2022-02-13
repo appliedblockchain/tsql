@@ -109,7 +109,11 @@ const visit =
     return auto(value)
   }
 
-/** @returns simple where clause part from object. */
+/**
+ * @returns WHERE clause.
+ *
+ * Supports MondoDB-like query.
+ */
 export const where =
   (value: Where): S =>
     visit(value)

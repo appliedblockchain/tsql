@@ -8,12 +8,13 @@ import type S from './sanitised'
 import type Sid from './sanitised-identifier'
 import whereOf from './where'
 
+/** @returns UPDATE DML. */
 export const update =
   (
     table: Sid | string,
     where: S | Record<string, unknown>,
     object: Record<string, unknown>,
-    { hints }: {
+    { hints = [ 'repeatableread' ] }: {
       hints?: TableHintLimited[]
     } = {}
   ): S => {
