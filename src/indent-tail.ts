@@ -1,4 +1,4 @@
-/** @returns string with all lines but the firs one indented with `margin`. */
+/** @returns string with all lines but the first one indented with `margin`. */
 const indentTail =
   (linesString: string, margin: string): string =>
     margin ?

@@ -1,4 +1,4 @@
-import marginOfLastLine from '../helpers/margin-of-last-line.js'
+import marginOfLastLine from './margin-of-last-line.js'
 
 test('marginOfLastLine', () => {
   expect(marginOfLastLine('')).toEqual('')

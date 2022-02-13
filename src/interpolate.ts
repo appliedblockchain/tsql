@@ -1,5 +1,5 @@
 import { inspect } from 'util'
-import type S from '../sanitised.js'
+import type S from './sanitised.js'
 import marginOfLastLine from './margin-of-last-line.js'
 import indentTail from './indent-tail.js'
 

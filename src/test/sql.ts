@@ -122,7 +122,7 @@ export default class Sql {
   }
 
   async update(table: Tsql.Sid | string, where: Tsql.Where, object: Record<string, unknown>) {
-    return this.query(Tsql.updateObject(table, where, object))
+    return this.query(Tsql.update(table, where, object))
   }
 
   async merge1n(

@@ -1,6 +1,6 @@
 import auto from './auto.js'
 import demargin from './demargin.js'
-import interpolate from './helpers/interpolate.js'
+import interpolate from './interpolate.js'
 import raw from './raw.js'
 import type S from './sanitised.js'
 

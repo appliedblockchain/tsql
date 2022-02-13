@@ -14,7 +14,10 @@ build: build-cjs build-mjs
 
 rebuild: clean build
 
-test: rebuild
+lint:
+	@npx eslint ./src
+
+test: lint rebuild
 	@npx jest
 
 update:

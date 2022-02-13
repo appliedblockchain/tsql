@@ -1,5 +1,5 @@
 import auto from './auto.js'
-import interpolate1 from './helpers/interpolate1.js'
+import interpolate1 from './interpolate1.js'
 import raw from './raw.js'
 import template from './template.js'
 import logicalTrue from './logical-true.js'

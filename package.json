@@ -45,20 +45,5 @@
     "npm-check": "5.9.2",
     "tedious": "14.3.0",
     "typescript": "4.5.5"
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends": [
-      "plugin:@typescript-eslint/recommended",
-      "@appliedblockchain"
-    ],
-    "rules": {
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-non-null-assertion": "off"
-    }
   }
 }

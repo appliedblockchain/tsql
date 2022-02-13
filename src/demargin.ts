@@ -1,5 +1,5 @@
 import { inspect } from 'util'
-import isString from './helpers/is-string.js'
+import isString from './is-string.js'
 
 /** @internal */
 export const demargin =

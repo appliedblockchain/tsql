@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-types */
+
 import { inspect } from 'util'
 import isString from './is-string.js'
 
 const quoted =
-  (value: string): string =>
+  (value: string | String): string =>
     'N\'' + (value.indexOf('\'') !== -1 ? value.replace(/'/g, '\'\'') : value) + '\''
 
 const quotedLf =
-  (value: string): string => {
+  (value: string | String): string => {
     if (value.indexOf('\n') === -1) {
       return quoted(value)
     }
@@ -14,7 +16,7 @@ const quotedLf =
   }
 
 const quotedCrLf =
-  (value: string): string => {
+  (value: string | String): string => {
     if (value.indexOf('\r\n') === -1) {
       return quotedLf(value)
     }
@@ -22,7 +24,7 @@ const quotedCrLf =
   }
 
 export const quotedNstring =
-  (value: string): string => {
+  (value: string | String): string => {
     if (!isString(value)) {
       throw new TypeError(`Expected string while trying to quote, got ${inspect(value)}.`)
     }

@@ -154,7 +154,7 @@ Identifiers of `C->Q` form are expanded to `json_value(C, Q)` form.
 Identifiers of `C~>Q` form are expanded to `json_query(C, Q)` form, where `Q` is optional.
 
 ```js
-tsql.updateObject('Actions', { 'payloadJson->$.retries': { $gt: 3 } }, { status: 'CANCELLED' })
+tsql.update('Actions', { 'payloadJson->$.retries': { $gt: 3 } }, { status: 'CANCELLED' })
 ```
 
 Renders:
@@ -530,8 +530,6 @@ where (json_value(payloadJson, N'$.retries') > 3)
 * `unix: Sanitised`
 
 * `update: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
-
-* `updateObject: (table: string | SanitisedIdentifier, where: Sanitised | Record<string, unknown>, object: Record<string, unknown>, { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
 
 * `updateObjects: (table: string | SanitisedIdentifier, onKeys: string[], objects: Record<string, unknown>[], maybeObjectKeys?: string[], maybeUpdateKeys?: string[], { hints }?: { hints?: TableHintLimited[]; }) => Sanitised`
 

@@ -1,6 +1,6 @@
 import auto from './auto.js'
 import logicalFalse from './logical-false.js'
-import interpolate1 from './helpers/interpolate1.js'
+import interpolate1 from './interpolate1.js'
 import raw from './raw.js'
 import template from './template.js'
 import type S from './sanitised.js'

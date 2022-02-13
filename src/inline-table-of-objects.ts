@@ -1,6 +1,6 @@
 import auto from './auto.js'
 import id from './identifier.js'
-import keysOfObjects from './helpers/keys-of-objects.js'
+import keysOfObjects from './keys-of-objects.js'
 import list from './list.js'
 import row from './row.js'
 import type S from './sanitised.js'

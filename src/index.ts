@@ -16,17 +16,22 @@ import gte from './gte.js'
 import identifier from './identifier.js'
 import identifiers from './identifiers.js'
 import in_ from './in.js'
+import indentTail from './indent-tail.js'
 import inlineTableOfColumn from './inline-table-of-column.js'
 import inlineTableOfObjects from './inline-table-of-objects.js'
 import insertIgnore from './insert-ignore.js'
 import insertNotMatched from './insert-not-matched.js'
 import insertObject from './insert-object.js'
 import insertObjects from './insert-objects.js'
+import interpolate from './interpolate.js'
+import interpolate1 from './interpolate1.js'
 import is from './is.js'
 import isNull from './is-null.js'
+import isString from './is-string.js'
 import json from './json.js'
 import jsonQuery from './json-query.js'
 import jsonValue from './json-value.js'
+import keysOfObjects from './keys-of-objects.js'
 import like from './like.js'
 import limitedHintsIdentifier from './limited-hints-identifier.js'
 import line from './line.js'
@@ -36,6 +41,8 @@ import logicalFalse from './logical-false.js'
 import logicalTrue from './logical-true.js'
 import lt from './lt.js'
 import lte from './lte.js'
+import marginOfFirstLine from './margin-of-first-line.js'
+import marginOfLastLine from './margin-of-last-line.js'
 import maybeLine from './maybe-line.js'
 import merge1n from './merge-1n.js'
 import modifyJsons from './modify-jsons.js'
@@ -51,6 +58,8 @@ import null_ from './null.js'
 import number_ from './number.js'
 import objectId from './object-id.js'
 import or from './or.js'
+import pick from './pick.js'
+import quotedNstring from './quoted-nstring.js'
 import randomIdentifier from './random-identifier.js'
 import raw from './raw.js'
 import replaceObjects from './replace-objects.js'
@@ -88,17 +97,22 @@ export {
   identifier,
   identifiers,
   in_ as in,
+  indentTail,
   inlineTableOfColumn,
   inlineTableOfObjects,
   insertIgnore,
   insertNotMatched,
   insertObject,
   insertObjects,
+  interpolate,
+  interpolate1,
   is,
   isNull,
+  isString,
   json,
   jsonQuery,
   jsonValue,
+  keysOfObjects,
   like,
   limitedHintsIdentifier,
   line,
@@ -108,6 +122,8 @@ export {
   logicalTrue,
   lt,
   lte,
+  marginOfFirstLine,
+  marginOfLastLine,
   maybeLine,
   merge1n,
   modifyJsons,
@@ -123,6 +139,8 @@ export {
   number_ as number,
   objectId,
   or,
+  pick,
+  quotedNstring,
   randomIdentifier,
   raw,
   replaceObjects,
@@ -138,9 +156,6 @@ export {
   trueValue,
   unix,
   update,
-
-  /** @deprecated @use `update` */
-  update as updateObject,
 
   updateObjects,
   upsertObjects,

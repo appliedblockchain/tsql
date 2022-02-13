@@ -1,4 +1,4 @@
-import quotedNstring from './helpers/quoted-nstring.js'
+import quotedNstring from './quoted-nstring.js'
 import S from './sanitised.js'
 
 // TODO: Add SanitisedValue type?
