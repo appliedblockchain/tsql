@@ -37,7 +37,9 @@ Values used in templates go through auto sanitation:
 - finite numbers become sanitised decimal numbers
 - booleans are sanitised as `1` (true) or `0` (false)
 - strings are sanitised as unicode string `N'foo'`
-- objects are sanitised as json stringified unicode strings, ie. `{foo:1}` becomes `N'{"foo":1}'`
+- dates are sanitised as iso datetime strings
+- buffers are sanitised as hex literals
+- other objects are sanitised as json stringified unicode strings, ie. `{foo:1}` becomes `N'{"foo":1}'`
 - non-finite numbers throw as they are not supported by mssql
 - all other values throw
 

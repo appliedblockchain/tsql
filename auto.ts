@@ -4,6 +4,7 @@ import json from './json'
 import nstring from './nstring'
 import null_ from './null'
 import number from './number'
+import raw from './raw'
 import S from './sanitised'
 import trueValue from './true-value'
 
@@ -20,7 +21,11 @@ import trueValue from './true-value'
  *
  * Strings return sanitised unicode strings, ie. `N'foo'`.
  *
- * Objects return json-stringified, sanitised unicode strings, ie. `{foo:1}` returns `N'{"foo":1}'`.
+ * Dates return ISO strings.
+ *
+ * Buffers return hex literals.
+ *
+ * Other objects return json-stringified, sanitised unicode strings, ie. `{foo:1}` returns `N'{"foo":1}'`.
  *
  * @throws {TypeError} for non-finite numbers (not supported by mssql).
  *
@@ -39,6 +44,12 @@ export const auto =
       case 'object': {
         if (value === null) {
           return null_
+        }
+        if (value instanceof Date) {
+          return nstring(value.toISOString())
+        }
+        if (value instanceof Buffer) {
+          return raw('0x' + value.toString('hex'))
         }
         return json(value)
       }
