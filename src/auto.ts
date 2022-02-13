@@ -47,7 +47,7 @@ export const auto =
         if (value instanceof Date) {
           return nstring(value.toISOString())
         }
-        if (value instanceof Buffer) {
+        if (typeof Buffer !== 'undefined' && value instanceof Buffer) {
           return raw('0x' + value.toString('hex'))
         }
         return json(value)
