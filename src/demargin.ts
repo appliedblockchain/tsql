@@ -1,11 +1,10 @@
-import { inspect } from 'util'
 import isString from './is-string.js'
 
 /** @internal */
 export const demargin =
   (value: string): string => {
     if (!isString(value)) {
-      throw new TypeError(`Expected value to be string, got ${inspect(value)}.`)
+      throw new TypeError(`Expected value to be string, got ${value}.`)
     }
     const lines = value.split('\n')
     if (lines.length && lines[0].split('').every(_ => _ === ' ')) {

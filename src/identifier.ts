@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import nstring from './nstring.js'
 import Sid from './sanitised-identifier.js'
 import keywords from './keywords.js'
@@ -58,7 +57,7 @@ const identifier =
     if (Array.isArray(x) && x.every(_ => typeof _ === 'string' || _ instanceof Sid)) {
       return new Sid(x.map(identifier).map(_ => _.toString()).join('.'))
     }
-    throw new TypeError(`Can't sanitise ${inspect(x)} identifier.`)
+    throw new TypeError(`Can't sanitise ${x} identifier.`)
   }
 
 jsonValue =

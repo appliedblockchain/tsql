@@ -1,5 +1,3 @@
-import { inspect } from 'util'
-
 /** @returns `true` if boths string arrays are the same. */
 export const same =
   (xs: string[], ys: string[]): boolean =>
@@ -13,7 +11,7 @@ export const same =
 export const keysOfObjects =
   (objects: readonly Record<string, unknown>[]): string[] => {
     if (!Array.isArray(objects)) {
-      throw new TypeError(`Expected array, got ${inspect(objects)}.`)
+      throw new TypeError(`Expected array, got ${objects}.`)
     }
     if (!objects.length) {
       throw new TypeError('Expected non empty array.')
@@ -22,7 +20,7 @@ export const keysOfObjects =
     for (let i = 1; i < objects.length; i++) {
       const keys_ = Object.keys(objects[i]).sort()
       if (!same(keys, keys_)) {
-        throw new TypeError(`Expected same keys on all objects, got ${inspect(keys)} and ${inspect(keys_)} at ${i} index.`)
+        throw new TypeError(`Expected same keys on all objects, got ${keys} and ${keys_} at ${i} index.`)
       }
     }
 

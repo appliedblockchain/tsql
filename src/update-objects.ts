@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import and from './and.js'
 import assign from './assign.js'
 import eq from './eq.js'
@@ -34,7 +33,7 @@ export const updateObjects =
   ): S => {
 
     if (!Array.isArray(objects)) {
-      throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
+      throw new TypeError(`Expected array of values, got ${objects}.`)
     }
 
     if (!objects.length) {

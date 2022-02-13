@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import type S from './sanitised.js'
 import marginOfLastLine from './margin-of-last-line.js'
 import indentTail from './indent-tail.js'
@@ -10,13 +9,13 @@ import indentTail from './indent-tail.js'
 export const interpolate =
   (xs: TemplateStringsArray, ys: S[]): string[] => {
     if (!Array.isArray(xs) || !Array.isArray(ys)) {
-      throw new TypeError(`Expected xs and ys to be an array, got ${inspect(xs)} and ${inspect(ys)}.`)
+      throw new TypeError(`Expected xs and ys to be an array, got ${xs} and ${ys}.`)
     }
     if (!xs.length && !ys.length) {
       return []
     }
     if (xs.length - 1 !== ys.length) {
-      throw new TypeError(`Expected xs and ys length to be correct, got ${inspect(xs.length)} and ${inspect(ys.length)}.`)
+      throw new TypeError(`Expected xs and ys length to be correct, got ${xs.length} and ${ys.length}.`)
     }
     const rs: string[] = [ xs[0] ]
     for (let i = 0; i < ys.length; i++) {

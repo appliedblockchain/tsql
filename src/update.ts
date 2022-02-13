@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import assignObject from './assign-object.js'
 import fallback from './fallback.js'
 import limitedHintsIdentifier from './limited-hints-identifier.js'
@@ -20,10 +19,10 @@ export const update =
     } = {}
   ): undefined | S => {
     if (!Object.keys(where).length) {
-      throw new TypeError(`Expected where with keys, got ${inspect(where)}.`)
+      throw new TypeError(`Expected where with keys, got ${where}.`)
     }
     if (!Object.keys(object).length) {
-      throw new TypeError(`Expected object with keys, got ${inspect(object)}.`)
+      throw new TypeError(`Expected object with keys, got ${object}.`)
     }
     const table_ = limitedHintsIdentifier(table, hints)
     const where_ = fallback(where, whereOf) ?? logicalTrue

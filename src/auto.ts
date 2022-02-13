@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import falseValue from './false-value.js'
 import json from './json.js'
 import nstring from './nstring.js'
@@ -54,7 +53,7 @@ export const auto =
         return json(value)
       }
       default:
-        throw new TypeError(`Unable to auto generate sql for ${inspect(value)}.`)
+        throw new TypeError(`Unable to auto generate sql for ${value}.`)
     }
   }
 

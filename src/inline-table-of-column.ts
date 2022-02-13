@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import id from './identifier.js'
 import list from './list.js'
 import row from './row.js'
@@ -14,7 +13,7 @@ import tsql from './template.js'
 export const inlineTableOfColumn =
   (table: Sid | string, column: Sid | string, values: unknown[]): S => {
     if (!values.length) {
-      throw new Error(`Can't generate ${inspect(table)} literal table of ${inspect(column)} column with an empty array of values.`)
+      throw new Error(`Can't generate literal table ${table} using column ${column} with an empty array of values.`)
     }
     const table_ = id(table)
     const column_ = id(column)

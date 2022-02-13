@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import and from './and.js'
 import eq from './eq.js'
 import id from './identifier.js'
@@ -40,7 +39,7 @@ export const insertNotMatched =
   ): S => {
 
     if (!Array.isArray(objects)) {
-      throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
+      throw new TypeError(`Expected array of values, got ${objects}.`)
     }
 
     if (!objects.length) {

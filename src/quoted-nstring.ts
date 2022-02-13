@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
-import { inspect } from 'util'
 import isString from './is-string.js'
 
 const quoted =
@@ -26,7 +25,7 @@ const quotedCrLf =
 export const quotedNstring =
   (value: string | String): string => {
     if (!isString(value)) {
-      throw new TypeError(`Expected string while trying to quote, got ${inspect(value)}.`)
+      throw new TypeError(`Expected string while trying to quote, got ${value}.`)
     }
     return quotedCrLf(value)
   }

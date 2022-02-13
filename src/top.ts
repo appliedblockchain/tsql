@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import auto from './auto.js'
 import line from './line.js'
 import number from './number.js'
@@ -15,7 +14,7 @@ import type S from './sanitised.js'
 export const top =
   (x = 1, ...rest: S[]): S => {
     if (x <= 0) {
-      throw new TypeError(`Expected positive value in top, got ${inspect(x)}.`)
+      throw new TypeError(`Expected positive value in top, got ${x}.`)
     }
     const [ x_, percent ] = x < 1 ?
       [ Math.round(x * 100), true ] :

@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import auto from './auto.js'
 import defined from './defined.js'
 import id from './identifier.js'
@@ -19,7 +18,7 @@ export const insertObject =
     const object_ = defined(object)
     const keys = Object.keys(object_)
     if (!keys.length) {
-      throw new TypeError(`Expected object with keys, got ${inspect(object_)}.`)
+      throw new TypeError(`Expected object with keys, got ${object_}.`)
     }
     const table_ = id(table)
     const keys_ = list(keys.map(id))

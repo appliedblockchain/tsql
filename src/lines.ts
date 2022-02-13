@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import auto from './auto.js'
 import raw from './raw.js'
 import type S from './sanitised.js'
@@ -7,7 +6,7 @@ import type S from './sanitised.js'
 export const lines =
   <T>(xs: readonly T[], separator: string): S => {
     if (!Array.isArray(xs)) {
-      throw new TypeError(`Expected array, got ${inspect(xs)}.`)
+      throw new TypeError(`Expected array, got ${xs}.`)
     }
     return raw(
       xs

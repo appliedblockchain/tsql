@@ -1,10 +1,8 @@
-import { inspect } from 'util'
-
 /** @returns interpolated array with `y` elements. */
 export const interpolate1 =
   <T, I>(xs: T[], y: I): (T | I)[] => {
     if (!Array.isArray(xs)) {
-      throw new TypeError(`Expected xs to be an array, got ${inspect(xs)}.`)
+      throw new TypeError(`Expected xs to be an array, got ${xs}.`)
     }
     if (!xs.length) {
       return []

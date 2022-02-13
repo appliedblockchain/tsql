@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import raw from './raw.js'
 import type S from './sanitised.js'
 
@@ -50,7 +49,7 @@ export const values: Set<TableHintLimited> = new Set([
 export const sanitized =
   (value: string): S => {
     if (!(values as Set<string>).has(value)) {
-      throw new TypeError(`Expected limited table hint, got ${inspect(value)}.`)
+      throw new TypeError(`Expected limited table hint, got ${value}.`)
     }
     return raw(value)
   }

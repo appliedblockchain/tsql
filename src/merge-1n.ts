@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import id from './identifier.js'
 import inlineTable from './inline-table-of-column.js'
 import limitedHintsIdentifier from './limited-hints-identifier.js'
@@ -23,7 +22,7 @@ export const merge1n =
     const lcolumn_ = id(lcolumn)
     const rcolumn_ = id(rcolumn)
     if (!Array.isArray(values)) {
-      throw new TypeError(`Expected array of values, got ${inspect(values)}.`)
+      throw new TypeError(`Expected array of values, got ${values}.`)
     }
     if (!values.length) {
       return tsql`delete from ${table_} where ${lcolumn_} = ${lid};`

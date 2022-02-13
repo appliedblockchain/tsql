@@ -1,13 +1,12 @@
-import { inspect } from 'util'
 import row from './row.js'
 import type S from './sanitised.js'
 
 export const rowset =
-  <T>(xs: T[]): S => {
-    if (!Array.isArray(xs)) {
-      throw new TypeError(`Expected array, got ${inspect(xs)}.`)
+  <T>(values: T[][]): S => {
+    if (!Array.isArray(values)) {
+      throw new TypeError(`Expected array, got ${values}.`)
     }
-    return row<any>(xs, row)
+    return row(values, row)
   }
 
 export default rowset

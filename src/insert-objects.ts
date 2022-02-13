@@ -1,4 +1,3 @@
-import { inspect } from 'util'
 import auto from './auto.js'
 import id from './identifier.js'
 import keysOfObjects from './keys-of-objects.js'
@@ -23,7 +22,7 @@ export const insertObjects =
   ): S => {
 
     if (!Array.isArray(objects)) {
-      throw new TypeError(`Expected array of values, got ${inspect(objects)}.`)
+      throw new TypeError(`Expected array of values, got ${objects}.`)
     }
 
     if (!objects.length) {
