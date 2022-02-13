@@ -1,0 +1,24 @@
+import id from './identifier.js'
+import tsql from './template.js'
+import fallback from './fallback.js'
+import isNil from './helpers/is-nil.js'
+import row from './row.js'
+import type S from './sanitised.js'
+import logicalFalse from './logical-false.js'
+
+/**
+ * @returns LHS in (RHS) expression.
+ *
+ * `undefined` RHS propagates.
+ *
+ * Falsy or empty array RHS returns logical false.
+ */
+export const in_ =
+  (l: S | string, r: undefined | null | unknown[]): undefined | S =>
+    typeof r === 'undefined' ?
+      undefined :
+      r && !isNil(r) && r.length ?
+        tsql`${fallback(l, id)} in ${row(r)}` :
+        logicalFalse
+
+export default in_

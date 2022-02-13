@@ -2,11 +2,25 @@
   "name": "@appliedblockchain/tsql",
   "version": "5.5.2",
   "description": "Transact-SQL template combinators.",
-  "main": "index.js",
+  "module": "./mjs/index.js",
+  "main": "./cjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./mjs/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./*.js": {
+      "import": "./mjs/*.js",
+      "require": "./cjs/*.js"
+    },
+    "./*": {
+      "require": "./cjs/*.js"
+    }
+  },
   "scripts": {
-    "test": "eslint . && tsc && jest",
-    "update": "npm-check --update --save-exact",
-    "prepublishOnly": "tsc"
+    "test": "make test",
+    "preversion": "make test",
+    "postversion": "make postversion"
   },
   "keywords": [
     "sql",
@@ -30,7 +44,6 @@
     "jest": "27.5.1",
     "npm-check": "5.9.2",
     "tedious": "14.3.0",
-    "ts-jest": "27.1.3",
     "typescript": "4.5.5"
   },
   "eslintConfig": {
@@ -47,14 +60,5 @@
       "no-unused-vars": "off",
       "@typescript-eslint/no-non-null-assertion": "off"
     }
-  },
-  "eslintIgnore": [
-    "flow-typed/*",
-    "wip/*",
-    "*.js"
-  ],
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node"
   }
 }

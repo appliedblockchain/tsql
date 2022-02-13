@@ -1,6 +1,1 @@
-{
-  "files.exclude": {
-    "*.js": true,
-    "helpers/*.js": true
-  }
-}
+{}
