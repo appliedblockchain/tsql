@@ -17,8 +17,12 @@ export const inlineTableOfColumn =
     }
     const table_ = id(table)
     const column_ = id(column)
-    const values_ = list(values.map(_ => row([ _ ])))
-    return tsql`(values ${values_}) as ${table_} (${column_})`
+    const values_ = list(values.map(_ => row([ _ ])), undefined, ',\n')
+    return tsql`
+      (values
+        ${values_}
+      ) as ${table_} (${column_})
+    `
   }
 
 export default inlineTableOfColumn

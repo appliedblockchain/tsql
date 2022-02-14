@@ -10,13 +10,13 @@ import type S from './sanitised.js'
  * Optional element to sanitised string mapping can be provided (defaults to auto-sanitation).
  */
 export const list =
-  <T>(values: readonly T[], sanitise: (value: T) => undefined | S = auto): undefined | S => {
+  <T>(values: readonly T[], sanitise: (value: T) => undefined | S = auto, separator = ', '): undefined | S => {
     const values_ = values
       .filter(_ => typeof _ !== 'undefined')
       .map(_ => sanitise(_)?.toString().trim())
       .filter(_ => typeof _ !== 'undefined')
     return values_.length > 0 ?
-      raw(values_.join(', ')) :
+      raw(values_.join(separator)) :
       undefined
   }
 

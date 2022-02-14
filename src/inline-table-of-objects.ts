@@ -17,8 +17,11 @@ export const inlineTableOfObjects =
     const table_ = id(table)
     const keys = maybeKeys || keysOfObjects(objects)
     const columns_ = row(keys.map(id))
-    const values_ = list(objects.map(object => row(keys.map(key => auto(object[key])))))
-    return tsql`(values ${values_}) as ${table_} ${columns_}`
+    const values_ = list(objects.map(object => row(keys.map(key => auto(object[key])))), undefined, ',\n')
+    return tsql`
+      (values
+        ${values_}
+      ) as ${table_} ${columns_}`
   }
 
 export default inlineTableOfObjects
