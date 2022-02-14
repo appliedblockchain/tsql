@@ -13,18 +13,12 @@ Transact-SQL template combinators.
 
 ## Usage
 
-```
+```sh
 npm i -E @appliedblockchain/tsql
 ```
 
-```
-import tsql from '@appliedblockchain/tsql`
-
-const id = '1; delete from Foo;'
-console.log(tsql`select * from Foo where id = ${id}`)
-
-// no sql-injection
-// "select * from Foo where id = N'1; delete from Foo;'"
+```ts
+import * as Tsql from '@appliedblockchain/tsql`
 ```
 
 ## Architecture
@@ -43,7 +37,7 @@ Values used in templates go through auto sanitation:
 - booleans are sanitised as `1` (true) or `0` (false)
 - strings are sanitised as unicode string `N'foo'`
 - dates are sanitised as iso datetime strings
-- buffers are sanitised as hex literals
+- buffers are sanitised as hex literals if Buffer is defined
 - other objects are sanitised as json stringified unicode strings, ie. `{foo:1}` becomes `N'{"foo":1}'`
 - non-finite numbers throw as they are not supported by mssql
 - all other values throw
