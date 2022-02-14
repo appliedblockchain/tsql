@@ -500,7 +500,7 @@ where (json_value(payloadJson, N'$.retries') > 3)
 
 * `star: (table?: string | SanitisedIdentifier) => Sanitised`
 
-* `TableHintLimited: typeof import("/Users/mirek/ab/tsql/table-hint-limited")`
+* `TableHintLimited`
 
 * `template: (ts: TemplateStringsArray, ...vs: unknown[]) => Sanitised`
 
