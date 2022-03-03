@@ -58,6 +58,7 @@ import null_ from './null.js'
 import number_ from './number.js'
 import objectId from './object-id.js'
 import or from './or.js'
+import orderBy from './order-by.js'
 import pick from './pick.js'
 import quotedNstring from './quoted-nstring.js'
 import randomIdentifier from './random-identifier.js'
@@ -139,6 +140,7 @@ export {
   number_ as number,
   objectId,
   or,
+  orderBy,
   pick,
   quotedNstring,
   randomIdentifier,
