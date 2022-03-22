@@ -47,9 +47,11 @@ test('different ops', () => {
       { $or: [
         { $not: { k: 0 } },
         { l: 1 }
-      ] }
+      ] },
+      { m: { $between: [ 0, 1 ] } },
+      { n: { $notBetween: [ 0, 1 ] } }
     ]
-  }, '((a in (1, 2, 3)) and (b like N\'foo%\') and (c >= 5) and (d <= 1) and (e < 0) and (f not in (3, 5, 7)) and (g = 3) and (h <> 0) and (i !> 1) and (j !< -1) and (not ((k = 0)) or (l = 1)))')
+  }, '((a in (1, 2, 3)) and (b like N\'foo%\') and (c >= 5) and (d <= 1) and (e < 0) and (f not in (3, 5, 7)) and (g = 3) and (h <> 0) and (i !> 1) and (j !< -1) and (not ((k = 0)) or (l = 1)) and (m between 0 and 1) and (n not between 0 and 1))')
 })
 
 test('json', () => {

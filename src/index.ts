@@ -3,6 +3,7 @@ import and from './and.js'
 import assign from './assign.js'
 import assignObject from './assign-object.js'
 import auto from './auto.js'
+import between from './between.js'
 import columns from './columns.js'
 import delete_ from './delete.js'
 import demargin from './demargin.js'
@@ -50,6 +51,7 @@ import ne from './ne.js'
 import ng from './ng.js'
 import nl from './nl.js'
 import not from './not.js'
+import notBetween from './not-between.js'
 import notDistinct from './not-distinct.js'
 import notIn from './not-in.js'
 import now from './now.js'
@@ -85,6 +87,7 @@ export {
   assign,
   assignObject,
   auto,
+  between,
   columns,
   delete_ as delete,
   demargin,
@@ -132,6 +135,7 @@ export {
   ng,
   nl,
   not,
+  notBetween,
   notDistinct,
   notIn,
   now,

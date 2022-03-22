@@ -1,5 +1,6 @@
 import and from './and.js'
 import auto from './auto.js'
+import between from './between.js'
 import distinct from './distinct.js'
 import eq from './eq.js'
 import gt from './gt.js'
@@ -12,6 +13,7 @@ import ne from './ne.js'
 import ng from './ng.js'
 import nl from './nl.js'
 import not from './not.js'
+import notBetween from './not-between.js'
 import notDistinct from './not-distinct.js'
 import notIn from './not-in.js'
 import or from './or.js'
@@ -28,6 +30,7 @@ const unary = {
 type Unary = typeof unary
 
 const binary = {
+  $between: between,
   $distinct: distinct,
   $eq: eq,
   $gt: gt,
@@ -39,6 +42,7 @@ const binary = {
   $ne: ne,
   $ng: ng,
   $nl: nl,
+  $notBetween: notBetween,
   $notDistinct: notDistinct,
   $ndistinct: notDistinct,
   $notIn: notIn,
@@ -82,7 +86,36 @@ const visitEntry =
     }
     const key_ = single(value)
     if (key_ && key_ in binary) {
-      return binary[key_ as keyof Binary](key, (value as Record<string, unknown>)[key_] as unknown[])
+      const value_ = (value as Record<string, unknown>)[key_]
+      switch (key_) {
+        case '$between':
+        case '$notBetween':
+          if (value_ == null) {
+            return binary[key_](key, value_)
+          }
+          if (!Array.isArray(value_) || value_.length > 2) {
+            throw new TypeError(`Invalid ${key_} parameters.`)
+          }
+          return binary[key_](key, [ value_[0], value_[1] ])
+        case '$in':
+        case '$nin':
+        case '$notIn':
+          if (value_ == null) {
+            return binary[key_](key, value_)
+          }
+          if (!Array.isArray(value_)) {
+            throw new TypeError(`Invalid ${key_} parameters.`)
+          }
+          return binary[key_](key, value_)
+        default:
+          return binary[key_ as Exclude<keyof Binary,
+            | '$between'
+            | '$notBetween'
+            | '$in'
+            | '$nin'
+            | '$notIn'
+          >](key, value_)
+      }
     }
     return eq(key, value)
   }
