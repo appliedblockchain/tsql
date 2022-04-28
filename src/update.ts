@@ -18,11 +18,8 @@ export const update =
       hints?: TableHintLimited[]
     } = {}
   ): undefined | S => {
-    if (!Object.keys(where).length) {
-      throw new TypeError(`Expected where with keys, got ${where}.`)
-    }
-    if (!Object.keys(object).length) {
-      throw new TypeError(`Expected object with keys, got ${object}.`)
+    if (Object.keys(object).length === 0) {
+      return
     }
     const table_ = limitedHintsIdentifier(table, hints)
     const where_ = fallback(where, whereOf) ?? logicalTrue

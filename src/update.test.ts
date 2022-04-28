@@ -7,3 +7,15 @@ test('update', () => {
     where (id = 1 and parentId is null)
   `))
 })
+
+test('empty where', () => {
+  expect(Tsql.update('Xs', {}, { deleted: true })?.toString()).toEqual(Tsql.demargin(`
+    update Xs with (repeatableread)
+    set deleted = cast(1 as bit)
+    where 1=1
+  `))
+})
+
+test('empty', () => {
+  expect(Tsql.update('Xs', { id: 1 }, {})).toBe(undefined)
+})
