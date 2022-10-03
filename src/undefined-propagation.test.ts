@@ -3,11 +3,21 @@ import * as Tsql from './index.js'
 test('or', () => {
   expect(Tsql.or(Tsql.eq('foo', undefined), Tsql.eq('bar', null), Tsql.eq('baz', 1)).toString()).toEqual('(bar is null or baz = 1)')
   expect(Tsql.or(Tsql.eq('foo', undefined)).toString()).toEqual('0=1')
+  expect(Tsql.or().toString()).toEqual('0=1')
+  expect(Tsql.or(undefined).toString()).toEqual('0=1')
 })
 
 test('and', () => {
   expect(Tsql.and(Tsql.eq('foo', undefined), Tsql.eq('bar', null), Tsql.eq('baz', 1)).toString()).toEqual('(bar is null and baz = 1)')
   expect(Tsql.and(Tsql.eq('foo', undefined)).toString()).toEqual('1=1')
+})
+
+test('implicit where', () => {
+  expect(Tsql.or({ foo: undefined }).toString()).toEqual('0=1')
+  expect(Tsql.or({ foo: undefined }, { bar: 1 }).toString()).toEqual('((bar = 1))')
+  expect(Tsql.and({ foo: undefined }).toString()).toEqual('1=1')
+  expect(Tsql.and({ foo: undefined }, { bar: 1 }).toString()).toEqual('((bar = 1))')
+  expect(Tsql.and({ fooJson: {} }).toString()).toEqual('((fooJson = N\'{}\'))')
 })
 
 test('where', () => {

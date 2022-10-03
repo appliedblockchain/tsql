@@ -1,18 +1,19 @@
+import { isObject } from './is-object.js'
+
 export type Defined<T> =
   T extends undefined ?
     never :
     T
 
 /** @returns true if values propagates to undefined, false otherwise. */
-const isDefined =
-  <T>(value: T): value is Defined<T> => {
-    if (typeof value === 'undefined') {
-      return false
-    }
-    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-      return Object.values(value).some(isDefined)
-    }
-    return true
+export function isDefined<T>(value: T): value is Defined<T> {
+  if (typeof value === 'undefined') {
+    return false
   }
-
-export default isDefined
+  if (isObject(value)) {
+    return Object
+      .values(value)
+      .some(_ => typeof _ !== 'undefined')
+  }
+  return true
+}
