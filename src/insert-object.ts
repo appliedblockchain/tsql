@@ -24,7 +24,7 @@ export const insertObject =
     const keys_ = list(keys.map(id))
     const values_ = list(keys.map(_ => object_[_]).map(auto))
     return output ?
-      tsql`insert into ${table_} (${keys_}) ${output} values (${values_})` :
+      tsql`insert into ${table_} (${keys_}) output ${output} values (${values_})` :
       tsql`insert into ${table_} (${keys_}) values (${values_})`
   }
 

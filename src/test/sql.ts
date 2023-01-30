@@ -113,8 +113,8 @@ export default class Sql {
     return this.query(Tsql.insertIgnore(...args))
   }
 
-  async insertObject(table: Tsql.Sid | string, object: Record<string, unknown>) {
-    return this.query(Tsql.insertObject(table, object))
+  async insertObject(table: Tsql.Sid | string, object: Record<string, unknown>, output?: Tsql.S) {
+    return this.query(Tsql.insertObject(table, object, output))
   }
 
   async insertObjects(table: Tsql.Sid | string, objects: Record<string, unknown>[], maybeKeys?: string[]) {
