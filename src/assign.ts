@@ -1,6 +1,7 @@
 import id from './identifier.js'
+import jsonPath from './json-path.js'
+import S from './sanitised.js'
 import tsql from './template.js'
-import type S from './sanitised.js'
 import type Sid from './sanitised-identifier.js'
 
 /**
@@ -10,10 +11,18 @@ import type Sid from './sanitised-identifier.js'
  *
  * `null` RHS is left as is LHS = null.
  */
-export const assign =
-  (lhs: Sid | string, rhs: unknown): undefined | S =>
-    typeof rhs === 'undefined' ?
-      undefined :
-      tsql`${id(lhs)} = ${rhs}`
+export function assign(lvalue: Sid | string, rvalue: unknown): undefined | S {
+  if (typeof rvalue === 'undefined') {
+    return undefined
+  }
+  if (lvalue instanceof S) {
+    return tsql`${lvalue} = ${rvalue}`
+  }
+  if (lvalue.indexOf('->') === -1) {
+    return tsql`${id(lvalue)} = ${rvalue}`
+  }
+  const [ llvalue, lrvalue ] = lvalue.split('->')
+  return tsql`${id(llvalue)} = json_modify(${id(llvalue)}, ${jsonPath(lrvalue)}, ${rvalue})`
+}
 
 export default assign
