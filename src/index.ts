@@ -30,6 +30,7 @@ import is from './is.js'
 import isNull from './is-null.js'
 import isString from './is-string.js'
 import json from './json.js'
+import jsonPath from './json-path.js'
 import jsonQuery from './json-query.js'
 import jsonValue from './json-value.js'
 import keysOfObjects from './keys-of-objects.js'
@@ -114,6 +115,7 @@ export {
   isNull,
   isString,
   json,
+  jsonPath,
   jsonQuery,
   jsonValue,
   keysOfObjects,
