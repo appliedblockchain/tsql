@@ -29,7 +29,8 @@ export const update =
     }
     return tsql`
       update ${table_}
-      set ${object_}
+      set
+        ${object_}
       where ${where_}
     `
   }

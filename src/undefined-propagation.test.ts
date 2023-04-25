@@ -35,7 +35,8 @@ test('where', () => {
 test('update object', () => {
   expect(Tsql.update('Foo', { a: undefined, b: 1 }, { c: undefined, d: 2 })?.toString()).toEqual(Tsql.demargin(`
     update Foo with (repeatableread)
-    set d = 2
+    set
+      d = 2
     where (b = 1)
   `))
 })
@@ -45,9 +46,10 @@ test('update object with undefined propagation', () => {
 })
 
 test('assign object', () => {
-  expect(Tsql.assignObject({ a: undefined, b: 1, c: null })?.toString()).toEqual(
-    'b = 1, c = null'
-  )
+  expect(Tsql.assignObject({ a: undefined, b: 1, c: null })?.toString()).toEqual(Tsql.demargin(`
+    b = 1,
+    c = null
+  `))
 })
 
 test('assign object with undefined propagation', () => {
