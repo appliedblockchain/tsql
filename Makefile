@@ -20,7 +20,7 @@ rebuild: clean build
 update:
 	pnpm up --latest
 
-preversion: test rebuild
+preversion: rebuild test
 
 postversion:
 	git push

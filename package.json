@@ -20,7 +20,7 @@
   },
   "scripts": {
     "test": "make test",
-    "preversion": "make test",
+    "preversion": "make preversion",
     "postversion": "make postversion"
   },
   "keywords": [
