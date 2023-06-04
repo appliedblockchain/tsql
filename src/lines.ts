@@ -1,20 +1,17 @@
-import auto from './auto.js'
-import raw from './raw.js'
+import maybeLines from './maybe-lines.js'
 import type S from './sanitised.js'
 
-/** @returns lines joined with provided separator. */
+/**
+ * @returns lines joined with provided separator.
+ * @throws if there are no lines on output.
+ */
 export const lines =
-  <T>(inputs: readonly T[], separator = '\n'): undefined | S => {
-    const outputs =
-      inputs
-        .filter(_ => typeof _ !== 'undefined')
-        .map(_ => auto(_))
-        .filter(_ => typeof _ !== 'undefined')
-        .map(_ => _.toString().trim())
-    if (outputs.length === 0) {
-      return
+  <T>(inputs: readonly T[], separator = '\n'): S => {
+    const output = maybeLines(inputs, separator)
+    if (typeof output === 'undefined') {
+      throw new Error('Expected at least one line.')
     }
-    return raw(outputs.join(separator))
+    return output
   }
 
 export default lines

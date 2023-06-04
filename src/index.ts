@@ -47,6 +47,7 @@ import lte from './lte.js'
 import marginOfFirstLine from './margin-of-first-line.js'
 import marginOfLastLine from './margin-of-last-line.js'
 import maybeLine from './maybe-line.js'
+import maybeLines from './maybe-lines.js'
 import merge1n from './merge-1n.js'
 import modifyJsons from './modify-jsons.js'
 import ne from './ne.js'
@@ -133,6 +134,7 @@ export {
   marginOfFirstLine,
   marginOfLastLine,
   maybeLine,
+  maybeLines,
   merge1n,
   modifyJsons,
   ne,
