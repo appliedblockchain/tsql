@@ -34,6 +34,7 @@
   "license": "MIT",
   "devDependencies": {
     "@appliedblockchain/eslint-config": "3.1.1",
+    "@babel/core": "7.22.1",
     "@swc/core": "1.3.62",
     "@swc/jest": "0.2.26",
     "@tsconfig/node18": "2.0.1",
