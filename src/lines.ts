@@ -4,16 +4,17 @@ import type S from './sanitised.js'
 
 /** @returns lines joined with provided separator. */
 export const lines =
-  <T>(xs: readonly T[], separator: string): S => {
-    if (!Array.isArray(xs)) {
-      throw new TypeError(`Expected array, got ${xs}.`)
-    }
-    return raw(
-      xs
+  <T>(inputs: readonly T[], separator = '\n'): undefined | S => {
+    const outputs =
+      inputs
         .filter(_ => typeof _ !== 'undefined')
-        .map(_ => auto(_).toString().trim())
-        .join(separator)
-    )
+        .map(_ => auto(_))
+        .filter(_ => typeof _ !== 'undefined')
+        .map(_ => _.toString().trim())
+    if (outputs.length === 0) {
+      return
+    }
+    return raw(outputs.join(separator))
   }
 
 export default lines
