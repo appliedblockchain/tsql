@@ -6,7 +6,7 @@ clean:
 
 build-cjs:
 	rm -Rf cjs
-	pnpm exec tsc -m commonjs -d --sourceMap --outDir cjs
+	pnpm exec tsc -p tsconfig.cjs.json
 	echo '{"type":"commonjs"}' > cjs/package.json
 
 build-mjs:
