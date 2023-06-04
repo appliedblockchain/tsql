@@ -6,9 +6,16 @@
   "module": "./mjs/index.js",
   "main": "./cjs/index.js",
   "exports": {
+    ".": {
+      "import": "./mjs/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./*.js": {
+      "import": "./mjs/*.js",
+      "require": "./cjs/*.js"
+    },
     "./*": {
-      "require": "./cjs/*",
-      "default": "./mjs/*"
+      "require": "./cjs/*.js"
     }
   },
   "scripts": {
