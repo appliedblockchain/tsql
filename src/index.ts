@@ -172,7 +172,7 @@ export {
   updateObjects,
   upsertObjects,
   where,
-  Where,
+  type Where,
 
   // Aliases
   identifier as id,

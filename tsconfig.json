@@ -1,13 +1,21 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2022",
+    "lib": [
+      "ES2022"
+    ],
     "module": "NodeNext",
-    "moduleResolution": "Node",
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true
   },
   "include": [
     "src"
