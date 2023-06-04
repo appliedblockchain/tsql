@@ -1,8 +1,9 @@
 {
   "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "importsNotUsedAsValues": "error",
-    "module": "ES2020",
+    "target": "ES2020",
+    "module": "NodeNext",
+    "verbatimModuleSyntax": true,
     "moduleResolution": "Node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
