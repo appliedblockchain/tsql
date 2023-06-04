@@ -1,6 +1,6 @@
 {
   "name": "@appliedblockchain/tsql",
-  "version": "6.8.1",
+  "version": "6.8.2",
   "description": "Fast and safe T-SQL template combinators for MSSQL.",
   "type": "module",
   "module": "./mjs/index.js",
