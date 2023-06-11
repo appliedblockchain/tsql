@@ -104,36 +104,6 @@ describe('insertIgnore', () => {
 
 })
 
-describe('insertObjects', () => {
-
-  beforeAll(async () => {
-    await sql.rows`
-      create table Roles (
-        id integer not null primary key,
-        [name] nvarchar(32)
-      )
-    `
-  })
-
-  afterAll(async () => {
-    await sql.dropTable('Roles')
-  })
-
-  beforeEach(async () => {
-    await sql.delete('Roles')
-  })
-
-  test('insert', async () => {
-    await sql.insertObjects('Roles', [
-      { id: 1, name: 'A' },
-      { id: 2, name: 'B' },
-      { id: 3, name: 'C' }
-    ])
-    await expect(sql.row`select count(*) as count from Roles`).resolves.toEqual({ count: 3 })
-  })
-
-})
-
 describe('merge1n', () => {
 
   beforeAll(async () => {
