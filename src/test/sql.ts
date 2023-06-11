@@ -97,7 +97,7 @@ export default class Sql {
     return row?.[Object.keys(row)[0]]
   }
 
-  async count(table: Tsql.Sid | string, where: Tsql.Where) {
+  async count(table: Tsql.Sid | string, where: Tsql.Where = Tsql.logicalTrue) {
     return this.value`select count(*) from ${Tsql.id(table)} where ${Tsql.where(where)}`
   }
 

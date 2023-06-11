@@ -1,5 +1,6 @@
 import auto from './auto.js'
 import id from './identifier.js'
+import inlineTableOfObjects from './inline-table-of-objects.js'
 import keysOfObjects from './keys-of-objects.js'
 import list from './list.js'
 import row from './row.js'
@@ -32,6 +33,15 @@ export const insertObjects =
     const table_ = id(table)
     const keys = maybeKeys ?? keysOfObjects(objects)
     const keys_ = list(keys.map(id))
+
+    if (objects.length > 1000) {
+      return tsql`
+        insert into ${table_} (${keys_})
+        select Source.*
+        from ${inlineTableOfObjects('Source', objects, keys)}
+      `
+    }
+
     const values_ = list(objects.map(object => row(keys.map(key => auto(object[key])))))
     return tsql`
       insert into ${table_} (${keys_})
