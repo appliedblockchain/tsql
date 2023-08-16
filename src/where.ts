@@ -22,6 +22,7 @@ import notIn from './not-in.js'
 import raw from './raw.js'
 import S from './sanitised.js'
 import template from './template.js'
+import unique from './unique.js'
 
 export type Where = S | Record<string, unknown>
 
@@ -157,13 +158,15 @@ export function where(value: Where): S {
  * `undefined` terms are filtered out.
  *
  * An empty list of terms returns logical true (1=1).
+ *
+ * Terms are deduplicated.
  */
 export function and(...xs: (undefined | Where)[]): S {
   const xs_ = xs.filter(isDefined)
   if (!xs_.length) {
     return logicalTrue
   }
-  return template`(${raw(interpolate1(xs_.map(where), raw(' and ')).join(''))})`
+  return template`(${raw(interpolate1(unique(xs_.map(where)), raw(' and ')).join(''))})`
 }
 
 /**
@@ -178,7 +181,7 @@ export function or(...xs: (undefined | Where)[]): S {
   if (!xs_.length) {
     return logicalFalse
   }
-  return template`(${raw(interpolate1(xs_.map(where), raw(' or ')).join(''))})`
+  return template`(${raw(interpolate1(unique(xs_.map(where)), raw(' or ')).join(''))})`
 }
 
 export function not(rhs: undefined | Where): undefined | S {

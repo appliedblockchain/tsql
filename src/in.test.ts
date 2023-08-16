@@ -14,6 +14,6 @@ test('in', () => {
       Tsql.in('undefined_', undefined)
     ).toString()
   ).toEqual(Tsql.demargin(`
-    (id in (42, 43, 44) and [status] in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 0=1 and 0=1)
+    (id in (42, 43, 44) and [status] in (N'COMPLETED', N'PARTIALLY_COMPLETED') and 0=1)
   `))
 })

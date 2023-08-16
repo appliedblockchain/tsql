@@ -57,3 +57,8 @@ test('different ops', () => {
 test('json', () => {
   expect(Tsql.where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
 })
+
+test('unique', () => {
+  expect(Tsql.where({ $and: [ { foo: 1 }, { foo: 1 } ] }).toString()).toEqual('((foo = 1))')
+  expect(Tsql.where({ $or: [ { foo: 1 }, { foo: 1 } ] }).toString()).toEqual('((foo = 1))')
+})

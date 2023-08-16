@@ -79,6 +79,7 @@ import template from './template.js'
 import top from './top.js'
 import trueValue from './true-value.js'
 import type { Where } from './where.js'
+import unique from './unique.js'
 import unix from './unix.js'
 import update from './update.js'
 import updateObjects from './update-objects.js'
@@ -166,6 +167,7 @@ export {
   template,
   top,
   trueValue,
+  unique,
   unix,
   update,
 
