@@ -21,3 +21,17 @@ test('jsonModify', () => {
     )
   `))
 })
+
+test('jsonModify force', () => {
+  expect(Tsql.jsonModify(Tsql.raw('fooJson'), { 'force ref': null }).toString()).toEqual(Tsql.demargin(`
+    json_modify(
+      json_modify(
+        fooJson,
+        N'lax $.ref',
+        cast(1 as bit)
+      ),
+      N'strict $.ref',
+      null
+    )
+  `))
+})

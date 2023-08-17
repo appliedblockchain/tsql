@@ -1,5 +1,5 @@
+import * as Tsql from './index.js'
 import Sql from './test/sql.js'
-import type * as Tsql from './index.js'
 
 let sql: Sql
 
@@ -141,4 +141,11 @@ describe('merge1n', () => {
     ])
   })
 
+})
+
+test('force json mode', async () => {
+  await expect(sql.value`select ${Tsql.jsonModify(Tsql.auto({ foo: 1 }), { 'force bar': null })}`).resolves.toEqual(JSON.stringify({
+    foo: 1,
+    bar: null
+  }))
 })
