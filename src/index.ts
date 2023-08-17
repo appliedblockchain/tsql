@@ -32,6 +32,7 @@ import isString from './is-string.js'
 import json from './json.js'
 import jsonModify from './json-modify.js'
 import jsonPath from './json-path.js'
+import jsonPathExists from './json-path-exists.js'
 import jsonQuery from './json-query.js'
 import jsonValue from './json-value.js'
 import keysOfObjects from './keys-of-objects.js'
@@ -120,6 +121,7 @@ export {
   json,
   jsonModify,
   jsonPath,
+  jsonPathExists,
   jsonQuery,
   jsonValue,
   keysOfObjects,

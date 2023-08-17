@@ -31,6 +31,8 @@ export function quote(value: unknown) {
  *
  * `.`-separated string is split and joined.
  *
+ * String including `?>` is returned as JSON_PATH_EXISTS(LHS, RHS).
+ *
  * Strings are quoted if not plain. Non plain string is MSSQL keyword or string containing special characters.
  *
  * Above rules are recursive with precedence as listed.
@@ -47,6 +49,10 @@ export function identifier(value: Identifier): Sid {
     if (value.includes('~>')) {
       const [ lvalue, jsonPath ] = value.split('~>')
       return jsonQuery(lvalue, jsonPath)
+    }
+    if (value.includes('?>')) {
+      const [ lvalue, jsonPath ] = value.split('?>')
+      return jsonPathExists(lvalue, jsonPath)
     }
     return new Sid(value.split('.').map(_ => isPlain(_) ? _ : quote(_)).join('.'))
   }
@@ -66,6 +72,11 @@ export function jsonQuery(column: Sid | string, query?: undefined | null | strin
   return query ?
     new Sid(`json_query(${identifier(column).toString()}, ${nstring(query).toString()})`) :
     new Sid(`json_query(${identifier(column).toString()})`)
+}
+
+/** @returns JSON_PATH_EXISTS(C, Q) built-in function call. */
+export function jsonPathExists(column: Sid | string, query: string) {
+  return new Sid(`json_path_exists(${identifier(column).toString()}, ${nstring(query).toString()})`)
 }
 
 export default identifier

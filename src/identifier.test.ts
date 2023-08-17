@@ -23,3 +23,7 @@ test('quote', () => {
   expect(Tsql.id('_foo').toString()).toEqual('_foo')
   expect(Tsql.id('1foo').toString()).toEqual('[1foo]')
 })
+
+test('json path exists', () => {
+  expect(Tsql.id('fooJson?>bar').toString()).toEqual('json_path_exists(fooJson, N\'bar\')')
+})
