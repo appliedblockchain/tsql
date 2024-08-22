@@ -14,6 +14,14 @@ test('json value', () => {
   expect(Tsql.id('fooJson->bar').toString()).toEqual('json_value(fooJson, N\'bar\')')
 })
 
+test('json query', () => {
+  expect(Tsql.id('fooJson~>bar').toString()).toEqual('json_query(fooJson, N\'bar\')')
+})
+
+test('json path exists', () => {
+  expect(Tsql.id('fooJson?>bar').toString()).toEqual('json_path_exists(fooJson, N\'bar\')')
+})
+
 test('quote', () => {
   expect(Tsql.id('Target').toString()).toEqual('[Target]')
   expect(Tsql.id('foo[bar').toString()).toEqual('[foo[bar]')
@@ -22,8 +30,4 @@ test('quote', () => {
   expect(Tsql.id('#foo').toString()).toEqual('#foo')
   expect(Tsql.id('_foo').toString()).toEqual('_foo')
   expect(Tsql.id('1foo').toString()).toEqual('[1foo]')
-})
-
-test('json path exists', () => {
-  expect(Tsql.id('fooJson?>bar').toString()).toEqual('json_path_exists(fooJson, N\'bar\')')
 })

@@ -54,8 +54,12 @@ test('different ops', () => {
   }, '((a in (1, 2, 3)) and (b like N\'foo%\') and (c >= 5) and (d <= 1) and (e < 0) and (f not in (3, 5, 7)) and (g = 3) and (h <> 0) and (i !> 1) and (j !< -1) and (not ((k = 0)) or (l = 1)) and (m between 0 and 1) and (n not between 0 and 1))')
 })
 
-test('json', () => {
-  expect(Tsql.where({ 'payloadJson->status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'status\') = N\'COMPLETED\')')
+test('json value', () => {
+  expect(Tsql.where({ 'payloadJson->$.status': 'COMPLETED' }).toString()).toEqual('(json_value(payloadJson, N\'$.status\') = N\'COMPLETED\')')
+})
+
+test('json exists', () => {
+  expect(Tsql.where({ 'payloadJson?>$.status': true }).toString()).toEqual('(json_path_exists(payloadJson, N\'$.status\') = cast(1 as bit))')
 })
 
 test('unique', () => {
