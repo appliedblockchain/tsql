@@ -40,7 +40,6 @@
     "@prelude/eslint-config": "0.0.1",
     "@swc/core": "1.7.14",
     "@swc/jest": "0.2.36",
-    "@tsconfig/node18": "18.2.4",
     "@tsconfig/node20": "^20.1.4",
     "@types/debug": "4.1.12",
     "@types/jest": "29.5.12",
