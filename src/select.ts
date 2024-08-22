@@ -16,11 +16,11 @@ export const select =
     if (typeof what_ === 'undefined') {
       throw new Error('Empty projection.')
     }
-    const from_ = from ? id(from) : undefined
+    const from_ = from != null ? id(from) : undefined
     return line(
       tsql`select ${what_}`,
       tsql`from ${from_}`,
-      where ? tsql`where ${where}` : undefined
+      where != null ? tsql`where ${where}` : undefined
     )
   }
 

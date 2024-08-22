@@ -9,7 +9,7 @@ export const notIn =
   (l: S | string, r: undefined | null | unknown[]): undefined | S =>
     typeof r === 'undefined' ?
       undefined :
-      r && !isNull(r) && r.length ?
+      r && !isNull(r) && (r.length > 0) ?
         tsql`${fallback(l, id)} not in ${row(r)}` :
         tsql`${fallback(l, id)} is not null`
 

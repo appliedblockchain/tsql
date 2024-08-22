@@ -1,11 +1,8 @@
 import { Connection, Request } from 'tedious'
 import * as Tsql from '../index.js'
-import debugOf from 'debug'
 import randomIdentifier from '../random-identifier.js'
 
-const debug = debugOf('sql')
-
-export default class Sql {
+export default class Client {
 
   connection: Connection
 
@@ -32,13 +29,13 @@ export default class Sql {
   }
 
   static async createDatabase(database: string) {
-    const sql = await new Sql({ database: 'master' }).connect()
+    const sql = await new Client({ database: 'master' }).connect()
     await sql.rows`create database ${Tsql.id(database)}`
     sql.close()
   }
 
   static async dropDatabase(database: string) {
-    const sql = await new Sql({ database: 'master' }).connect()
+    const sql = await new Client({ database: 'master' }).connect()
     await sql.rows`drop database ${Tsql.id(database)}`
     sql.close()
   }
@@ -46,13 +43,13 @@ export default class Sql {
   static async random() {
     const database = randomIdentifier('test_', 16).toString()
     await this.createDatabase(database)
-    return new Sql({ database }).connect()
+    return new Client({ database }).connect()
   }
 
   async connect(): Promise<this> {
     return new Promise((resolve, reject) => {
-      this.connection.connect(err => {
-        err ? reject(err) : resolve(this)
+      this.connection.connect((err: unknown) => {
+        err != null ? reject(err) : resolve(this)
       })
     })
   }
@@ -68,9 +65,8 @@ export default class Sql {
         return
       }
       const sqlString = sql.toString()
-      debug('query', sqlString)
       const request = new Request(sqlString, (err, _rowCount, rows) => {
-        if (err) {
+        if (err != null) {
           reject(new Error(err.message + `; ${sqlString}`))
         }
         for (const row of rows) {

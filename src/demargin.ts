@@ -7,17 +7,17 @@ export const demargin =
       throw new TypeError(`Expected value to be string, got ${value}.`)
     }
     const lines = value.split('\n')
-    if (lines.length && lines[0].split('').every(_ => _ === ' ')) {
+    if ((lines.length > 0) && lines[0].split('').every(_ => _ === ' ')) {
       lines.shift()
     }
-    if (lines.length && lines[lines.length - 1].split('').every(_ => _ === ' ')) {
+    if ((lines.length > 0) && lines[lines.length - 1].split('').every(_ => _ === ' ')) {
       lines.pop()
     }
     let margin = Infinity
-    for (let i = 0; i < lines.length; i++) {
-      for (let j = 0; j < lines[i].length; j++) {
-        if (lines[i][j] !== ' ') {
-          margin = Math.min(margin, j)
+    for (const line of lines) {
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] !== ' ') {
+          margin = Math.min(margin, i)
           break
         }
       }

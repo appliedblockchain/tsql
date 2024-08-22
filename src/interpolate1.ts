@@ -4,7 +4,7 @@ export const interpolate1 =
     if (!Array.isArray(xs)) {
       throw new TypeError(`Expected xs to be an array, got ${xs}.`)
     }
-    if (!xs.length) {
+    if (xs.length === 0) {
       return []
     }
     const rs: (T | I)[] = [ xs[0] ]

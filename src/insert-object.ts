@@ -17,7 +17,7 @@ export const insertObject =
   (table: Sid | string, object: Record<string, unknown>, output?: S): S => {
     const object_ = defined(object)
     const keys = Object.keys(object_)
-    if (!keys.length) {
+    if (keys.length === 0) {
       throw new TypeError(`Expected object with keys, got ${object_}.`)
     }
     const table_ = id(table)

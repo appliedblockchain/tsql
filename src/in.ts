@@ -17,7 +17,7 @@ export const in_ =
   (l: S | string, r: undefined | null | unknown[]): undefined | S =>
     typeof r === 'undefined' ?
       undefined :
-      r && !isNull(r) && r.length ?
+      r && !isNull(r) && (r.length > 0) ?
         tsql`${fallback(l, id)} in ${row(r)}` :
         logicalFalse
 

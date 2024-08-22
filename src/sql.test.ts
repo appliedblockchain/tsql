@@ -1,10 +1,11 @@
+import { beforeEach, describe, test, expect, afterAll, beforeAll } from '@jest/globals'
 import * as Tsql from './index.js'
-import Sql from './test/sql.js'
+import Client from './test/client.js'
 
-let sql: Sql
+let sql: Client
 
 beforeAll(async () => {
-  sql = await Sql.random()
+  sql = await Client.random()
 }, 30 * 1000)
 
 afterAll(async () => {

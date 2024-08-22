@@ -126,14 +126,14 @@ export function visit(value: unknown): S {
   const key = single(value)
   if (key) {
     const value_ = (value as Record<string, unknown>)[key]
-    if (key && (key in logical) && Array.isArray(value_)) {
+    if ((key in logical) && Array.isArray(value_)) {
       if (typeof logical[key as keyof Logical] !== 'function') {
         console.log('ERROR', key, Object.keys(logical), logical[key as keyof Logical], logical)
       }
       return logical[key as keyof Logical](...value_.map(visit))
     }
-    if (key && (key in unary)) {
-      return unary[key as keyof Unary](visit(value_))!
+    if ((key in unary)) {
+      return unary[key as keyof Unary](visit(value_)) as S
     }
   }
   if (isObject(value)) {
@@ -163,7 +163,7 @@ export function where(value: Where): S {
  */
 export function and(...xs: (undefined | Where)[]): S {
   const xs_ = xs.filter(isDefined)
-  if (!xs_.length) {
+  if (xs_.length === 0) {
     return logicalTrue
   }
   return template`(${raw(interpolate1(unique(xs_.map(where)), raw(' and ')).join(''))})`
@@ -178,7 +178,7 @@ export function and(...xs: (undefined | Where)[]): S {
  */
 export function or(...xs: (undefined | Where)[]): S {
   const xs_ = xs.filter(isDefined)
-  if (!xs_.length) {
+  if (xs_.length === 0) {
     return logicalFalse
   }
   return template`(${raw(interpolate1(unique(xs_.map(where)), raw(' or ')).join(''))})`

@@ -1,9 +1,10 @@
-import Sql from './test/sql.js'
+import { beforeAll, afterAll, afterEach, test, expect } from '@jest/globals'
+import Client from './test/client.js'
 
-let sql: Sql
+let sql: Client
 
 beforeAll(async () => {
-  sql = await Sql.random()
+  sql = await Client.random()
 }, 30 * 1000)
 
 afterAll(async () => {
@@ -44,7 +45,7 @@ test.each([
   1000,
   1001,
   2000
-])('insert %i records', async (length) => {
+])('insert %i records', async length => {
   const users = Array.from({ length }, (_, i) => ({ name: `user-${i}` }))
   await sql.insertObjects('Users', users)
   await expect(sql.count('Users')).resolves.toBe(length)

@@ -42,7 +42,7 @@ export const insertNotMatched =
       throw new TypeError(`Expected array of values, got ${objects}.`)
     }
 
-    if (!objects.length) {
+    if (objects.length === 0) {
       return tsql`select 0;`
     }
 

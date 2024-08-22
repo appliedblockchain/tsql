@@ -13,7 +13,7 @@ export const keysOfObjects =
     if (!Array.isArray(objects)) {
       throw new TypeError(`Expected array, got ${objects}.`)
     }
-    if (!objects.length) {
+    if (objects.length === 0) {
       throw new TypeError('Expected non empty array.')
     }
     const keys = Object.keys(objects[0]).sort()

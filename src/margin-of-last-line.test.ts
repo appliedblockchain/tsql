@@ -1,3 +1,4 @@
+import { test, expect } from '@jest/globals'
 import marginOfLastLine from './margin-of-last-line.js'
 
 test('marginOfLastLine', () => {

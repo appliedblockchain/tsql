@@ -6,7 +6,7 @@ type Margin = {
   open: boolean
 }
 
-function updateMargin(margin: Margin, value: string) {
+function updateMargin(mutableMargin: Margin, value: string) {
 
   // Locate start of last line.
   const start = value.lastIndexOf('\n') + 1
@@ -27,8 +27,8 @@ function updateMargin(margin: Margin, value: string) {
   const blanks = end === value.length
 
   // Update margin.
-  margin.column = multiline ? column : margin.column + (margin.open ? column : 0)
-  margin.open = (margin.open || multiline) && blanks
+  mutableMargin.column = multiline ? column : mutableMargin.column + (mutableMargin.open ? column : 0)
+  mutableMargin.open = (mutableMargin.open || multiline) && blanks
 }
 
 /**
@@ -40,7 +40,7 @@ export const interpolate =
     if (!Array.isArray(xs) || !Array.isArray(ys)) {
       throw new TypeError(`Expected xs and ys to be an array, got ${xs} and ${ys}.`)
     }
-    if (!xs.length && !ys.length) {
+    if ((xs.length === 0) && (ys.length === 0)) {
       return []
     }
     if (xs.length - 1 !== ys.length) {

@@ -24,6 +24,8 @@ export const modify =
   (column: string, jsonKeys: string[]): S =>
     assign(
       targetPrefixed(column),
+
+      // eslint-disable-next-line sonarjs/no-nested-template-literals
       jsonKeys.reduce((_, jsonKey) => tsql`json_modify(${_}, ${`$.${jsonKey}`}, json_query(${sourcePrefixed(column)}, ${`$.${jsonKey}`}))`, targetPrefixed(column) as S)
     ) as S
 

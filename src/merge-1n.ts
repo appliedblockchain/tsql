@@ -24,7 +24,7 @@ export const merge1n =
     if (!Array.isArray(values)) {
       throw new TypeError(`Expected array of values, got ${values}.`)
     }
-    if (!values.length) {
+    if (values.length === 0) {
       return tsql`delete from ${table_} where ${lcolumn_} = ${lid};`
     }
     return tsql`
