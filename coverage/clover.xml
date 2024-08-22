@@ -1,0 +1,1511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1724324796104" clover="3.2.0">
+  <project timestamp="1724324796104" name="All files">
+    <metrics statements="1217" coveredstatements="943" conditionals="296" coveredconditionals="174" methods="183" coveredmethods="144" elements="1696" coveredelements="1261" complexity="0" loc="1217" ncloc="1217" packages="2" files="94" classes="94"/>
+    <package name="src">
+      <metrics statements="1173" coveredstatements="906" conditionals="282" coveredconditionals="165" methods="159" coveredmethods="122"/>
+      <file name="and.ts" path="/Users/Mirek.Rusin/tsql/src/and.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="28" type="stmt"/>
+      </file>
+      <file name="assign-object.ts" path="/Users/Mirek.Rusin/tsql/src/assign-object.ts">
+        <metrics statements="19" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="19" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="30" count="19" type="stmt"/>
+        <line num="32" count="10" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="43" count="22" type="stmt"/>
+      </file>
+      <file name="assign.ts" path="/Users/Mirek.Rusin/tsql/src/assign.ts">
+        <metrics statements="14" coveredstatements="13" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="31" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="18" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="21" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="6" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="28" count="31" type="stmt"/>
+      </file>
+      <file name="auto.ts" path="/Users/Mirek.Rusin/tsql/src/auto.ts">
+        <metrics statements="26" coveredstatements="22" conditionals="14" coveredconditionals="11" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="22" type="stmt"/>
+        <line num="35" count="13442" type="cond" truecount="1" falsecount="0"/>
+        <line num="36" count="9096" type="stmt"/>
+        <line num="38" count="4346" type="cond" truecount="5" falsecount="1"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="75" type="stmt"/>
+        <line num="41" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="4246" type="stmt"/>
+        <line num="44" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="45" count="7" type="stmt"/>
+        <line num="47" count="8" type="cond" truecount="0" falsecount="1"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="8" type="cond" truecount="2" falsecount="1"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="8" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="8879" type="stmt"/>
+      </file>
+      <file name="between.ts" path="/Users/Mirek.Rusin/tsql/src/between.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="12" count="22" type="stmt"/>
+      </file>
+      <file name="columns.ts" path="/Users/Mirek.Rusin/tsql/src/columns.ts">
+        <metrics statements="11" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="22" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+      </file>
+      <file name="defined.ts" path="/Users/Mirek.Rusin/tsql/src/defined.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="5" count="10" type="stmt"/>
+        <line num="6" count="24" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+      </file>
+      <file name="delete.ts" path="/Users/Mirek.Rusin/tsql/src/delete.ts">
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="12" count="13" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+      </file>
+      <file name="demargin.ts" path="/Users/Mirek.Rusin/tsql/src/demargin.ts">
+        <metrics statements="21" coveredstatements="18" conditionals="9" coveredconditionals="7" methods="4" coveredmethods="4"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="421" type="cond" truecount="0" falsecount="1"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="421" type="stmt"/>
+        <line num="10" count="421" type="cond" truecount="3" falsecount="0"/>
+        <line num="11" count="81" type="stmt"/>
+        <line num="13" count="683" type="cond" truecount="3" falsecount="0"/>
+        <line num="14" count="66" type="stmt"/>
+        <line num="16" count="421" type="stmt"/>
+        <line num="17" count="421" type="stmt"/>
+        <line num="18" count="6910" type="stmt"/>
+        <line num="19" count="65027" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="6909" type="stmt"/>
+        <line num="21" count="6909" type="stmt"/>
+        <line num="25" count="421" type="cond" truecount="0" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="421" type="stmt"/>
+        <line num="29" count="6910" type="stmt"/>
+        <line num="33" count="421" type="stmt"/>
+      </file>
+      <file name="distinct.ts" path="/Users/Mirek.Rusin/tsql/src/distinct.ts">
+        <metrics statements="10" coveredstatements="5" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+      </file>
+      <file name="eq.ts" path="/Users/Mirek.Rusin/tsql/src/eq.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="53" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="24" count="64" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="85" type="stmt"/>
+      </file>
+      <file name="exists.ts" path="/Users/Mirek.Rusin/tsql/src/exists.ts">
+        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="fallback.ts" path="/Users/Mirek.Rusin/tsql/src/fallback.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="105" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="105" type="stmt"/>
+      </file>
+      <file name="false-value.ts" path="/Users/Mirek.Rusin/tsql/src/false-value.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="gt.ts" path="/Users/Mirek.Rusin/tsql/src/gt.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="13" count="24" type="stmt"/>
+      </file>
+      <file name="gte.ts" path="/Users/Mirek.Rusin/tsql/src/gte.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+      </file>
+      <file name="identifier.ts" path="/Users/Mirek.Rusin/tsql/src/identifier.ts">
+        <metrics statements="31" coveredstatements="27" conditionals="16" coveredconditionals="14" methods="9" coveredmethods="9"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="424" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="159" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="485" type="cond" truecount="1" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="44" count="484" type="cond" truecount="1" falsecount="0"/>
+        <line num="45" count="425" type="cond" truecount="1" falsecount="0"/>
+        <line num="46" count="6" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="49" count="419" type="cond" truecount="1" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="418" type="cond" truecount="1" falsecount="0"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="57" count="424" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="118" type="cond" truecount="4" falsecount="1"/>
+        <line num="60" count="118" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="66" count="22" type="stmt"/>
+        <line num="67" count="6" type="stmt"/>
+        <line num="71" count="22" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="78" count="22" type="stmt"/>
+        <line num="79" count="2" type="stmt"/>
+        <line num="82" count="343" type="stmt"/>
+      </file>
+      <file name="identifiers.ts" path="/Users/Mirek.Rusin/tsql/src/identifiers.ts">
+        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+      </file>
+      <file name="in.ts" path="/Users/Mirek.Rusin/tsql/src/in.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="32" type="stmt"/>
+      </file>
+      <file name="indent-tail.ts" path="/Users/Mirek.Rusin/tsql/src/indent-tail.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="705" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="705" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/Mirek.Rusin/tsql/src/index.ts">
+        <metrics statements="178" coveredstatements="119" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="26" count="22" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="28" count="22" type="stmt"/>
+        <line num="29" count="22" type="stmt"/>
+        <line num="30" count="22" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="32" count="22" type="stmt"/>
+        <line num="33" count="22" type="stmt"/>
+        <line num="34" count="22" type="stmt"/>
+        <line num="35" count="22" type="stmt"/>
+        <line num="36" count="22" type="stmt"/>
+        <line num="37" count="22" type="stmt"/>
+        <line num="38" count="22" type="stmt"/>
+        <line num="39" count="22" type="stmt"/>
+        <line num="40" count="22" type="stmt"/>
+        <line num="41" count="22" type="stmt"/>
+        <line num="42" count="22" type="stmt"/>
+        <line num="43" count="22" type="stmt"/>
+        <line num="44" count="22" type="stmt"/>
+        <line num="45" count="22" type="stmt"/>
+        <line num="46" count="22" type="stmt"/>
+        <line num="47" count="22" type="stmt"/>
+        <line num="48" count="22" type="stmt"/>
+        <line num="49" count="22" type="stmt"/>
+        <line num="50" count="22" type="stmt"/>
+        <line num="51" count="22" type="stmt"/>
+        <line num="52" count="22" type="stmt"/>
+        <line num="53" count="22" type="stmt"/>
+        <line num="54" count="22" type="stmt"/>
+        <line num="55" count="22" type="stmt"/>
+        <line num="56" count="22" type="stmt"/>
+        <line num="57" count="22" type="stmt"/>
+        <line num="58" count="22" type="stmt"/>
+        <line num="59" count="22" type="stmt"/>
+        <line num="60" count="22" type="stmt"/>
+        <line num="61" count="22" type="stmt"/>
+        <line num="62" count="22" type="stmt"/>
+        <line num="63" count="22" type="stmt"/>
+        <line num="64" count="22" type="stmt"/>
+        <line num="65" count="22" type="stmt"/>
+        <line num="66" count="22" type="stmt"/>
+        <line num="67" count="22" type="stmt"/>
+        <line num="68" count="22" type="stmt"/>
+        <line num="69" count="22" type="stmt"/>
+        <line num="70" count="22" type="stmt"/>
+        <line num="71" count="22" type="stmt"/>
+        <line num="72" count="22" type="stmt"/>
+        <line num="73" count="22" type="stmt"/>
+        <line num="74" count="22" type="stmt"/>
+        <line num="75" count="22" type="stmt"/>
+        <line num="76" count="22" type="stmt"/>
+        <line num="77" count="22" type="stmt"/>
+        <line num="78" count="22" type="stmt"/>
+        <line num="79" count="22" type="stmt"/>
+        <line num="80" count="22" type="stmt"/>
+        <line num="81" count="22" type="stmt"/>
+        <line num="83" count="22" type="stmt"/>
+        <line num="84" count="22" type="stmt"/>
+        <line num="85" count="22" type="stmt"/>
+        <line num="86" count="22" type="stmt"/>
+        <line num="87" count="22" type="stmt"/>
+        <line num="88" count="22" type="stmt"/>
+        <line num="91" count="6" type="stmt"/>
+        <line num="92" count="9" type="stmt"/>
+        <line num="93" count="5" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="13" type="stmt"/>
+        <line num="98" count="15" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="11" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="108" count="10" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="112" count="10" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="10" type="stmt"/>
+        <line num="115" count="7" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="6" type="stmt"/>
+        <line num="119" count="6" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="3" type="stmt"/>
+        <line num="123" count="8" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="125" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="5" type="stmt"/>
+        <line num="132" count="1" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="19" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="5" type="stmt"/>
+        <line num="142" count="2" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+        <line num="147" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="155" count="6" type="stmt"/>
+        <line num="156" count="3" type="stmt"/>
+        <line num="157" count="0" type="stmt"/>
+        <line num="158" count="0" type="stmt"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="160" count="4" type="stmt"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="163" count="0" type="stmt"/>
+        <line num="164" count="0" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="166" count="0" type="stmt"/>
+        <line num="167" count="0" type="stmt"/>
+        <line num="168" count="0" type="stmt"/>
+        <line num="169" count="37" type="stmt"/>
+        <line num="170" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
+        <line num="172" count="0" type="stmt"/>
+        <line num="173" count="0" type="stmt"/>
+        <line num="174" count="6" type="stmt"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="177" count="0" type="stmt"/>
+        <line num="178" count="24" type="stmt"/>
+        <line num="181" count="31" type="stmt"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="184" count="1" type="stmt"/>
+        <line num="185" count="1" type="stmt"/>
+      </file>
+      <file name="inline-table-of-column.ts" path="/Users/Mirek.Rusin/tsql/src/inline-table-of-column.ts">
+        <metrics statements="13" coveredstatements="11" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="28" count="22" type="stmt"/>
+      </file>
+      <file name="inline-table-of-objects.ts" path="/Users/Mirek.Rusin/tsql/src/inline-table-of-objects.ts">
+        <metrics statements="14" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="18" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="20" count="3073" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+      </file>
+      <file name="insert-ignore.ts" path="/Users/Mirek.Rusin/tsql/src/insert-ignore.ts">
+        <metrics statements="25" coveredstatements="20" conditionals="6" coveredconditionals="3" methods="5" coveredmethods="5"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="22" type="stmt"/>
+        <line num="39" count="10" type="cond" truecount="0" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="10" type="cond" truecount="0" falsecount="1"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="10" type="stmt"/>
+        <line num="49" count="10" type="stmt"/>
+        <line num="51" count="10" type="stmt"/>
+        <line num="60" count="22" type="stmt"/>
+      </file>
+      <file name="insert-not-matched.ts" path="/Users/Mirek.Rusin/tsql/src/insert-not-matched.ts">
+        <metrics statements="25" coveredstatements="12" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="63" count="22" type="stmt"/>
+      </file>
+      <file name="insert-object.ts" path="/Users/Mirek.Rusin/tsql/src/insert-object.ts">
+        <metrics statements="16" coveredstatements="14" conditionals="3" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="10" type="stmt"/>
+        <line num="19" count="10" type="stmt"/>
+        <line num="20" count="10" type="cond" truecount="0" falsecount="1"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="10" type="stmt"/>
+        <line num="24" count="10" type="stmt"/>
+        <line num="25" count="23" type="stmt"/>
+        <line num="26" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="22" type="stmt"/>
+      </file>
+      <file name="insert-objects.ts" path="/Users/Mirek.Rusin/tsql/src/insert-objects.ts">
+        <metrics statements="21" coveredstatements="19" conditionals="5" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="25" count="7" type="cond" truecount="0" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="34" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="37" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="45" count="1107" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="52" count="22" type="stmt"/>
+      </file>
+      <file name="interpolate.ts" path="/Users/Mirek.Rusin/tsql/src/interpolate.ts">
+        <metrics statements="29" coveredstatements="25" conditionals="16" coveredconditionals="12" methods="3" coveredmethods="3"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="12" count="1816" type="stmt"/>
+        <line num="15" count="1816" type="stmt"/>
+        <line num="18" count="1816" type="stmt"/>
+        <line num="19" count="1816" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2025" type="stmt"/>
+        <line num="24" count="1816" type="stmt"/>
+        <line num="27" count="1816" type="stmt"/>
+        <line num="30" count="1816" type="cond" truecount="4" falsecount="0"/>
+        <line num="31" count="1816" type="cond" truecount="3" falsecount="0"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="22" type="stmt"/>
+        <line num="40" count="406" type="cond" truecount="2" falsecount="1"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="406" type="cond" truecount="1" falsecount="2"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="46" count="406" type="cond" truecount="0" falsecount="1"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="406" type="stmt"/>
+        <line num="50" count="406" type="stmt"/>
+        <line num="52" count="406" type="stmt"/>
+        <line num="53" count="1816" type="stmt"/>
+        <line num="54" count="1816" type="stmt"/>
+        <line num="56" count="406" type="stmt"/>
+        <line num="57" count="406" type="stmt"/>
+        <line num="58" count="705" type="stmt"/>
+        <line num="59" count="705" type="stmt"/>
+        <line num="61" count="406" type="stmt"/>
+        <line num="64" count="406" type="stmt"/>
+      </file>
+      <file name="interpolate1.ts" path="/Users/Mirek.Rusin/tsql/src/interpolate1.ts">
+        <metrics statements="12" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="78" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="78" type="cond" truecount="0" falsecount="1"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="78" type="stmt"/>
+        <line num="11" count="78" type="stmt"/>
+        <line num="12" count="27" type="stmt"/>
+        <line num="13" count="27" type="stmt"/>
+        <line num="15" count="78" type="stmt"/>
+        <line num="18" count="78" type="stmt"/>
+      </file>
+      <file name="is-defined.ts" path="/Users/Mirek.Rusin/tsql/src/is-defined.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="9" count="90" type="stmt"/>
+        <line num="10" count="127" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="13" type="stmt"/>
+        <line num="13" count="114" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="114" type="stmt"/>
+        <line num="16" count="114" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+      </file>
+      <file name="is-null.ts" path="/Users/Mirek.Rusin/tsql/src/is-null.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="69" type="cond" truecount="3" falsecount="0"/>
+        <line num="9" count="69" type="stmt"/>
+      </file>
+      <file name="is-object.ts" path="/Users/Mirek.Rusin/tsql/src/is-object.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="263" type="stmt"/>
+        <line num="2" count="263" type="stmt"/>
+      </file>
+      <file name="is-string.ts" path="/Users/Mirek.Rusin/tsql/src/is-string.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="4685" type="cond" truecount="1" falsecount="1"/>
+        <line num="8" count="4685" type="stmt"/>
+      </file>
+      <file name="is.ts" path="/Users/Mirek.Rusin/tsql/src/is.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="json-modify.ts" path="/Users/Mirek.Rusin/tsql/src/json-modify.ts">
+        <metrics statements="13" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="35" count="22" type="stmt"/>
+      </file>
+      <file name="json-path-exists.ts" path="/Users/Mirek.Rusin/tsql/src/json-path-exists.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+      </file>
+      <file name="json-path.ts" path="/Users/Mirek.Rusin/tsql/src/json-path.ts">
+        <metrics statements="14" coveredstatements="13" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="11" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="13" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+      </file>
+      <file name="json-query.ts" path="/Users/Mirek.Rusin/tsql/src/json-query.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+      </file>
+      <file name="json-value.ts" path="/Users/Mirek.Rusin/tsql/src/json-value.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+      </file>
+      <file name="json.ts" path="/Users/Mirek.Rusin/tsql/src/json.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="12" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="keys-of-objects.ts" path="/Users/Mirek.Rusin/tsql/src/keys-of-objects.ts">
+        <metrics statements="16" coveredstatements="11" conditionals="5" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="4152" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="21" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="21" type="cond" truecount="0" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="21" type="stmt"/>
+        <line num="20" count="21" type="stmt"/>
+        <line num="21" count="4124" type="stmt"/>
+        <line num="22" count="4124" type="cond" truecount="0" falsecount="1"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="21" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+      </file>
+      <file name="keywords.ts" path="/Users/Mirek.Rusin/tsql/src/keywords.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="977" count="21362" type="stmt"/>
+        <line num="979" count="424" type="stmt"/>
+      </file>
+      <file name="like.ts" path="/Users/Mirek.Rusin/tsql/src/like.ts">
+        <metrics statements="11" coveredstatements="10" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="22" type="stmt"/>
+      </file>
+      <file name="limited-hints-identifier.ts" path="/Users/Mirek.Rusin/tsql/src/limited-hints-identifier.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="20" type="cond" truecount="4" falsecount="0"/>
+        <line num="14" count="22" type="stmt"/>
+      </file>
+      <file name="line.ts" path="/Users/Mirek.Rusin/tsql/src/line.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="26" type="stmt"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+      </file>
+      <file name="lines.ts" path="/Users/Mirek.Rusin/tsql/src/lines.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+      </file>
+      <file name="list.ts" path="/Users/Mirek.Rusin/tsql/src/list.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="22" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="4274" type="stmt"/>
+        <line num="15" count="8524" type="stmt"/>
+        <line num="16" count="8512" type="stmt"/>
+        <line num="17" count="8512" type="stmt"/>
+        <line num="18" count="4274" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="4274" type="stmt"/>
+      </file>
+      <file name="logical-false.ts" path="/Users/Mirek.Rusin/tsql/src/logical-false.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="logical-true.ts" path="/Users/Mirek.Rusin/tsql/src/logical-true.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="16" count="25" type="stmt"/>
+      </file>
+      <file name="lt.ts" path="/Users/Mirek.Rusin/tsql/src/lt.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+      </file>
+      <file name="lte.ts" path="/Users/Mirek.Rusin/tsql/src/lte.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+      </file>
+      <file name="margin-of-first-line.ts" path="/Users/Mirek.Rusin/tsql/src/margin-of-first-line.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="3" count="24" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+        <line num="5" count="14" type="stmt"/>
+        <line num="6" count="16" type="cond" truecount="3" falsecount="0"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="13" count="24" type="stmt"/>
+      </file>
+      <file name="margin-of-last-line.ts" path="/Users/Mirek.Rusin/tsql/src/margin-of-last-line.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="23" type="stmt"/>
+        <line num="4" count="23" type="stmt"/>
+        <line num="5" count="8" type="stmt"/>
+        <line num="7" count="23" type="stmt"/>
+      </file>
+      <file name="maybe-line.ts" path="/Users/Mirek.Rusin/tsql/src/maybe-line.ts">
+        <metrics statements="8" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+      </file>
+      <file name="maybe-lines.ts" path="/Users/Mirek.Rusin/tsql/src/maybe-lines.ts">
+        <metrics statements="13" coveredstatements="12" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="22" type="cond" truecount="0" falsecount="1"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="14" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+      </file>
+      <file name="merge-1n.ts" path="/Users/Mirek.Rusin/tsql/src/merge-1n.ts">
+        <metrics statements="16" coveredstatements="14" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="24" count="5" type="cond" truecount="0" falsecount="1"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="45" count="22" type="stmt"/>
+      </file>
+      <file name="modify-jsons.ts" path="/Users/Mirek.Rusin/tsql/src/modify-jsons.ts">
+        <metrics statements="31" coveredstatements="27" conditionals="1" coveredconditionals="0" methods="10" coveredmethods="10"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="33" count="22" type="stmt"/>
+        <line num="38" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="4" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="62" count="22" type="stmt"/>
+      </file>
+      <file name="ne.ts" path="/Users/Mirek.Rusin/tsql/src/ne.ts">
+        <metrics statements="11" coveredstatements="9" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="22" type="stmt"/>
+      </file>
+      <file name="ng.ts" path="/Users/Mirek.Rusin/tsql/src/ng.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+      </file>
+      <file name="nl.ts" path="/Users/Mirek.Rusin/tsql/src/nl.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+      </file>
+      <file name="not-between.ts" path="/Users/Mirek.Rusin/tsql/src/not-between.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="12" count="22" type="stmt"/>
+      </file>
+      <file name="not-distinct.ts" path="/Users/Mirek.Rusin/tsql/src/not-distinct.ts">
+        <metrics statements="10" coveredstatements="5" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="44" type="stmt"/>
+      </file>
+      <file name="not-in.ts" path="/Users/Mirek.Rusin/tsql/src/not-in.ts">
+        <metrics statements="9" coveredstatements="8" conditionals="7" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="44" type="stmt"/>
+      </file>
+      <file name="not.ts" path="/Users/Mirek.Rusin/tsql/src/not.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+      </file>
+      <file name="now.ts" path="/Users/Mirek.Rusin/tsql/src/now.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+      </file>
+      <file name="nstring.ts" path="/Users/Mirek.Rusin/tsql/src/nstring.ts">
+        <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="4264" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="4264" type="stmt"/>
+      </file>
+      <file name="null.ts" path="/Users/Mirek.Rusin/tsql/src/null.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+      </file>
+      <file name="number.ts" path="/Users/Mirek.Rusin/tsql/src/number.ts">
+        <metrics statements="7" coveredstatements="5" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="75" type="cond" truecount="0" falsecount="1"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="75" type="stmt"/>
+        <line num="12" count="75" type="stmt"/>
+      </file>
+      <file name="object-id.ts" path="/Users/Mirek.Rusin/tsql/src/object-id.ts">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+      </file>
+      <file name="op.ts" path="/Users/Mirek.Rusin/tsql/src/op.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="22" type="stmt"/>
+      </file>
+      <file name="or.ts" path="/Users/Mirek.Rusin/tsql/src/or.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+      </file>
+      <file name="order-by.ts" path="/Users/Mirek.Rusin/tsql/src/order-by.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="22" type="stmt"/>
+      </file>
+      <file name="pick.ts" path="/Users/Mirek.Rusin/tsql/src/pick.ts">
+        <metrics statements="7" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+      </file>
+      <file name="quoted-nstring.ts" path="/Users/Mirek.Rusin/tsql/src/quoted-nstring.ts">
+        <metrics statements="17" coveredstatements="15" conditionals="5" coveredconditionals="3" methods="4" coveredmethods="4"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="4267" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="4265" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="4263" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="4264" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="4263" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="22" type="stmt"/>
+        <line num="27" count="4264" type="cond" truecount="0" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="4264" type="stmt"/>
+        <line num="33" count="4264" type="stmt"/>
+      </file>
+      <file name="random-identifier.ts" path="/Users/Mirek.Rusin/tsql/src/random-identifier.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="32" type="stmt"/>
+        <line num="9" count="32" type="stmt"/>
+        <line num="13" count="22" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="32" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="raw.ts" path="/Users/Mirek.Rusin/tsql/src/raw.ts">
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="9282" type="stmt"/>
+        <line num="8" count="9282" type="stmt"/>
+      </file>
+      <file name="replace-objects.ts" path="/Users/Mirek.Rusin/tsql/src/replace-objects.ts">
+        <metrics statements="26" coveredstatements="14" conditionals="9" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="62" count="22" type="stmt"/>
+      </file>
+      <file name="row.ts" path="/Users/Mirek.Rusin/tsql/src/row.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="4191" type="stmt"/>
+        <line num="11" count="4191" type="stmt"/>
+      </file>
+      <file name="rowset.ts" path="/Users/Mirek.Rusin/tsql/src/rowset.ts">
+        <metrics statements="7" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+      </file>
+      <file name="sanitised-identifier.ts" path="/Users/Mirek.Rusin/tsql/src/sanitised-identifier.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="970" type="stmt"/>
+      </file>
+      <file name="sanitised.ts" path="/Users/Mirek.Rusin/tsql/src/sanitised.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="8" count="31625" type="stmt"/>
+      </file>
+      <file name="select.ts" path="/Users/Mirek.Rusin/tsql/src/select.ts">
+        <metrics statements="17" coveredstatements="9" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="cond" truecount="0" falsecount="1"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+      </file>
+      <file name="star.ts" path="/Users/Mirek.Rusin/tsql/src/star.ts">
+        <metrics statements="6" coveredstatements="4" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="12" count="22" type="stmt"/>
+      </file>
+      <file name="table-hint-limited.ts" path="/Users/Mirek.Rusin/tsql/src/table-hint-limited.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="49" count="18" type="stmt"/>
+        <line num="50" count="22" type="stmt"/>
+        <line num="51" count="18" type="cond" truecount="0" falsecount="1"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="54" count="18" type="stmt"/>
+      </file>
+      <file name="template.ts" path="/Users/Mirek.Rusin/tsql/src/template.ts">
+        <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="406" type="stmt"/>
+        <line num="11" count="406" type="stmt"/>
+      </file>
+      <file name="top.ts" path="/Users/Mirek.Rusin/tsql/src/top.ts">
+        <metrics statements="11" coveredstatements="6" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="22" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="30" count="22" type="stmt"/>
+      </file>
+      <file name="true-value.ts" path="/Users/Mirek.Rusin/tsql/src/true-value.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+      </file>
+      <file name="unique.ts" path="/Users/Mirek.Rusin/tsql/src/unique.ts">
+        <metrics statements="10" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="78" type="stmt"/>
+        <line num="6" count="78" type="stmt"/>
+        <line num="7" count="78" type="stmt"/>
+        <line num="8" count="108" type="stmt"/>
+        <line num="9" count="108" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="105" type="stmt"/>
+        <line num="11" count="105" type="stmt"/>
+        <line num="14" count="78" type="stmt"/>
+        <line num="17" count="78" type="stmt"/>
+      </file>
+      <file name="unix.ts" path="/Users/Mirek.Rusin/tsql/src/unix.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+      </file>
+      <file name="update-objects.ts" path="/Users/Mirek.Rusin/tsql/src/update-objects.ts">
+        <metrics statements="28" coveredstatements="13" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="58" count="22" type="stmt"/>
+      </file>
+      <file name="update.ts" path="/Users/Mirek.Rusin/tsql/src/update.ts">
+        <metrics statements="17" coveredstatements="16" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="21" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="25" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="5" type="stmt"/>
+        <line num="27" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="38" count="22" type="stmt"/>
+      </file>
+      <file name="upsert-objects.ts" path="/Users/Mirek.Rusin/tsql/src/upsert-objects.ts">
+        <metrics statements="30" coveredstatements="14" conditionals="10" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="70" count="22" type="stmt"/>
+      </file>
+      <file name="where.ts" path="/Users/Mirek.Rusin/tsql/src/where.ts">
+        <metrics statements="85" coveredstatements="77" conditionals="30" coveredconditionals="24" methods="8" coveredmethods="8"/>
+        <line num="1" count="22" type="stmt"/>
+        <line num="2" count="22" type="stmt"/>
+        <line num="3" count="22" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="7" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="stmt"/>
+        <line num="10" count="22" type="stmt"/>
+        <line num="11" count="22" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="13" count="22" type="stmt"/>
+        <line num="14" count="22" type="stmt"/>
+        <line num="15" count="22" type="stmt"/>
+        <line num="16" count="22" type="stmt"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="18" count="22" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="20" count="22" type="stmt"/>
+        <line num="21" count="22" type="stmt"/>
+        <line num="22" count="22" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="37" count="22" type="stmt"/>
+        <line num="59" count="22" type="stmt"/>
+        <line num="68" count="103" type="cond" truecount="1" falsecount="0"/>
+        <line num="69" count="27" type="stmt"/>
+        <line num="72" count="76" type="stmt"/>
+        <line num="73" count="80" type="cond" truecount="1" falsecount="0"/>
+        <line num="74" count="74" type="stmt"/>
+        <line num="75" count="74" type="stmt"/>
+        <line num="77" count="6" type="stmt"/>
+        <line num="79" count="70" type="stmt"/>
+        <line num="83" count="53" type="cond" truecount="1" falsecount="0"/>
+        <line num="84" count="6" type="stmt"/>
+        <line num="86" count="47" type="stmt"/>
+        <line num="87" count="47" type="cond" truecount="3" falsecount="0"/>
+        <line num="88" count="17" type="stmt"/>
+        <line num="89" count="17" type="cond" truecount="6" falsecount="0"/>
+        <line num="92" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="95" count="2" type="cond" truecount="2" falsecount="1"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="102" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="105" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="110" count="13" type="stmt"/>
+        <line num="119" count="30" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="123" count="170" type="cond" truecount="1" falsecount="0"/>
+        <line num="124" count="114" type="stmt"/>
+        <line num="126" count="56" type="stmt"/>
+        <line num="127" count="56" type="cond" truecount="1" falsecount="0"/>
+        <line num="128" count="49" type="stmt"/>
+        <line num="129" count="49" type="cond" truecount="3" falsecount="0"/>
+        <line num="130" count="8" type="cond" truecount="0" falsecount="1"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="133" count="8" type="stmt"/>
+        <line num="135" count="41" type="cond" truecount="1" falsecount="0"/>
+        <line num="136" count="2" type="stmt"/>
+        <line num="139" count="46" type="cond" truecount="1" falsecount="0"/>
+        <line num="140" count="53" type="stmt"/>
+        <line num="141" count="46" type="stmt"/>
+        <line num="143" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="139" type="stmt"/>
+        <line num="164" count="22" type="stmt"/>
+        <line num="165" count="79" type="stmt"/>
+        <line num="166" count="79" type="cond" truecount="1" falsecount="0"/>
+        <line num="167" count="6" type="stmt"/>
+        <line num="169" count="73" type="stmt"/>
+        <line num="179" count="22" type="stmt"/>
+        <line num="180" count="9" type="stmt"/>
+        <line num="181" count="9" type="cond" truecount="1" falsecount="0"/>
+        <line num="182" count="4" type="stmt"/>
+        <line num="184" count="5" type="stmt"/>
+        <line num="187" count="22" type="stmt"/>
+        <line num="188" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="193" count="42" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.test">
+      <metrics statements="44" coveredstatements="37" conditionals="14" coveredconditionals="9" methods="24" coveredmethods="22"/>
+      <file name="client.ts" path="/Users/Mirek.Rusin/tsql/src/test/client.ts">
+        <metrics statements="44" coveredstatements="37" conditionals="14" coveredconditionals="9" methods="24" coveredmethods="22"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
+        <line num="52" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="62" count="69" type="stmt"/>
+        <line num="63" count="69" type="cond" truecount="0" falsecount="1"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="67" count="69" type="stmt"/>
+        <line num="68" count="69" type="stmt"/>
+        <line num="69" count="69" type="cond" truecount="0" falsecount="1"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="72" count="69" type="stmt"/>
+        <line num="73" count="50" type="stmt"/>
+        <line num="74" count="95" type="stmt"/>
+        <line num="77" count="69" type="stmt"/>
+        <line num="79" count="69" type="stmt"/>
+        <line num="84" count="25" type="stmt"/>
+        <line num="88" count="11" type="stmt"/>
+        <line num="92" count="10" type="stmt"/>
+        <line num="93" count="10" type="stmt"/>
+        <line num="97" count="9" type="stmt"/>
+        <line num="101" count="13" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="109" count="10" type="stmt"/>
+        <line num="113" count="7" type="stmt"/>
+        <line num="117" count="7" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="133" count="4" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

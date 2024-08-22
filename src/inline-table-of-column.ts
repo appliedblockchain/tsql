@@ -12,7 +12,7 @@ import tsql from './template.js'
  */
 export const inlineTableOfColumn =
   (table: Sid | string, column: Sid | string, values: unknown[]): S => {
-    if (!values.length) {
+    if (values.length === 0) {
       throw new Error(`Can't generate literal table ${table} using column ${column} with an empty array of values.`)
     }
     const table_ = id(table)

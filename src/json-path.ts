@@ -14,7 +14,7 @@ export const jsonPath =
     if (mode) {
       parts.push(mode)
     }
-    if (parts.length) {
+    if (parts.length > 0) {
       return `${parts.join(' ')} $.${path}`
     }
     return `$.${path}`

@@ -5,7 +5,7 @@ import tsql from './template.js'
 
 export const star =
   (table?: Sid | string): S =>
-    table ?
+    table != null ?
       tsql`${id(table)}.*` :
       tsql`*`
 

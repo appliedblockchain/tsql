@@ -24,7 +24,7 @@ export type TableHintLimited =
 
 export type t = TableHintLimited
 
-export const values: Set<TableHintLimited> = new Set([
+export const values = new Set<TableHintLimited>([
   'keepidentity',
   'keepdefaults',
   'holdlock',

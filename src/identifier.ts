@@ -11,7 +11,7 @@ export type Identifier =
 export function isPlain(value: string) {
   return (
     !keywords[value.toLowerCase()] &&
-    !!String(value).match(/^[a-z_@#][a-z0-9_]*$/i)
+    !!String(value).match(/^[a-z_@#]\w*$/i)
   )
 }
 

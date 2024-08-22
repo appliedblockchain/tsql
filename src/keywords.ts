@@ -973,7 +973,7 @@ const keywords_ = [
 ]
 
 /** An array of MSSQL keywords. */
-const keywords: { [keyword: string]: undefined | true } =
+const keywords: Record<string, undefined | true> =
   keywords_.reduce((r, _) => ({ ...r, [_]: true }), {})
 
 export default keywords

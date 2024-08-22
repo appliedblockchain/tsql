@@ -1,3 +1,4 @@
+import { test, expect } from '@jest/globals'
 import * as Tsql from './index.js'
 
 const t =

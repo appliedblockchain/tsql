@@ -1,5 +1,7 @@
 test:
-	pnpm exec jest
+	pnpm tsc
+	pnpm eslint src
+	pnpm jest --coverage
 
 clean:
 	rm -Rf cjs mjs test/*.js
@@ -11,7 +13,7 @@ build-cjs:
 
 build-mjs:
 	rm -Rf mjs
-	pnpm exec tsc -d --sourceMap --outDir mjs
+	pnpm exec tsc -p tsconfig.mjs.json
 
 build: build-cjs build-mjs
 
@@ -20,11 +22,11 @@ rebuild: clean build
 update:
 	pnpm up --latest
 
-preversion: rebuild test
+preversion: test rebuild
 
 postversion:
 	git push
 	git push --tags
-	pnpm publish
+	pnpm publish --access public
 
 .PHONY: test

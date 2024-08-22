@@ -1,8 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "verbatimModuleSyntax": false,
-    "outDir": "cjs"
-  }
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "cjs",
+    "noEmit": false,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src"
+  ]
 }

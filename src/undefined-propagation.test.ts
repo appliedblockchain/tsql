@@ -1,3 +1,4 @@
+import { test, expect } from '@jest/globals'
 import * as Tsql from './index.js'
 
 test('or', () => {
@@ -58,8 +59,8 @@ test('assign object with undefined propagation', () => {
 
 test('assign', () => {
   expect(Tsql.assign('a', undefined)).toBe(undefined)
-  expect(Tsql.assign('a', null)!.toString()).toBe('a = null')
-  expect(Tsql.assign('a', 1)!.toString()).toBe('a = 1')
+  expect(String(Tsql.assign('a', null))).toBe('a = null')
+  expect(String(Tsql.assign('a', 1))).toBe('a = 1')
 })
 
 test('list', () => {

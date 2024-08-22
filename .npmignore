@@ -1,9 +1,8 @@
 .github
 .vscode
-*.sh
 *.test.*
 jest.*
 Makefile
-src
 test
-tsconfig.json
+tsconfig.*
+wip
