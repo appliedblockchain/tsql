@@ -25,7 +25,6 @@ update:
 preversion: test rebuild
 
 postversion:
-	git push
 	git push --tags
 	pnpm publish --access public
 

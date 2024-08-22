@@ -14,7 +14,7 @@ Transact-SQL template combinators.
 ## Usage
 
 ```sh
-npm i -E @appliedblockchain/tsql
+pnpm add -E @appliedblockchain/tsql
 ```
 
 ```ts
