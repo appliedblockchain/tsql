@@ -24,5 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - uses: pnpm/action-setup@v4
+      with:
+        version: 9
     - run: pnpm i
     - run: pnpm t
